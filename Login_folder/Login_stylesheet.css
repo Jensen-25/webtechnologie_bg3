@@ -7,3 +7,11 @@ h1 {
     font-size: 160%;
     text-align: center;
 }
+.label {
+    background-color: rgb(227, 218, 217);
+    color: white;
+    border: 2px solid black;
+    margin: 1px;
+    padding: 2px;
+    width: 100px;
+}
