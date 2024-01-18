@@ -1,5 +1,6 @@
 <?php
-include('/var/www/includes/connectionfile.php');
+// voor verbinden 
+include('/var/www/connections/connectionfile.php')
 
 $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
 $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phonenumber']));
