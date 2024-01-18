@@ -1,0 +1,63 @@
+body {
+    background-color: #fffff0;
+    background-image: url("https://i.pinimg.com/564x/b6/22/f3/b622f3278885cbc049557b49f0ec5371.jpg");
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #C4AE8C;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #D9C7AA;
+}
+
+.active {
+  background-color: #D9C7AA;
+}
+
+ul {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+h1 {
+    padding:20px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 300%;
+    align-self:stretch;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #7aa8b7;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+  }
+  .button:hover {
+    background-color: #FFFFFF;
+  }
