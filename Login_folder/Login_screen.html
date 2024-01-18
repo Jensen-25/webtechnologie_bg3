@@ -8,14 +8,17 @@
     <body>
         <!-- Invoer van de inloggegevens -->
         <h2> ENTER YOUR USERNAME AND PASSWORD </h2>
-        <div class="logintext">Gebruikernaam</div>
-            <input type="text" name = 'name' autofocus placeholder="voer hier uw gebruikersnaam in"/>
-        <div class="logintext">Wachtwoord</div>
-            <input type= "password" name = "password" autofocus placeholder="voer hier uw wachtwoord in"/> <br>
-            
-        <button type="submit"> Inloggen</button>
-         <!--  Opties wanneer een inlog niet werkt -->
+
+        <div>
+            <label class="logintext">Username</label>
+                <input type="text" name = 'name' autofocus placeholder="voer hier uw gebruikersnaam in" required/>
+            <label class="logintext">Password</label>
+                <input type= "password" name = "password" autofocus placeholder="voer hier uw wachtwoord in" required/> <br>
+            <button type="submit"> Inloggen</button>
+        </div>
+
          <p>
+            <!--  Opties wanneer een inlog niet werkt -->
             <a href="Registratiescherm.html"> Klik hier voor registratie</a>
          </p>
 
