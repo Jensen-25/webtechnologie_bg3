@@ -1,6 +1,6 @@
 <?php
 // voor verbinden 
-include('/var/www/connections/connection.php')
+include('/var/www/connections/connections.php')
 
 $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
 $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phonenumber']));
@@ -11,10 +11,12 @@ $password = mysqli_real_escape_string($connection, htmlspecialchars($_POST['pass
 $postalcode = mysqli_real_escape_string($connection, htmlspecialchars($_POST['postalcode']));
 $housenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['housenumber']));
 
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 
 try {
 $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password) Values 
-('$firstname', '$lastname', '$email ' , '$phonenumber', '$username', '$password') ";
+('$firstname', '$lastname', '$email ' , '$phonenumber', '$username', '$hashed_password') ";
 mysqli_query($connection, $sql);
 } catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
