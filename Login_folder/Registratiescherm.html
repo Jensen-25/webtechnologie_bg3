@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-    
+        <link rel="stylesheet" href="Login_stylesheet.css">
+        <link rel="javascript" href="login_scherm.js">
+        
     </head>
 
     <body>
-        <form>
+        
                 <h2> Sign up for the webshop</h2>
-                    <p> Please fill in this form this form to create an account.</p>
                     <hr>
-                        <div>
-                            <label for="email">Email </label>
-                            <input type="text" name="email" placeholder="Enter your email" required> <br>
+                        <div class="container">
+                            <form action="/Login_folder/add_user.php" method="post"></form>
+                                <label for="email">Email </label> <br>
+                                <input type="text" name="email"  required> <br>
 
-                            <label for="phonenumber">Phonenumber</label>
-                            <input type="text" name="phonenumber" required> <br>  
-                        </div>
+                                <label for="phonenumber">Phonenumber</label> <br>
+                                <input type="text" name="phonenumber" required> <br>  
+                            
+                                <label for="firstname">Firstname</label> <br>
+                                <input type="text" name="firstname" required> <br>
 
-                        <div>
+                                <label for="lastname">Lastname</label> <br>
+                                <input type="text" name="lastname" required?> <br>
 
-                            <label for="firstname">Firstname</label>
-                            <input type="text" name="firstname" required> <br>
+                                <label for="postalcode">Postalcode</label> <br>
+                                <input type="text" name="postalcode" required> <br>
 
-                            <label for="lastname">Lastname</label>
-                            <input type="text" name="lastname" required?> <br>
-
-                            <label for="postalcode">Postalcode</label>
-                            <input type="text" name="postalcode" required> <br>
-
-                            <label for="housenumber">Housenumber</label>
-                            <input type="text" name="housenumber" required> <br> 
-                        </div>
-
-                        <div>
-                            <label for="username">Username</label>
-                            <input type="text" name="username" placeholder="Enter a username" required> <br>
-    
-                            <label for="password">Password</label>
-                            <input type="password" name="password" placeholder="Enter your password" required> <br>
-    
-                            <label for="password_2">Repeat Password</label>
-                            <input type="password" name="password_2" placeholder="Repeat your password"  required> <br>
-
+                                <label for="housenumber">Housenumber</label> <br>
+                                <input type="text" name="housenumber" required> <br> 
+                            
+                                <label for="username">Username</label> <br>
+                                <input type="text" name="username" required> <br>
+        
+                                <label for="password">Password</label> <br>
+                                <input type="password" name="password" required> <br>
+        
+                                <label for="password_2">Repeat Password</label> <br>
+                                <input type="password" name="password_2" required> <br>
+                            </form>
                         </div>   
-                        <button type="submit">Submit</button>
-                        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-        </form>
+                    <button type="submit" class="registerbtn">Submit</button>
+                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
     </body>
-
 </html>
