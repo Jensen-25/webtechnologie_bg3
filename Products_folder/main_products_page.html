@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="main_products_page_stylesheet.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/Homepage_folder/Homepage_stylesheet.css">
     </head>
 
     <body>
         <h1> Products page </h1>
+        <div id="product-container">
+
+        </div>
+        <script>
+            function showProductDetails(productId) {
+            // Use AJAX to fetch product details from the server (using PHP/MySQL)
+            // Update the content of the product-container based on the response
+            // Example using fetch API:
+            
+            fetch('get_product_details.php?id=' + productId)
+                .then(response => response.json())
+                .then(data => {
+
+                    // Update the HTML content with the product details
+                    document.getElementById('product-container').innerHTML = `
+                        <h2>${data.productName}</h2>
+                        <p>${data.description}</p>
+                        <p>Price: ${data.price}</p>
+                        <!-- Add more details as needed -->
+                    `;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        </script>
     </body>
 </html>
-
-<!-- Hierin moet je met plaatjes naar aparte single_product_pages van producten kunnen -->
