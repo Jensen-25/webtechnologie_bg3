@@ -1,6 +1,6 @@
 <?php
 // voor verbinden 
-    include('/var/www/connections/connections.php')
+    include('/var/www/connections/connections.php');
 
     if isset($_POST['submit']) 
     {
@@ -16,7 +16,7 @@
     }
     // both passwords have to corresponds
     if ($_POST['passsword'] != $_POST['password_2']) {
-        echo 'Passwords are not the same'
+        echo 'Passwords are not the same';
     }
     // every field should be filled in 
     if (empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber) || 
@@ -24,14 +24,17 @@
         die("Error: All fields are required.");
     }
 
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 
 
 try {
-$sql = "INSERT INTO Users (id, FirstName, LastName, Email, Phonenumber, UserName, Password) Values 
-('0', $firstname', '$lastname', '$email ' , '$phonenumber', '$username', '$hashed_password') ";
-mysqli_query($connection, $sql);
-} catch(PDOException $e) {
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO Users (id, FirstName, LastName, Email, Phonenumber, UserName, Password) Values 
+    ('0', $firstname', '$lastname', '$email ' , '$phonenumber', '$username', '$hashed_password') ";
+    mysqli_query($connection, $sql);
+} 
+catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
 }
 
