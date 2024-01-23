@@ -3,10 +3,6 @@
     <head>
         <link rel="stylesheet" href="Login_stylesheet.css">
         <link rel="javascript" href="login_scherm.js">
-        
-    </head>
-
-    <body>
         <ul>
             <li ><a href="Homepage_folder/Homepage.html">Home</a></li>
             <li><a href="Products_folder/main_products_page.html">Products</a></li>
@@ -14,41 +10,137 @@
             <li style="float:left"><a class="active" href="Login_folder/registratiescherm.html">Registration</a></li>
             <li><a href="FAQ/FAQ.html">FAQ</a></li>
           </ul>
-
-                <h2> Sign up for the webshop</h2>
+    </head>
+    <body>
                     <hr>
-                        <div class="container">
-                            <form action="/Login_folder/add_user.php" method="post"></form>
-                                <label for="email">Email </label> <br>
-                                <input type="text" name="email" id="email" required> <br>
+                        <form action="/Login_folder/add_user.php" method="post"></form>
+                            <h1> REGISTER </h1>
+                            <div class="login-box">
 
-                                <label for="phonenumber">Phonenumber</label> <br>
-                                <input type="text" name="phonenumber" id="phonenumber" required> <br>  
+                                <div class ="tab">Name:
+                                    <label for="firstname">Firstname</label> <br>
+                                    <input type="text" name="firstname" id="firstname" required> <br>
+
+                                    <label for="lastname">Lastname</label> <br>
+                                    <input type="text" name="lastname" id="lastname" required?> <br>
+                                </div>
+                                <div class="tab"> Contact:
+                                    <label for="email">Email </label> <br>
+                                    <input type="text" name="email" id="email" required> <br>
+
+                                    <label for="phonenumber">Phonenumber</label> <br>
+                                    <input type="text" name="phonenumber" id="phonenumber" required> <br>  
+                                </div>
                             
-                                <label for="firstname">Firstname</label> <br>
-                                <input type="text" name="firstname" id="firstname" required> <br>
+                                <div class="tab"> Adress:
+                                    <label for="postalcode">Postalcode</label> <br>
+                                    <input type="text" name="postalcode" id="postalcode" required> <br>
 
-                                <label for="lastname">Lastname</label> <br>
-                                <input type="text" name="lastname" id="lastname" required?> <br>
-
-                                <label for="postalcode">Postalcode</label> <br>
-                                <input type="text" name="postalcode" id="postalcode" required> <br>
-
-                                <label for="housenumber">Housenumber</label> <br>
-                                <input type="text" name="housenumber" id="housenumber" required> <br> 
-                            
-                                <label for="username">Username</label> <br>
-                                <input type="text" name="username" id="username" required> <br>
-        
-                                <label for="password">Password</label> <br>
-                                <input type="password" name="password" id="password" required> <br>
-        
-                                <label for="password_2">Repeat Password</label> <br>
-                                <input type="password" name="password_2" id="password_2" required> <br>
-                                <input type="submit" name="submit" id="submit" class="registerbtn" value="Submit">
-                            </form>
-                        </div>   
+                                    <label for="housenumber">Housenumber</label> <br>
+                                    <input type="text" name="housenumber" id="housenumber" required> <br> 
+                                </div>
+                                
+                                <div class="tab"> Account info:
+                                    <label for="username">Username</label> <br>
+                                    <input type="text" name="username" id="username" required> <br>
+            
+                                    <label for="password">Password</label> <br>
+                                    <input type="password" name="password" id="password" required> <br>
+            
+                                    <label for="password_2">Repeat Password</label> <br>
+                                    <input type="password" name="password_2" id="password_2" required> <br>
+                                </div>
+                                <div style="overflow:auto;">
+                                    <div style="float:right;">
+                                      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                                    </div>
+                                  </div>
+                                  <!-- Circles which indicates the steps of the form: -->
+                                  <div style="text-align:center;margin-top:40px;">
+                                    <span class="step"></span>
+                                    <span class="step"></span>
+                                    <span class="step"></span>
+                                    <span class="step"></span>
+                            </div>  
+                        </form> 
                     
                     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
     </body>
 </html>
+
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script> 
