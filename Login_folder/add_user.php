@@ -14,10 +14,15 @@
         $postalcode = mysqli_real_escape_string($connection, htmlspecialchars($_POST['postalcode']));
         $housenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['housenumber']));
     }
+    // both passwords have to corresponds
     if ($_POST['passsword'] != $_POST['password_2']) {
         echo 'Passwords are not the same'
     }
-    
+    // every field should be filled in 
+    if (empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber) || 
+        empty($username) || empty($password) || empty($password_2) || empty($postalcode) || empty($housenumber)) {
+        die("Error: All fields are required.");
+    }
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
