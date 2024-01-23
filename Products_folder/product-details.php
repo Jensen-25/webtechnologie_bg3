@@ -11,7 +11,7 @@
         <!-- Navigatie bar -->
     <ul>
     <li style="float:left"><a class="active" href="Homepage_folder/Homepage.html">Home</a></li>
-    <li><a href="/Products_folder/main_products_page.html">Products</a></li>
+    <li><a href="/Products_folder/main_products_page.php">Products</a></li>
     <li><a href="/Login_folder/Login_screen.html">Login</a></li>
     <li><a href="/Login_folder/registratiescherm.html">Registration</a></li>
     <li><a href="/FAQ/FAQ.html">FAQ</a></li>
