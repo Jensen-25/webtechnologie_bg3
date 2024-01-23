@@ -31,10 +31,6 @@ li a:hover {
   background-color: #D9C7AA;
 }
 
-.active {
-  background-color: #D9C7AA;
-}
-
 ul {
   position: sticky;
   top: 0;
