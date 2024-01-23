@@ -3,28 +3,29 @@
     <head>
         <link rel="stylesheet" href="Login_stylesheet.css">
         <link rel="javascript" href="login_scherm.js">
+        <ul>
+            <li ><a href="Homepage_folder/Homepage.html">Home</a></li>
+            <li><a href="Products_folder/main_products_page.html">Products</a></li>
+            <li style="float:left"><a class="active" href="Login_folder/Login_screen.html">Login</a></li>
+            <li><a href="Login_folder/registratiescherm.html">Registration</a></li>
+            <li><a href="FAQ/FAQ.html">FAQ</a></li>
+          </ul>
     </head>
 
     <body>
+        
         <!-- Invoer van de inloggegevens -->
-        <h2> WELCOME</h2>
         <hr>
-
-        <div class="container">
-            <label class="container"><b>Username</b></label> <br>
+   
+        <div class="login-box">
+            <h1><b>LOGIN</b></h1>
+            <label class="login-text"><b>Username</b></label> <br>
             <input type="text" name = 'name' autofocus placeholder="Enter username" required/> <br>
-            <label class="container"><b>Password</b></label> <br>
+            <label class="login-text "><b>Password</b></label> <br>
             <input type= "password" name = "password" autofocus placeholder="Enter password" required/> <br>
 
             <button type="submit" class="registerbtn">Submit</button>
         </div>
-
-         <p>
-            <!--  Opties wanneer een inlog niet werkt -->
-            <a href="Registratiescherm.html" > Klik hier voor registratie</a>
-         </p>
-
-        
-        </b>
+        </b>    
     </body>
 </html>

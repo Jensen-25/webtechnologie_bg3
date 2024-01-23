@@ -1,61 +1,112 @@
-* {box-sizing: border-box}
-.body{
-    background-image: url(https://img.freepik.com/premium-photo/measuring-scoop-whey-protein-wooden-table-prepare-milkshake_77593-264.jpg);
-}
-/* Add padding to containers */
-.container {
-  padding: 16px;
+* {
+  box-sizing: border-box;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 30%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fffff0;
+  height: 100vh;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Header Styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #C4AE8C;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #D9C7AA;
+}
+
+.active {
+  background-color: #D9C7AA;
+}
+
+.login-box {
+  width: 300px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #D9C7AA, #C4AE8C);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.login-box h2 {
+  color: #fffff0;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-text label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fffff0;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
   display: inline-block;
-  border: none;
-  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #04AA6D;
+  background-color: #f8f8f8;
+  
+  
 }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-h2{
-    position: center;
-}
-
-/* Set a style for the submit/register button */
 .registerbtn {
   background-color: #04AA6D;
   color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
+  padding: 14px 20px;
+  margin-top: 10px;
   border: none;
   cursor: pointer;
-  width: 30%;
+  width: 100%;
+  border-radius: 4px;
   opacity: 0.9;
   transition: 0.3s;
 }
 
 .registerbtn:hover {
-  opacity:1;
+  opacity: 1;
 }
 
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
+hr {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
 }
 
-/* Set a grey background color and center the text of the "sign in" section */
 .signin {
-  background-color: #f1f1f1;
-  text-align: center;
+  color: #555;
+  margin-top: 15px;
 }
-
