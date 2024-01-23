@@ -2,7 +2,7 @@
 // voor verbinden 
     include('/var/www/connections/connections.php');
 
-    if isset($_POST['submit']) 
+    if (isset($_POST['submit']))
     {
         $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
         $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['lastname']));
