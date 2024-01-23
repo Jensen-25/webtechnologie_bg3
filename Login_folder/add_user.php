@@ -10,9 +10,14 @@
         $phonenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phonenumber']));
         $username = mysqli_real_escape_string($connection, htmlspecialchars($_POST['username']));
         $password = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password']));
+        $password_2 = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password_2']));
         $postalcode = mysqli_real_escape_string($connection, htmlspecialchars($_POST['postalcode']));
         $housenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['housenumber']));
     }
+    if ($_POST['passsword'] != $_POST['password_2']) {
+        echo 'Passwords are not the same'
+    }
+    
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
