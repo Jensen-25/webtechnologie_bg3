@@ -9,213 +9,174 @@
         <title> FAQ </title>
 
         <!-- Navigatie bar -->
-        <ul>
-                <li class="navbar_list" style="float:left"><a class="active" href="Homepage_folder/Homepage.html">Home</a></li>
-                <li class="navbar_list" ><a href="Products_folder/main_products_page.html">Products</a></li>
-                <li class="navbar_list" ><a href="Login_folder/Login_screen.html">Login</a></li>
-                <li class="navbar_list" ><a href="Login_folder/registratiescherm.html">Registration</a></li>
-                <li class="navbar_list" ><a href="FAQ.html">FAQ</a></li>
+        <ul class = navbar_list>
+                <li class="navbar_item" ><a href="index.html">Home</a></li>
+                <li class="navbar_item" ><a href="Products_folder/main_products_page.html">Products</a></li>
+                <li class="navbar_item" ><a href="Login_folder/Login_screen.html">Login</a></li>
+                <li class="navbar_item" ><a href="Login_folder/registratiescherm.html">Registration</a></li>
         </ul>
 
-        <style>
-        .accordion {
-        background-color: #eee;
-        color: #000000;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-        }
-
-        .active, .accordion:hover {
-        background-color: #ac874c;
-        }
-    
-        .accordion:after {
-        content: '\002B';
-        color: #777;
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
-        }
-
-        .active:after {
-        content: "\2212";
-        }
-
-        .panel {
-        padding: 0 18px;
-        background-color: white;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-        }
-        </style>
     </head>
 
     <body>
-    <h1> Frequently Asked Questions </h1>
-        <p>Cannot find the answer to your question below? Please get in contact with our <a href="Contact.html" title="Contact">Customer Service</a> team and they will be happy to help. </p>
+        <h1> Frequently Asked Questions </h1>
+            <p>Cannot find the answer to your question below? Please get in contact with our <a href="Contact.html" title="Contact">Customer Service</a> team and they will be happy to help. </p>
 
-    <h3>Ordering</h3>
-        <button class="accordion">The item I want to order is out of stock. Why is it on the website?</button>
-        <div class="panel">
-        All Fit ‘n Flavors stock depends upon availability. We want you to be able to order and receive the products you love effortlessly, so we will always aim to let you know if an item is out of stock.
-        </div>
+        <h3>Ordering</h3>
+            <button class="accordion">The item I want to order is out of stock. Why is it on the website?</button>
+            <div class="panel">
+            All Fit ‘n Flavors stock depends upon availability. We want you to be able to order and receive the products you love effortlessly, so we will always aim to let you know if an item is out of stock.
+            </div>
 
-        <button class="accordion">How do I place an order?</button>
-        <div class="panel">
-        Find the products you want and add them. You can either carry on shopping or checkout if you have  got everything you need. <br> 
+            <button class="accordion">How do I place an order?</button>
+            <div class="panel">
+            Find the products you want and add them. You can either carry on shopping or checkout if you have  got everything you need. <br> 
+                <br>
+                Enter your address and payment details manually. <br>
+                <br>
+                Check if everything is correct and you are good to go! <br>
+            </div>
+
+            <button class="accordion">Can I place an order to a different address?</button>
+            <div class="panel">
+            Absolutely, you can select any delivery address at the checkout stage.
+            </div>
+
+            <button class="accordion">Can I cancel or change my order?</button>
+            <div class="panel">
+            Placed orders will be immediately prepared for you. Therefore, it is not possible to make any changes to your order. <br>
             <br>
-            Enter your address and payment details manually. <br>
+            If you want to cancel your order, please call us within 10 minutes of purchasing, so we can do this for you. <br>
+            Once the cancellation is successful, we will refund your money within 5 working days so you can place a new order! <br>
             <br>
-            Check if everything is correct and you are good to go! <br>
-        </div>
+            If you did not manage to cancel your order within 10 minutes, don’t worry! <br>
+            You can still refuse the parcel upon delivery. The courier will take the parcel back to our warehouse.
+            </div>
 
-        <button class="accordion">Can I place an order to a different address?</button>
-        <div class="panel">
-        Absolutely, you can select any delivery address at the checkout stage.
-        </div>
+            <button class="accordion">Do I need an account to order?</button>
+            <div class="panel">
+            Yes, you will need an account to order. You can register on our <a href="Registratiescherm.html" title="Registration">registration page</a>.
+            </div>
 
-        <button class="accordion">Can I cancel or change my order?</button>
-        <div class="panel">
-        Placed orders will be immediately prepared for you. Therefore, it is not possible to make any changes to your order. <br>
-        <br>
-        If you want to cancel your order, please call us within 10 minutes of purchasing, so we can do this for you. <br>
-        Once the cancellation is successful, we will refund your money within 5 working days so you can place a new order! <br>
-        <br>
-        If you did not manage to cancel your order within 10 minutes, don’t worry! <br>
-        You can still refuse the parcel upon delivery. The courier will take the parcel back to our warehouse.
-        </div>
-
-        <button class="accordion">Do I need an account to order?</button>
-        <div class="panel">
-        Yes, you will need an account to order. You can register on our <a href="Registratiescherm.html" title="Registration">registration page</a>.
-        </div>
-
-        <button class="accordion">I have received the wrong item. What should I do?</button>
-        <div class="panel">
-        We are sorry to hear that, sometimes things can go wrong but do not worry as we can help. Please contact us to tell us more, so we can look into this for you. <br>
-        We need to know the following information: <br>
-        <ol>
-            <li>Order Number</li>
-            <li>Incorrect item received</li>
-            <li>The correct item ordered</li>
-        </ol>
-        As soon as we have looked into what has happened we will send you an email with the outcome.
-        </div>
-
-        <button class="accordion">I have received a damaged item. What should I do?</button>
-        <div class="panel">
-        We are sorry to hear you have received your order damaged.<br>
-        Please contact us to tell us more and provide us the following information:
-        <ol>
-            <li>Order Number</li>
-            <li>Product Name</li>
-            <li>Picture of the damage</li>
-        </ol>
-        We may ask for pictures of the damage to ensure we take measures to prevent it happening again, so please do not throw the item away! <br>
-        <br>        
-        As soon as we know what has happened, we will send you an email with the outcome.
-        </div>
-
-        <button class="accordion">I would like to raise a complaint about the quality of a product.</button>
-        <div class="panel">
-        We take all complaints seriously and are committed to protecting our valued customers. <br>
-        If you have a concern regarding the quality of any of our products then please get in contact with our <a href="Contact.html" title="Contact">Customer Service</a> team.<br>
-        It would really speed our investigation up if you could find the information below before contacting us.
-        <ol>
-            <li>Order Number</li>
-            <li>Product Name</li>
-            <li>Batch Number</li>
-            <li>Expiry Date</li>
-            <li>Images where applicable</li>
-            <li>A brief summary that details the actual complaint</li>
-        </ol>
-        Please keep the product until you have spoken with our team who will advise whether or not we require it back for further analysis.
-        </div>
-
-    <h3>Delivery</h3>
-        <button class="accordion">What delivery options do you offer?</button>
-        <div class="panel">
-        All our delivery options can be found on our <a href="Delivery.html" title="Delivery Information">Delivery Information</a> page.
-        </div>
-
-        <button class="accordion">What happens if I am not at home to accept my delivery?</button>
-        <div class="panel">
-        Don't worry, if your order cannot fit through the letterbox or requires a signature then you should receive a calling card.<br>
-        This card is from the courier and lets you know where your parcel is and how you can collect it.
-        </div>
-
-        <button class="accordion">There is an item missing from my order. What should I do?</button>
-        <div class="panel">
-        Please contact our Customer Service team and they will be happy to help.<br>
-        We need to know the following information:
-        <ol>
-            <li>Order Number</li>
-            <li>Product Name of the missing product</li>
-        </ol>
-        </div>
-
-    <h3>Returns and refunds</h3>
-        <button class="accordion">What is your return policy?</button>
-        <div class="panel">
-        Please refer to our <a href="Returns.html" title="Returns and refunds">Return Policy</a> page for more information about our return policy. <br>
-        If this does not answer your question then our <a href="Contact.html" title="Contact">Customer Service</a> team is ready to help you.
-        </div>
-
-        <button class="accordion">How do I return an item?</button>
-        <div class="panel">
+            <button class="accordion">I have received the wrong item. What should I do?</button>
+            <div class="panel">
+            We are sorry to hear that, sometimes things can go wrong but do not worry as we can help. Please contact us to tell us more, so we can look into this for you. <br>
+            We need to know the following information: <br>
             <ol>
-                <li>Attach the supplied return label for your return on top of the old label.<br>
-                    You will find the correct return address on the return label. </li>
-                <li>Deliver your return shipment to a PostNL or DHL point</li>
-                <li>Please keep your proof of shipment until your return has been processed by us.</li>
+                <li>Order Number</li>
+                <li>Incorrect item received</li>
+                <li>The correct item ordered</li>
             </ol>
-        Please refer to our <a href="Returns.html" title="Returns and refunds">Return Policy</a> page for more information about our return policy.
-        </div>
+            As soon as we have looked into what has happened we will send you an email with the outcome.
+            </div>
 
-        <button class="accordion">Can I return a product if I no longer want it?</button>
-        <div class="panel">
-        We want all of our customers to enjoy their products, so if you are not happy with your order you can send it back to us within 14 days.<br>
-        Please take a look at our <a href="Returns.html" title="Returns and refunds">Return Policy</a> for further instructions.
-        </div>
+            <button class="accordion">I have received a damaged item. What should I do?</button>
+            <div class="panel">
+            We are sorry to hear you have received your order damaged.<br>
+            Please contact us to tell us more and provide us the following information:
+            <ol>
+                <li>Order Number</li>
+                <li>Product Name</li>
+                <li>Picture of the damage</li>
+            </ol>
+            We may ask for pictures of the damage to ensure we take measures to prevent it happening again, so please do not throw the item away! <br>
+            <br>        
+            As soon as we know what has happened, we will send you an email with the outcome.
+            </div>
 
-        <button class="accordion">What happens once my item is returned?</button>
-        <div class="panel">
-        Once received, we will process the returned goods and send you a notification via email.<br>
-        This can take 5-7 working days from the date we receive the return.<br>
-        Your money will be refunded via the payment method you used within 3-5 working days.
-        </div>
+            <button class="accordion">I would like to raise a complaint about the quality of a product.</button>
+            <div class="panel">
+            We take all complaints seriously and are committed to protecting our valued customers. <br>
+            If you have a concern regarding the quality of any of our products then please get in contact with our <a href="Contact.html" title="Contact">Customer Service</a> team.<br>
+            It would really speed our investigation up if you could find the information below before contacting us.
+            <ol>
+                <li>Order Number</li>
+                <li>Product Name</li>
+                <li>Batch Number</li>
+                <li>Expiry Date</li>
+                <li>Images where applicable</li>
+                <li>A brief summary that details the actual complaint</li>
+            </ol>
+            Please keep the product until you have spoken with our team who will advise whether or not we require it back for further analysis.
+            </div>
 
-        <button class="accordion">When will I receive my refund?</button>
-        <div class="panel">
-        Returns will be processed within 5-7 business days of their arrival at our facility.<br>
-        You will receive a confirmation via email, after which your money will be refunded via the payment method you used within 3-5 working days.
-        </p>
-        </div>
+        <h3>Delivery</h3>
+            <button class="accordion">What delivery options do you offer?</button>
+            <div class="panel">
+            All our delivery options can be found on our <a href="Delivery.html" title="Delivery Information">Delivery Information</a> page.
+            </div>
+
+            <button class="accordion">What happens if I am not at home to accept my delivery?</button>
+            <div class="panel">
+            Don't worry, if your order cannot fit through the letterbox or requires a signature then you should receive a calling card.<br>
+            This card is from the courier and lets you know where your parcel is and how you can collect it.
+            </div>
+
+            <button class="accordion">There is an item missing from my order. What should I do?</button>
+            <div class="panel">
+            Please contact our Customer Service team and they will be happy to help.<br>
+            We need to know the following information:
+            <ol>
+                <li>Order Number</li>
+                <li>Product Name of the missing product</li>
+            </ol>
+            </div>
+
+        <h3>Returns and refunds</h3>
+            <button class="accordion">What is your return policy?</button>
+            <div class="panel">
+            Please refer to our <a href="Returns.html" title="Returns and refunds">Return Policy</a> page for more information about our return policy. <br>
+            If this does not answer your question then our <a href="Contact.html" title="Contact">Customer Service</a> team is ready to help you.
+            </div>
+
+            <button class="accordion">How do I return an item?</button>
+            <div class="panel">
+                <ol>
+                    <li>Attach the supplied return label for your return on top of the old label.<br>
+                        You will find the correct return address on the return label. </li>
+                    <li>Deliver your return shipment to a PostNL or DHL point</li>
+                    <li>Please keep your proof of shipment until your return has been processed by us.</li>
+                </ol>
+            Please refer to our <a href="Returns.html" title="Returns and refunds">Return Policy</a> page for more information about our return policy.
+            </div>
+
+            <button class="accordion">Can I return a product if I no longer want it?</button>
+            <div class="panel">
+            We want all of our customers to enjoy their products, so if you are not happy with your order you can send it back to us within 14 days.<br>
+            Please take a look at our <a href="Returns.html" title="Returns and refunds">Return Policy</a> for further instructions.
+            </div>
+
+            <button class="accordion">What happens once my item is returned?</button>
+            <div class="panel">
+            Once received, we will process the returned goods and send you a notification via email.<br>
+            This can take 5-7 working days from the date we receive the return.<br>
+            Your money will be refunded via the payment method you used within 3-5 working days.
+            </div>
+
+            <button class="accordion">When will I receive my refund?</button>
+            <div class="panel">
+            Returns will be processed within 5-7 business days of their arrival at our facility.<br>
+            You will receive a confirmation via email, after which your money will be refunded via the payment method you used within 3-5 working days.
+            </p>
+            </div>
 
 
-    <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
 
-    for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-    });
-    }
-    </script>
+            for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+            }
+        </script>
 
     </body>
 </html>
