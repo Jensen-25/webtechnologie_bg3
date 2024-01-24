@@ -1,18 +1,6 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verbinding met de database (pas dit aan volgens jouw databaseconfiguratie)
-    $servername = "localhost";
-    $username = "gebruik1";
-    $password = "7xE1GCiNAmxbg7a";
-    $dbname = "Database_bg3";
 
-    $connection = new mysqli($servername, $username, $password, $dbname);
-
-    // Controleer op connectiefout
-    if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
-    }
-
+    include('connections/connections.php');
     // Ontvang gegevens van het formulier
     $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
     $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['lastname']));
