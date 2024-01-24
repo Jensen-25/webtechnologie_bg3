@@ -147,6 +147,7 @@
 
   // Simple email validation using a regular expression
   function validateEmail(email) {
+      // Deze emailRegex is van het internet gehaald op w3schools.com
       var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
   }
