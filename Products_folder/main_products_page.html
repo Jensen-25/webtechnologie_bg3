@@ -66,28 +66,29 @@
     </div>
 
     <script>
-        // Example array of product data
-        const products = [
-            { ProductName: 'Yoghurt', ProductPrice: 19.99, ProductImage: '/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg', ProductID: 1},
-            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2}
-        ];
+        // Test array of product data
+        // const products = [
+        //     { ProductName: 'Yoghurt', ProductPrice: 19.99, ProductImage: '/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg', ProductID: 1},
+        //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+        //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+        //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+        //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+        //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2}
+        // ];
 
         // Function to fetch and display all products on the main page
         function showAllProducts() {
 
             // Use fetch API to get all product details from the server
-            // fetch('get_all_products.php') 
-            //     .then(response => response.json())
-            //     .then(data => {
+            fetch('get_all_products.php') 
+                .then(response => response.json())
+                .then(data => {
+
                     // Update the product grid with the fetched product details
                     const productGrid = document.getElementById('product-grid');
                     productGrid.innerHTML = '';
 
-                    products.forEach(product => {
+                    data.forEach(product => {
                         // Create a figure with class product
                         const productFigure = document.createElement('figure');
                         productFigure.className = 'product';
@@ -125,11 +126,9 @@
                             window.location.href = `product-details.html?id=${productId}`;
                         });
                     });
-                }
-                // )
-        //         .catch(error => console.error('Error:', error));
-        // }
-
+                })
+                .catch(error => console.error('Error:', error));
+        }
         // Call the function when the page loads
         window.onload = showAllProducts;
     </script>
