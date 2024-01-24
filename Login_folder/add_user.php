@@ -1,11 +1,15 @@
 <?php
 
     include('/var/www/connections/connections.php');
-    // Ontvang gegevens van het formulier
+
+    $connection = openConnection();
+    // Ontvang gegevens van het formulier:
     $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
     $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['lastname']));
     $email = mysqli_real_escape_string($connection, htmlspecialchars($_POST['email']));
     $phonenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phonenumber']));
+    $postalcode = mysqli_real_escape_string($connection, htmlspecialchars($_POST['postalcode']));
+    $housenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['housenumber']));
     $username = mysqli_real_escape_string($connection, htmlspecialchars($_POST['username']));
     $password = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password']));
     $password_2 = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password_2']));
@@ -26,5 +30,5 @@
     // SQL-query voor het invoegen van gegevens
     $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
-
+    closeConnection($connection);   
 ?>
