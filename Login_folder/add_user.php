@@ -6,15 +6,15 @@
     if (isset($_POST['submit'])) {
     $connection = openConnection();
     // Ontvang gegevens van het formulier:
-    $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
-    $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['lastname']));
-    $email = mysqli_real_escape_string($connection, htmlspecialchars($_POST['email']));
-    $phonenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phonenumber']));
-    $postalcode = mysqli_real_escape_string($connection, htmlspecialchars($_POST['postalcode']));
-    $housenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['housenumber']));
-    $username = mysqli_real_escape_string($connection, htmlspecialchars($_POST['username']));
-    $password = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password']));
-    $password_2 = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password_2']));
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $phonenumber = $_POST['phonenumber'];
+    $postalcode = $_POST['postalcode'];
+    $housenumber = $_POST['housenumber'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $password_2 = $_POST['password_2'];
 
     // Controleer of de wachtwoorden overeenkomen
     if ($password !== $password_2) {
@@ -32,7 +32,7 @@
     // SQL-query voor het invoegen van gegevens
     $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
-            
+
      if ($connection->query($sql) === TRUE) {
         echo "Record toegevoegd aan de database!";
     } else {
