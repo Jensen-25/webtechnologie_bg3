@@ -12,15 +12,6 @@
                 die("Connection failed: " . $connection->connect_error);
         }
 
-        return $connection;
-}
-//function to close the connection
-function closeConnection($connection) {
-        $connection->close();
-}
-     
-    include('/var/www/connections/connections.php');
-
     if (isset($_POST['submit'])) {
     $connection = openConnection();
     // Ontvang gegevens van het formulier:
@@ -52,4 +43,10 @@ function closeConnection($connection) {
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
     closeConnection($connection);  
 } 
+return $connection;
+}
+//function to close the connection
+function closeConnection($connection) {
+        $connection->close();
+}
 ?>
