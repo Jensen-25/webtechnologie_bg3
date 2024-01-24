@@ -15,56 +15,64 @@
     <body>
       <hr>
           <form action="add_user2.php" method="post" id="regForm">
-              <h1> REGISTER </h1>
-              <div class="login-box">
-
-                  <div class ="tab">Name:
-                      <label for="firstname">Firstname</label> <br>
-                      <input type="text" name="firstname" id="firstname" required> <br>
-
-                      <label for="lastname">Lastname</label> <br>
-                      <input type="text" name="lastname" id="lastname" required?> <br>
-                  </div>
-                  <div class="tab"> Contact:
-                      <label for="email">Email </label> <br>
-                      <input type="text" name="email" id="email" required> <br>
-
-                      <label for="phonenumber">Phonenumber</label> <br>
-                      <input type="text" name="phonenumber" id="phonenumber" required> <br>  
-                  </div>
-              
-                  <div class="tab"> Adress:
-                      <label for="postalcode">Postalcode</label> <br>
-                      <input type="text" name="postalcode" id="postalcode" required> <br>
-
-                      <label for="housenumber">Housenumber</label> <br>
-                      <input type="text" name="housenumber" id="housenumber" required> <br> 
-                  </div>
-                  
-                  <div class="tab"> Account info:
-                      <label for="username">Username</label> <br>
-                      <input type="text" name="username" id="username" required> <br>
-
-                      <label for="password">Password</label> <br>
-                      <input type="password" name="password" id="password" required> <br>
-
-                      <label for="password_2">Repeat Password</label> <br>
-                      <input type="password" name="password_2" id="password_2" required> <br>
-                  </div>
-                  <div style="overflow:auto;">
-                      <div style="float:right;">
+            <!-- Step 1: Name Section -->
+            <h1> REGISTER </h1>
+            <div class="login-box">
+                <div class="tab">Name:
+                    <label for="firstname">Firstname</label> <br>
+                    <input type="text" name="firstname" id="firstname" required> <br>
+        
+                    <label for="lastname">Lastname</label> <br>
+                    <input type="text" name="lastname" id="lastname" required> <br>
+                </div>
+                
+                <!-- Step 2: Contact Section -->
+                <div class="tab"> Contact:
+                    <label for="email">Email </label> <br>
+                    <input type="text" name="email" id="email" required> <br>
+        
+                    <label for="phonenumber">Phonenumber</label> <br>
+                    <input type="text" name="phonenumber" id="phonenumber" required> <br>  
+                </div>
+            
+                <!-- Step 3: Address Section -->
+                <div class="tab"> Adress:
+                    <label for="postalcode">Postalcode</label> <br>
+                    <input type="text" name="postalcode" id="postalcode" required> <br>
+        
+                    <label for="housenumber">Housenumber</label> <br>
+                    <input type="text" name="housenumber" id="housenumber" required> <br> 
+                </div>
+                
+                <!-- Step 4: Account Info Section -->
+                <div class="tab"> Account info:
+                    <label for="username">Username</label> <br>
+                    <input type="text" name="username" id="username" required> <br>
+        
+                    <label for="password">Password</label> <br>
+                    <input type="password" name="password" id="password" required> <br>
+        
+                    <label for="password_2">Repeat Password</label> <br>
+                    <input type="password" name="password_2" id="password_2" required> <br>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div style="overflow:auto;">
+                    <div style="float:right;">
                         <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                         <button type="button" id="nextBtn" onclick="nextPrev(1)" name="submit">Next</button>
-                      </div>
                     </div>
-                    <!-- Circles which indicates the steps of the form: -->
-                    <div style="text-align:center;margin-top:40px;">
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-                      <span class="step"></span>
-              </div>  
-          </form> 
+                </div>
+                
+                <!-- Circles indicating form steps -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>  
+            </div>  
+        </form>
       
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
     </body>
