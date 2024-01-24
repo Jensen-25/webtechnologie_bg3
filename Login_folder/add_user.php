@@ -1,4 +1,6 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     include('/var/www/connections/connections.php');
 
     if (isset($_POST['submit'])) {
@@ -30,6 +32,12 @@
     // SQL-query voor het invoegen van gegevens
     $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
+            
+     if ($connection->query($sql) === TRUE) {
+        echo "Record toegevoegd aan de database!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $connection->error;
+    }
     closeConnection($connection);  
 } 
 ?>
