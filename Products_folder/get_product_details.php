@@ -23,7 +23,7 @@ $productId = $_GET['id'];
 
 // The sql query to the database
 $sql = "SELECT * FROM Products WHERE id = $productId";
-$result = mysqli_query($conn, $sql)
+$result = mysqli_query($conn, $sql);
 
 // Check if the query was successful
 if (!$result) {
