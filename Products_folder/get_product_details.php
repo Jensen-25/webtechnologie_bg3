@@ -1,6 +1,14 @@
 <?php
 include '/var/www/connections/connections.php';
 
+$conn = openConnection()
+
+// Check for connection errors
+if ($conn->connect_error) {
+    echo "Failed to connect to MySQL: " . $conn->connect_error;
+    exit();
+}
+
 // Function to get product information by product ID
 function getProductInfo($productId, $products) {
     if (array_key_exists($productId, $products)) {
@@ -13,11 +21,7 @@ function getProductInfo($productId, $products) {
 // Get the product ID from the URL parameter
 $productId = $_GET['id'];
 
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-  }
-
+// The sql query to the database
 $sql = "SELECT * FROM Products WHERE id = $productId";
 $result = mysqli_query($conn, $sql)
 
@@ -45,5 +49,5 @@ if ($productInfo !== null) {
 // Free result set
 mysqli_free_result($result);
 
-$conn->close();
+closeConnection($conn)
 ?>

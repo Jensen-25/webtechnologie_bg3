@@ -1,8 +1,11 @@
 <?php
 include '/var/www/connections/connections.php';
 
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+$conn = openConnection()
+
+// Check for connection errors
+if ($conn->connect_error) {
+    echo "Failed to connect to MySQL: " . $conn->connect_error;
     exit();
 }
 
@@ -34,5 +37,5 @@ if (!empty($allProducts)) {
 // Free result set
 mysqli_free_result($result);
 
-$conn->close();
+closeConnection($conn)
 ?>
