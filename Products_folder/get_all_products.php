@@ -1,7 +1,7 @@
 <?php
 include '/var/www/connections/connections.php';
 
-$conn = openConnection()
+$conn = openConnection();
 
 // Check for connection errors
 if ($conn->connect_error) {
@@ -37,5 +37,5 @@ if (!empty($allProducts)) {
 // Free result set
 mysqli_free_result($result);
 
-closeConnection($conn)
+closeConnection($conn);
 ?>
