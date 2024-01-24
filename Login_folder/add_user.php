@@ -33,10 +33,10 @@
     $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
 
-     if ($connection->query($sql) === TRUE) {
-        echo "Record toegevoegd aan de database!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
+    $rs = mysqli_query($con, $sql);
+    if($rs)
+    {
+        echo "Entries added!";
     }
     closeConnection($connection);  
 } 
