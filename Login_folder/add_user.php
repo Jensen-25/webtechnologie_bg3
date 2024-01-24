@@ -1,5 +1,24 @@
 <?php
+     function openConnection() {
+        $servername = "localhost";
+        $username = "gebruik1";
+        $password = "nudsev-0nobwo-gugZuw";
+        $database = "Database_bg3";
 
+        // Create connection
+        $connection = new mysqli($servername, $username, $password, $database);
+
+        if ($connection->connect_error) {
+                die("Connection failed: " . $connection->connect_error);
+        }
+
+        return $connection;
+}
+//function to close the connection
+function closeConnection($connection) {
+        $connection->close();
+}
+     
     include('/var/www/connections/connections.php');
 
     if (isset($_POST['submit'])) {
