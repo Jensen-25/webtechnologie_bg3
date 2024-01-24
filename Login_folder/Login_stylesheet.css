@@ -80,8 +80,10 @@ input[type="text"]:focus,
 input[type="password"]:focus {
   border-color: #04AA6D;
   background-color: #f8f8f8;
-  
-  
+}
+
+input[type="submit"] {
+  width: 100%;
 }
 
 .registerbtn {
@@ -150,6 +152,7 @@ button {
   background-color: #04AA6D;
   color: #ffffff;
   border: none;
+  border-radius: 25px;
   padding: 10px 20px;
   font-size: 17px;
   font-family: Raleway;
@@ -165,7 +168,7 @@ button:hover {
 }
 
 /* Make circles that indicate the steps of the form: */
-.step {
+.circle {
   height: 15px;
   width: 15px;
   margin: 0 2px;
@@ -176,11 +179,15 @@ button:hover {
   opacity: 0.5;
 }
 
-.step.active {
+.active {
   opacity: 1;
 }
 
 /* Mark the steps that are finished and valid: */
-.step.finish {
+.finish {
+  background-color: #04AA6D;
+}
+
+.filled {
   background-color: #04AA6D;
 }
