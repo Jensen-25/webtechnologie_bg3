@@ -3,7 +3,7 @@
     ini_set('display_errors', 1);
     include('/var/www/connections/connections.php');
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['firstname'])) {
     $connection = openConnection();
     // Ontvang gegevens van het formulier:
     $firstname = $_POST['firstname'];
