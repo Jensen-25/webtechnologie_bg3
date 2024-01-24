@@ -2,6 +2,7 @@
 
     include('/var/www/connections/connections.php');
 
+    if (isset($_POST['submit'])) {
     $connection = openConnection();
     // Ontvang gegevens van het formulier:
     $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
@@ -30,5 +31,6 @@
     // SQL-query voor het invoegen van gegevens
     $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
-    closeConnection($connection);   
+    closeConnection($connection);  
+} 
 ?>
