@@ -1,6 +1,6 @@
 <?php
 
-    include('connections/connections.php');
+    include('/var/www/connections/connections.php');
     // Ontvang gegevens van het formulier
     $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
     $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['lastname']));
