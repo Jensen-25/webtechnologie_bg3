@@ -10,27 +10,52 @@
 
         <!-- Navigatie bar -->
     <ul>
-        <li style="float:left"><a class="active" href="../index.html">Home</a></li>
-        <li><a href="../Products_folder/main_products_page.html">Products</a></li>
-        <li><a href="../Login_folder/Login_screen.html">Login</a></li>
-        <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
-        <li><a href="../FAQ/FAQ.html">FAQ</a></li>
+    <li style="float:left"><a class="active" href="../index.html">Home</a></li>
+    <li><a href="../Products_folder/main_products_page.php">Products</a></li>
+    <li><a href="../Login_folder/Login_screen.html">Login</a></li>
+    <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
+    <li><a href="../FAQ/FAQ.html">FAQ</a></li>
     </ul>
 
     <style>
         /* Simple styling for the product grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
             justify-content: center;
         }
 
         .product {
-            border: 1px solid #ccc;
-            padding: 10px;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            padding: 20px;
+            align-items: center;
             text-align: center;
             cursor: pointer;
+            background-color: #7163c9;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.2);
+        }
+
+        .product img {
+            max-width: 100%;
+            max-height: 50%;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 150%;
+            margin-top: 10px; 
+            color:#000000;
+        }
+
+        .product p {
+            margin-top: 5px;
+            color:#000000;
         }
     </style>
 </head>
@@ -41,38 +66,69 @@
     </div>
 
     <script>
+        // Example array of product data
+        const products = [
+            { ProductName: 'Yoghurt', ProductPrice: 19.99, ProductImage: '/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg', ProductID: 1},
+            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+            { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2}
+        ];
+
         // Function to fetch and display all products on the main page
         function showAllProducts() {
 
             // Use fetch API to get all product details from the server
-            fetch('get_all_products.php') 
-                .then(response => response.json())
-                .then(data => {
+            // fetch('get_all_products.php') 
+            //     .then(response => response.json())
+            //     .then(data => {
                     // Update the product grid with the fetched product details
                     const productGrid = document.getElementById('product-grid');
                     productGrid.innerHTML = '';
 
-                    data.forEach(product => {
-                        const productElement = document.createElement('div');
-                        productElement.className = 'product';
-                        productElement.setAttribute('data-productid', product.ProductID);
-                        productElement.innerHTML = `
-                            <img src="${product.ProductImage}" alt="${product.ProductName} Image">
-                            <h3>${product.ProductName}</h3>
-                            <p>Price: ${product.ProductPrice}</p>
-                        `;
-                        productGrid.appendChild(productElement);
+                    products.forEach(product => {
+                        // Create a figure with class product
+                        const productFigure = document.createElement('figure');
+                        productFigure.className = 'product';
+                        productFigure.setAttribute('data-productid', product.ProductID);
 
-                        // Add an event listener to each product element
-                        productElement.addEventListener('click', function () {
+                        // Create the image for the grid
+                        const imageElement = document.createElement('img');
+                        imageElement.src = product.ProductImage;
+                        imageElement.alt = `${product.ProductName} Image`;
+
+                        // Create the caption for the figure
+                        const figCaption = document.createElement('figcaption');
+
+                        // Create the product name for the grid
+                        const headingElement = document.createElement('h3');
+                        headingElement.textContent = product.ProductName;
+
+                        // Create the product price for the grid
+                        const priceElement = document.createElement('p');
+                        priceElement.textContent = `Price: $${product.ProductPrice.toFixed(2)}`;
+
+                        // Add all the elements to the figure and figure to the grid
+                        figCaption.appendChild(headingElement);
+                        figCaption.appendChild(priceElement);
+
+                        productFigure.appendChild(imageElement);
+                        productFigure.appendChild(figCaption);
+
+                        productGrid.appendChild(productFigure);
+
+                        // Add an event listener to each product figure
+                        productFigure.addEventListener('click', function () {
                             const productId = this.getAttribute('data-productid');
                             // Redirect to the product details page with the product ID
                             window.location.href = `product-details.html?id=${productId}`;
                         });
                     });
-                })
-                .catch(error => console.error('Error:', error));
-        }
+                }
+                // )
+        //         .catch(error => console.error('Error:', error));
+        // }
 
         // Call the function when the page loads
         window.onload = showAllProducts;
