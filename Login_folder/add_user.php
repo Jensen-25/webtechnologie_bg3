@@ -33,7 +33,7 @@
     $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
 
-    $rs = mysqli_query($con, $sql);
+    $rs = mysqli_query($connection, $sql);
     if($rs)
     {
         echo "Entries added!";
