@@ -93,6 +93,8 @@
 <script>
 
   var currentStep = 1
+
+  // displaying the current tab correctly in a black with the Progress circles
   function showTab(step) {
       var tabs = document.querySelectorAll('.tab');
       tabs.forEach(function(tab) {
@@ -103,22 +105,27 @@
       updateProgressIndicator();
   }
 
+  // Moving to the next tab when clicking the button
   function nextStep(currentStep) {
       showTab(currentStep + 1);
   }
 
+  // Moving to the previous tab when clicking the button
   function prevStep(currentStep) {
       showTab(currentStep - 1);
   }
 
+  // Validate the input and raising an error if the input is wrong, then moving to the next tab
   function validateAndNext(currentStep, inputIds, inputTypes) {
       var isValid = true;
 
+      // Looping over all the inputs and validating each one
       for (var i = 0; i < inputIds.length; i++) {
           var inputId = inputIds[i];
           var inputType = inputTypes[i];
           var inputValue = document.getElementById(inputId).value;
 
+          // Checking if a box is not empty or an email is not valid
           if (inputValue.trim() === '' || (inputType === 'email' && !validateEmail(inputValue))) {
               isValid = false;
               alert('Please enter a valid ' + inputId + '.');
@@ -126,6 +133,7 @@
           }
       }
 
+      // Submitting the form or moving to the next tab
       if (isValid) {
           if (currentStep === 4) {
               // If it's the last step, submit the form
@@ -137,12 +145,13 @@
       }
   }
 
+  // Simple email validation using a regular expression
   function validateEmail(email) {
-      // Simple email validation using a regular expression
       var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
   }
 
+  // Updating the circles underneath the form to show the progress
   function updateProgressIndicator() {
       var circles = document.querySelectorAll('.circle');
       circles.forEach(function(circle, index) {
@@ -154,6 +163,6 @@
       });
   }
 
-  // Start with the first step
+  // Start with the first tab
   showTab(1);
 </script>
