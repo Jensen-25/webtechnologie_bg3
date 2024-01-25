@@ -86,8 +86,6 @@
                 </div>  
             </div>  
         </form>
-      
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
     </body>
 </html>
 
@@ -125,12 +123,22 @@
           var inputId = inputIds[i];
           var inputType = inputTypes[i];
           var inputValue = document.getElementById(inputId).value;
+          var password1 = document.getElementById("password").value;
+          var password2 = document.getElementById("password_2").value;
 
-          // Checking if a box is not empty or an email is not valid
-          if (inputValue.trim() === '' || (inputType === 'email' && !validateEmail(inputValue))) {
+          // Checking if a box is not empty or an email is not valid or a password is not valid
+          if (inputValue.trim() === '' || (inputType === 'email' && !validateEmail(inputValue)) || 
+          (inputType === 'password' && !validatePassword(inputValue))) {
               isValid = false;
               alert('Please enter a valid ' + inputId + '.');
               break;
+          }
+
+        //   Alert user if the password and repeat password do not match
+          if (!ValidateMatchingPasswords(password1, password2)) {
+            isValid = false;
+            alert('Your passwords do not match');
+            break;
           }
       }
 
@@ -151,6 +159,41 @@
       // Deze emailRegex is van het internet gehaald op w3schools.com
       var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
+  }
+
+  function validatePassword(password) {
+    // Minimum length of 8 characters
+    if (password.length < 8) {
+        return false;
+    }
+
+    // Should contain at least one uppercase letter
+    if (!/[A-Z]/.test(password)) {
+        return false;
+    }
+
+    // Should contain at least one lowercase letter
+    if (!/[a-z]/.test(password)) {
+        return false;
+    }
+
+    // Should contain at least one digit
+    if (!/\d/.test(password)) {
+        return false;
+    }
+
+    // Should contain at least one special character (you can customize this set)
+    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
+        return false;
+    }
+
+    // All criteria met, so the password is valid
+    return true;
+}
+
+// Check if the password and repeat password are the same
+function ValidateMatchingPasswords(password1, password2) {
+    return password1 === password2;
   }
 
   // Updating the circles underneath the form to show the progress
