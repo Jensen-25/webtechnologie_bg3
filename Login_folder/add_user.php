@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Include the file with database connection functions
-include('/var/www/connections/connections.php');
+include '/var/www/connections/connections.php';
 
 if (isset($_POST['submit'])) {
     $connection = openConnection();
