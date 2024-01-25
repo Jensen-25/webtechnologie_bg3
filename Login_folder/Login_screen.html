@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Login_stylesheet.css">
-        <link rel="javascript" href="login_scherm.js">
-        <!-- Navigatie bar -->
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../Products_folder/main_products_page.html">Products</a></li>
-            <li><a href="../Login_folder/Login_screen.html">Login</a></li>
-            <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
-            <li><a href="../FAQ/FAQ.html">FAQ</a></li>
-            <li><a href="../Shoppingcart_folder/shoppingcart_page.html">Shopping Cart</a></li>
-        </ul>
-    </head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Login_stylesheet.css">
+    <link rel="javascript" href="login_scherm.js">
+    <!-- Navigatie bar -->
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Products_folder/main_products_page.html">Products</a></li>
+        <li><a href="../Login_folder/Login_screen.html">Login</a></li>
+        <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
+        <li><a href="../FAQ/FAQ.html">FAQ</a></li>
+        <li><a href="../Shoppingcart_folder/shoppingcart_page.html">Shopping Cart</a></li>
+    </ul>
+</head>
 
-    <body>
-        
-        <!-- Invoer van de inloggegevens -->
-        <hr>
-   
-        <div class="login-box">
-            <h1><b>LOGIN</b></h1>
-            <label class="login-text"><b>Username</b></label> <br>
-            <input type="text" name = 'name' autofocus placeholder="Enter username" required/> <br>
-            <label class="login-text "><b>Password</b></label> <br>
-            <input type= "password" name = "password" autofocus placeholder="Enter password"required/> <br>
+<body>
+    <!-- Invoer van de inloggegevens -->
+    <hr>
 
-            <input type="submit" class="registerbtn" value="Submit">
-        </div>
-        
- 
+    <form class="login-box" id="loginForm">
+        <h1><b>LOGIN</b></h1>
+        <!-- Filling in Username and Password -->
+        <label class="login-text" for="username"><b>Username</b></label> <br>
+        <input type="text" name ="username" id="username" autofocus placeholder="Enter username" required/> <br>
+        <label class="login-text" for="password"><b>Password</b></label> <br>
+        <input type="password" name="password" id="password" autofocus placeholder="Enter password"required/> <br>
+
+        <button type="button" class="registerbtn" onclick="submitForm()"> Login </button>
+    </form>
+    
+    <script>
+        function submitForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/index.html'; // Redirect to dashboard on success
+                } else {
+                    document.getElementById('errorMessage').innerText = 'Invalid credentials';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
