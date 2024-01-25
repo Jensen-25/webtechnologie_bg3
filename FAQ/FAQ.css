@@ -132,6 +132,7 @@ p{
 
   .panel {
   padding: 0 18px;
+  margin: 10px;
   background-color: white;
   max-height: 0;
   overflow: hidden;
