@@ -40,6 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Set user data in the session
             $_SESSION['UserName'] = $username;
+            $conn
+            $userid = SELECT UserID FROM Users
+            WHERE Username = $username;
+            $_SESSION['UserID'] = $userid;
 
             echo json_encode(['success' => true]);
         } else {
