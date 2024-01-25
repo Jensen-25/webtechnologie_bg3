@@ -100,12 +100,7 @@ p{
 
   * {box-sizing:border-box}
 
- 
-a:link, a:visited {
-  color: white;
-}
-
-/* Accordion */
+ /* Accordion */
 .accordion {
   background-color: #eee;
   color: #000000;
