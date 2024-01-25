@@ -5,21 +5,19 @@ body {
     background-repeat: no-repeat */
   }
 
-.navbar_list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #C4AE8C;
-  font-family: Arial, Helvetica, sans-serif;
-  position: sticky;
-  top: 0;
-  width: 100%;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C4AE8C;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .navbar_item {
   float: left;
-}
+  }
 
 .navbar_item a {
   display: block;
@@ -27,12 +25,12 @@ body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
+  }
 
 /* Change the link color to #111 (black) on hover */
 .navbar_item a:hover {
   background-color: #D9C7AA;
-}
+  }
 
 /* Change the link color to black*/
 a:link, a:visited { 
