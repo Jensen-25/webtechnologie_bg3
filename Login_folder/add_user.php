@@ -33,11 +33,19 @@ if (isset($_POST['submit'])) {
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // SQL query to insert data into the Users table
-    $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, PostalCode, HouseNumber, UserName, Password)
-            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$postalcode', '$housenumber', '$username', '$hashed_password')";
+    // SQL query to insert data into the Users table 
+    $stmt = mysqli_prepare($connection, "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, PostalCode, HouseNumber, UserName, Password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $sql -> execute()
-    closeConnection($connection)
+    mysqli_stmt_bind_param($stmt, "ssssssss", $firstname, $lastname, $email, $phonenumber, $postalcode, $housenumber, $username, $hashed_password);
+
+    if (mysqli_stmt_execute($stmt)) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . mysqli_stmt_error($stmt);
+    }
+
+    mysqli_stmt_close($stmt);
+
+    closeConnection($connection);
 }
 ?>
