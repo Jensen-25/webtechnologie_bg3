@@ -5,7 +5,7 @@ function createNavbar() {
     navBar.classList.add('navbar');
   
     const navItems = [
-      { text: 'Home', link: '../index.php' },
+      { text: 'Home', link: '../index.html' },
       { text: 'Products', link: '../Products_folder/main_products_page.html' },
       { text: 'Login', link: '../Login_folder/Login_screen.html' },
       { text: 'Registration', link: '../Login_folder/registratiescherm.html' },
