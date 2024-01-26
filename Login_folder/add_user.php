@@ -39,14 +39,6 @@ if (isset($_POST['submit'])) {
 
     $sql -> execute()
 
-    $rs = mysqli_query($connection, $sql);
-
-    if ($rs) {
-        echo "Registration successful!";
-    } else {
-        echo "Error: " . mysqli_error($connection);
-    }
-
     $connection -> closeConnection()
 }
 ?>
