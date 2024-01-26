@@ -8,6 +8,7 @@ include '/var/www/connections/connections.php';
 // Open the database connection
 $conn = openConnection();
 
+if (isset($_SESSION['UserName']) &&) 
 // Check for connection errors
 if ($conn->connect_error) {
     echo "Failed to connect to MySQL: " . $conn->connect_error;

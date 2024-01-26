@@ -12,7 +12,18 @@
     <script src="../FAQ/Navbar.js" defer></script>
 
   </head>
+  <?php
+  if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
+   {
+       header("Location:Login.php");  
+   }
 
+      echo $_SESSION['use'];
+
+      echo "Login Success";
+
+      echo "<a href='logout.php'> Logout</a> "; 
+?>
 
 <body>
 
