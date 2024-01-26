@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['UserName'] = $username;
             $conn
             $userid = "SELECT UserID FROM Users
-            WHERE Username = $username";
+            WHERE UserName = $username";
             $_SESSION['UserID'] = $userid;
 
             echo json_encode(['success' => true]);
