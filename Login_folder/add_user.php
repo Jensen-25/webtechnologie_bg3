@@ -38,7 +38,6 @@ if (isset($_POST['submit'])) {
             VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$postalcode', '$housenumber', '$username', '$hashed_password')";
 
     $sql -> execute()
-
-    $connection -> closeConnection()
+    closeConnection($connection)
 }
 ?>
