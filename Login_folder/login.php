@@ -44,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             WHERE UserName = $username";
             $_SESSION['UserID'] = $userid;
 
+            header('Location: index.html');
+
             echo json_encode(['success' => true]);
         } else {
             echo json_encode(['success' => false]);
