@@ -44,9 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             WHERE UserName = $username";
             $_SESSION['UserID'] = $userid;
 
-            // redirection if logged in 
-            header("Location: Homepage.html");
-            exit();
 
             echo json_encode(['success' => true]);
         } else {
