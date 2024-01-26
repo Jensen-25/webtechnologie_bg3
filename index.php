@@ -15,7 +15,7 @@
   <?php
   if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
    {
-       header("Location:Login.php");  
+       header("Location: /Login_folder/Login_screen.html");  
    }
 
       echo $_SESSION['use'];
