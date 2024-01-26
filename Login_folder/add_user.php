@@ -1,7 +1,7 @@
 <?php
 
 // Include het bestand met databaseconnectiefuncties
-include 'var/www/connections/connections.php';
+include '/var/www/connections/connections.php';
 
 if (isset($_POST['submit'])) {
     // Sanitize en haal gegevens op uit het formulier
