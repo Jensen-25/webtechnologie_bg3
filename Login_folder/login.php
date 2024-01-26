@@ -41,8 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Set user data in the session
             $_SESSION['UserName'] = $username;
             $conn
-            $userid = "SELECT UserID FROM Users
+            $userid1 = "SELECT UserID FROM Users
             WHERE UserName = $username";
+             $prepUserId = $conn->prepare($userid1);
+             $prepUserId->bind_param("s", $username);
+             $prepUserId->execute();
+             $resultUserId = $prepUserId->get_result();
+             $userid = $resultUserId->fetch_assoc()['UserID'];
             $_SESSION['UserID'] = $userid;
 
             echo json_encode(['success' => true]);
