@@ -8,7 +8,6 @@ include '/var/www/connections/connections.php';
 // Open the database connection
 $conn = openConnection();
 
-if (isset($_SESSION['UserName']) &&) 
 // Check for connection errors
 if ($conn->connect_error) {
     echo "Failed to connect to MySQL: " . $conn->connect_error;
@@ -45,7 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             WHERE UserName = $username";
             $_SESSION['UserID'] = $userid;
 
-            header('Location: index.html');
+            // redirection if logged in 
+            header("Location: index.php");
+            exit();
 
             echo json_encode(['success' => true]);
         } else {
