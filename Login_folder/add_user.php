@@ -5,13 +5,13 @@ include '/var/www/connections/connections.php';
 $connection = openConnection();
 if (isset($_POST['submit'])) {
     // Sanitize en haal gegevens op uit het formulier
-    $firstname = mysqli_real_escape_string($verbinding, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($verbinding, $_POST['lastname']);
-    $email = mysqli_real_escape_string($verbinding, $_POST['email']);
-    $phonenumber = mysqli_real_escape_string($verbinding, $_POST['phonenumber']);
-    $username = mysqli_real_escape_string($verbinding, $_POST['username']);
-    $password = mysqli_real_escape_string($verbinding, $_POST['password']);
-    $password_2 = mysqli_real_escape_string($verbinding, $_POST['password_2']);
+    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $phonenumber = mysqli_real_escape_string($connection, $_POST['phonenumber']);
+    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
 
     // Controleer of de wachtwoorden overeenkomen
     if ($password !== $password_2) {
