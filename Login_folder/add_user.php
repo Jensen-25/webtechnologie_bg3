@@ -1,23 +1,20 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-// Include the file with database connection functions
 include '/var/www/connections/connections.php';
 
 if (isset($_POST['submit'])) {
     $connection = openConnection();
 
     // Sanitize and retrieve data from the form
-    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $phonenumber = mysqli_real_escape_string($connection, $_POST['phonenumber']);
-    $postalcode = mysqli_real_escape_string($connection, $_POST['postalcode']);
-    $housenumber = mysqli_real_escape_string($connection, $_POST['housenumber']);
-    $username = mysqli_real_escape_string($connection, $_POST['username']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
+    $firstname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['firstname']));
+    $lastname = mysqli_real_escape_string($connection, htmlspecialchars($_POST['lastname']));
+    $email = mysqli_real_escape_string($connection, htmlspecialchars($_POST['email']));
+    $phonenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['phonenumber']));
+    $postalcode = mysqli_real_escape_string($connection, htmlspecialchars($_POST['postalcode']));
+    $housenumber = mysqli_real_escape_string($connection, htmlspecialchars($_POST['housenumber']));
+    $username = mysqli_real_escape_string($connection, htmlspecialchars($_POST['username']));
+    $password = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password']));
+    $password_2 = mysqli_real_escape_string($connection, htmlspecialchars($_POST['password_2']));
 
     // Check if passwords match
     if ($password !== $password_2) {
@@ -33,10 +30,10 @@ if (isset($_POST['submit'])) {
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // SQL query to insert data into the Users table 
-    $stmt = mysqli_prepare($connection, "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, PostalCode, HouseNumber, UserName, Password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    // Use prepared statements to prevent SQL injection
+    $stmt = mysqli_prepare($connection, "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password) VALUES (?, ?, ?, ?, ?, ?)");
 
-    mysqli_stmt_bind_param($stmt, "ssssssss", $firstname, $lastname, $email, $phonenumber, $postalcode, $housenumber, $username, $hashed_password);
+    mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $email, $phonenumber,  $username, $hashed_password);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Registration successful!";
