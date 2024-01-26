@@ -2,7 +2,7 @@
 
 // Include het bestand met databaseconnectiefuncties
 include '/var/www/connections/connections.php';
-
+$connection = openConnection();
 if (isset($_POST['submit'])) {
     // Sanitize en haal gegevens op uit het formulier
     $firstname = mysqli_real_escape_string($verbinding, $_POST['firstname']);
@@ -42,5 +42,5 @@ if (isset($_POST['submit'])) {
 }
 
 // Sluit de databaseverbinding
-mysqli_close($connection);
+closeConnection($connection);
 ?>
