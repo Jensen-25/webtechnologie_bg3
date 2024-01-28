@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 
     // Check whether login went succesfully
     if ($result) {
-        if(mysqli_num_rows($result) > 0) {
+        if($row = mysqli_fetch_assoc($result)) {
             echo "Login successful!";
             
             if($row['IsAdmin'] == '1'){
