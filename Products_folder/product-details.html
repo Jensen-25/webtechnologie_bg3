@@ -55,6 +55,16 @@
             padding: 10px;
             margin: 50px;
         }
+
+        #order-button {
+            margin-left: 50%;
+            width: 500px;
+            height: 50px;
+            color: white;
+            background-color: #C4AE8C;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
     </style>
 </head>
 
@@ -65,7 +75,7 @@
             <img src="/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg" alt="Product Picture">
         </div>
         <div class="right-column">
-            <h2>${data.ProductName}</h2>
+            <h2>${data.ProductName} </h2>             
             <p>${data.ProductDescription}</p>
             <p>Price: ${data.ProductPrice}</p>
         </div>
@@ -96,5 +106,16 @@
         // Call the function when the page loads
         window.onload = showProductDetails;
     </script>
+
+    <!-- add product to order -->
+    <form action= "orders.php" method="post">
+
+            <label for="productid">ProductID</label>
+            <input type="text" id="productid" name="productid">
+            <button id="order-button" type="submit">Add to order</button>
+            
+    </form>
+
+
 </body>
 </html>
