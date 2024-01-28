@@ -28,8 +28,8 @@ if (isset($_POST['submit'])) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // SQL-query om gegevens in de Users-tabel in te voegen
-    $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password)
-            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password')";
+    $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
+            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
 
     // Voer de query uit
     $resultaat = mysqli_query($connection, $sql);
