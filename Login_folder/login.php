@@ -22,14 +22,16 @@ if(isset($_POST['submit'])){
             
             if($row['IsAdmin'] == '1'){
                 $_SESSION['admin'] = $row['UserName'];
-                // !!!voeg redirection locatie toe
+                
+                // Redirect to the admin homepage
                 header('location:admin_homepage.php');
                 exit();
             }
 
             if($row['IsAdmin'] == '0'){
                 $_SESSION['user'] = $row['UserName'];
-                 // !!!voeg redirection locatie toe
+
+                 // Redirect to the user homepage
                  header('location:user_homepage.php');  
                  exit();
             }

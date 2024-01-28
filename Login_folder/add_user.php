@@ -36,25 +36,14 @@ if (isset($_POST['submit'])) {
 
     if ($resultaat) {
         echo "Registration successful!";
-
-        // redirect to the correct page
-        if($row['IsAdmin'] == '1'){
-            $_SESSION['admin'] = $row['UserName'];
-            // !!!voeg redirection locatie toe
-            header('location:admin_homepage.php');
-            exit();
-        }
-
-        if($row['IsAdmin'] == '0'){
-            $_SESSION['user'] = $row['UserName'];
-             // !!!voeg redirection locatie toe
-             header('location:user_homepage.php');  
-             exit();
-        }
+        
+        // Redirect to the user homepage
+        header('location:user_homepage.php');  
+        exit();
     } else {
         echo "Error: " . mysqli_error($connection);
     }
-
+    
 }
 
 // Sluit de databaseverbinding
