@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include '/var/www/connections/connections.php';
 
 if(isset($_POST['submit'])){
@@ -20,14 +23,15 @@ if(isset($_POST['submit'])){
             if($row['IsAdmin'] == '1'){
                 $_SESSION['admin'] = $row['UserName'];
                 // !!!voeg redirection locatie toe
-                header('Location: admin_homepage.php');
-
+                header('Location:admin_homepage.php');
+                exit();
             }
+
             if($row['IsAdmin'] == '0'){
                 $_SESSION['user'] = $row['UserName'];
                  // !!!voeg redirection locatie toe
-                 header('Location: user_homepage.php');
-                
+                 header('Location:user_homepage.php');  
+                 exit();
             }
         }         
         else {
