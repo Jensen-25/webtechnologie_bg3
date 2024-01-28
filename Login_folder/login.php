@@ -20,13 +20,13 @@ if(isset($_POST['submit'])){
             if($row['IsAdmin'] == '1'){
                 $_SESSION['admin'] = $row['UserName'];
                 // !!!voeg redirection locatie toe
-                header('location: admin_homepage.php');
+                header('Location: admin_homepage.php');
 
             }
             if($row['IsAdmin'] == '0'){
                 $_SESSION['user'] = $row['UserName'];
                  // !!!voeg redirection locatie toe
-                 header('location: user_homepage.php');
+                 header('Location: user_homepage.php');
                 
             }
         }         
