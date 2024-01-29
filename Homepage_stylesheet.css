@@ -171,7 +171,8 @@ body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
 
-.footer {
+/* Footer */
+div.footer {
 position: static;
 left: 0;
 bottom: auto;
@@ -183,14 +184,39 @@ color: white;
 text-align: center;
 }
 
-.row {
+div.row {
 display: flex;
 }
 
-.column {
+div.column {
 flex: 25%;
 text-align: center;
+margin-top: 2%
 }
+
+h3.footer {
+margin-top: 4%;
+margin-bottom: 4%;
+font-size: 120%;
+}
+
+p.footer {
+margin-top: 2%;
+}
+
+a.footer {
+margin-right: 2%;
+margin-left: 2%;
+}
+
+p.footer {
+color: white;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 100%;
+align-self:stretch;
+}
+
+
 
 p{
 color: white;
