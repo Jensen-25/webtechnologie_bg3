@@ -7,7 +7,7 @@ function createNavbar() {
     const navItems = [
       { text: 'Home', link: '../index.html' },
       { text: 'Products', link: '../Products_folder/main_products_page.html' },
-      { text: 'Login', link: '../Login_folder/Login_screen.html' },
+      { text: 'Login', link: '../Login_folder/Login_screen.php' },
       { text: 'Registration', link: '../Login_folder/registratiescherm.html' },
       { text: 'FAQ', link: '../FAQ/FAQ.html' },
       { text: 'Shopping Cart', link: '../Shoppingcart_folder/shoppingcart_page.html' },

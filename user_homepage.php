@@ -3,13 +3,6 @@
 include '/var/www/connections/connections.php';
 
 session_start();
-
-// Redirect user to login page if not logged in.
-if(!isset_($_SESSION['username'])){
-    header('Location:Login_screen.html');
-
-}
-
 ?>
 
 
