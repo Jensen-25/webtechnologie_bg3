@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
         echo "Registration successful!";
         
         // Redirect to the user homepage
-        header('location:user_homepage.php');  
+        header('location:../login.php');  
         exit();
     } else {
         echo "Error: " . mysqli_error($connection);
