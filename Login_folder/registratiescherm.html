@@ -3,15 +3,11 @@
     <head>
         <link rel="stylesheet" href="Login_stylesheet.css">
         <link rel="javascript" href="login_scherm.js">
-      <!-- Navigatie bar -->
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../Products_folder/main_products_page.html">Products</a></li>
-        <li><a href="../Login_folder/Login_screen.html">Login</a></li>
-        <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
-        <li><a href="../FAQ/FAQ.html">FAQ</a></li>
-      </ul>
+      
+        <!-- Navigatie bar -->
+        <script src="../FAQ/Navbar.js" defer></script>
     </head>
+
     <body>
       <hr>
           <form action="add_user.php" method="post" id="registrationForm">
@@ -45,7 +41,7 @@
                     </div>
                 </div>
             
-                <!-- Step 3: Address Section -->
+                <!-- Step 3: Address Section 
                 <div class="tab" id="step3"> Adress:
                     <label for="postalcode">Postalcode</label> <br>
                     <input type="text" name="postalcode" id="postalcode" required> <br>
@@ -58,9 +54,9 @@
                       <button type="button" onclick="validateAndNext(3, ['postalcode', 'housenumber'], ['text', 'text'])">Next</button>
                     </div>
                 </div>
-                
+                -->
                 <!-- Step 4: Account Info Section -->
-                <div class="tab" id="step4"> Account info:
+                <div class="tab" id="step3"> Account info:
                     <label for="username">Username</label> <br>
                     <input type="text" name="username" id="username" required> <br>
         
@@ -71,8 +67,8 @@
                     <input type="password" name="password_2" id="password_2" required> <br>
 
                     <div style="float:right">
-                      <button type="button" onclick="prevStep(4)">Previous</button>
-                      <button type="button" onclick="validateAndNext(4, ['username', 'password', 'password_2'], ['text', 'password', 'password'])">Submit</button>
+                      <button type="button" onclick="prevStep(3)">Previous</button>
+                      <button type="submit" onclick="validateAndNext(3, ['username', 'password', 'password_2'], ['text', 'password', 'password'])" name="submit">Submit</button>
                     </div>
                 </div>
                 
@@ -80,12 +76,13 @@
                 <div style="text-align:center;margin-top:50px;">
                     <div class="circle" id="circle1"></div>
                     <div class="circle" id="circle2"></div>
+                    <!-- <div class="circle" id="circle3"></div> -->
                     <div class="circle" id="circle3"></div>
-                    <div class="circle" id="circle4"></div>
                 </div>  
             </div>  
         </form>
         <!-- Link naar de terms and services -->
+        
     </body>
 </html>
 
@@ -144,7 +141,7 @@
 
       // Submitting the form or moving to the next tab
       if (isValid) {
-          if (currentStep === 4) {
+          if (currentStep === 3) {
               // If it's the last step, submit the form
               document.getElementById('registrationForm').submit();
           } else {

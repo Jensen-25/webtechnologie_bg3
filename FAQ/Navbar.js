@@ -1,6 +1,8 @@
-function createNavbar(targetElement) {
+// Navbar.js
+
+function createNavbar() {
     const navBar = document.createElement('ul');
-    navBar.classList.add('navbar'); // Voeg een klasse toe voor styling (optioneel)
+    navBar.classList.add('navbar');
   
     const navItems = [
       { text: 'Home', link: '../index.html' },
@@ -20,8 +22,9 @@ function createNavbar(targetElement) {
       navBar.appendChild(listItem);
     });
   
-    targetElement.appendChild(navBar);
+    document.body.prepend(navBar); // Voeg de navigatiebalk toe aan het begin van de body
   }
   
-  // Roep de createNavbar-functie aan en geef het doel-HTML-element op (bijv. body)
-  createNavbar(document.body);  
+  // Roep de createNavbar-functie aan
+  createNavbar();
+  

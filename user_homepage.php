@@ -1,3 +1,18 @@
+<?php
+
+include '/var/www/connections/connections.php';
+
+session_start();
+
+// Redirect user to login page if not logged in.
+if(!isset_($_SESSION['username'])){
+    header('Location:Login_screen.html');
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +21,7 @@
 
     <!-- Link voor icoontjes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title> Homepage </title>
+    <title> Homepage User </title>
       
     <!-- Navigatie bar -->
     <script src="../FAQ/Navbar.js" defer></script>

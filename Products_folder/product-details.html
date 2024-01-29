@@ -8,15 +8,9 @@
     <!-- Link naar de CSS sheet -->
     <link rel="stylesheet" href="/Homepage_stylesheet.css">
 
-        <!-- Navigatie bar -->
-    <ul>
-        <li style="float:left"><a class="active" href="../index.html">Home</a></li>
-        <li><a href="../Products_folder/main_products_page.html">Products</a></li>
-        <li><a href="../Login_folder/Login_screen.html">Login</a></li>
-        <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
-        <li><a href="../FAQ/FAQ.html">FAQ</a></li>
-        <li><a href="../Shoppingcart_folder/shoppingcart_page.html">Shopping Cart</a></li>
-    </ul>
+    <!-- Navigatie bar -->
+    <script src="../FAQ/Navbar.js" defer></script>
+
     <style>
         .product-container {
             display: flex;
@@ -24,12 +18,14 @@
             align-items: center;
             max-width: 100%;
         }
-
+ 
+ 
         .left-column {
             width: 50%;
             padding: 10px;
         }
-
+ 
+ 
         .product-container img {
             max-width: 80%;
             max-height: 30%;
@@ -39,62 +35,87 @@
             border-radius: 25px;
             padding: 20px;
         }
-
+ 
+ 
         h2 {
             font-size: 150%;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             color:black;
         }
-
+ 
+ 
         p {
             color:black
         }
-
+ 
+ 
         .right-column {
             width: 50%;
             padding: 10px;
             margin: 50px;
         }
+ 
+ 
+        #order-button {
+            margin-left: 50%;
+            width: 500px;
+            height: 50px;
+            color: white;
+            background-color: #C4AE8C;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
     </style>
-</head>
-
-<body>
+ </head>
+ 
+ 
+ <body>
     <div id="product-container" class="product-container">
         <!-- Product details will be displayed here dynamically with the javascrypt-->
-        <div class="left-column">
-            <img src="/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg" alt="Product Picture">
-        </div>
-        <div class="right-column">
-            <h2>${data.ProductName}</h2>
-            <p>${data.ProductDescription}</p>
-            <p>Price: ${data.ProductPrice}</p>
-        </div>
-    </div>  
-
+      
+ 
+ 
     <script>
+          
         // Function to fetch and display product details based on the product ID from the URL
         function showProductDetails() {
+       
             // Get the product ID from the URL query parameters
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
-
+ 
+ 
             // Use fetch to get product details from the server
             fetch(`get_product_details.php?id=${productId}`)
                 .then(response => response.json())
                 .then(data => {
                     // Update the HTML content with the product details
                     document.getElementById('product-container').innerHTML = `
+                    <div class="left-column">
                         <img src="${data.ProductImage}" alt="Product Picture">
+                    </div>
+                    <div class="right-column">
                         <h2>${data.ProductName}</h2>
                         <p>${data.ProductDescription}</p>
                         <p>Price: ${data.ProductPrice}</p>
+                    </div>
                     `;
                 })
                 .catch(error => console.error('Error:', error));
         }
-
+ 
+ 
         // Call the function when the page loads
         window.onload = showProductDetails;
     </script>
-</body>
-</html>
+ 
+
+    <!-- add product to order button -->
+    <button id="addToCartBtn">Add to Cart</button>
+ 
+ 
+ </body>
+ </html>
+ 
+ 
+ 
