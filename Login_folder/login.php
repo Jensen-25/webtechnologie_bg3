@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
                 $_SESSION['admin'] = $row['UserName'];
                 
                 // Redirect to the admin homepage
-                header('location:admin_homepage.php');
+                header('location:../admin_homepage.php');
                 exit();
             }
 
@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
                 $_SESSION['user'] = $row['UserName'];
 
                  // Redirect to the user homepage
-                 header('location:user_homepage.php');  
+                 header('location:../user_homepage.php');  
                  exit();
             }
         }         

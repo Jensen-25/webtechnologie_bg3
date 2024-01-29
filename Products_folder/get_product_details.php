@@ -1,57 +1,142 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details Page</title>
 
-include '/var/www/connections/connections.php';
+    <!-- Link naar de CSS sheet -->
+    <link rel="stylesheet" href="/Homepage_stylesheet.css">
 
-$conn = openConnection();
+    <!-- Navigatie bar -->
+    <script src="../FAQ/Navbar.js" defer></script>
 
-// Check for connection errors
-if ($conn->connect_error) {
-    echo "Failed to connect to MySQL: " . $conn->connect_error;
-    exit();
-}
+    <style>
+        .product-container {
+            display: flex;
+            margin: 20px;
+            align-items: center;
+            max-width: 100%;
+        }
+ 
+ 
+        .left-column {
+            width: 50%;
+            padding: 10px;
+        }
+ 
+ 
+        .product-container img {
+            max-width: 80%;
+            max-height: 30%;
+            margin: 20px;
+            margin-left: 50px;
+            border: 2px solid black;
+            border-radius: 25px;
+            padding: 20px;
+        }
+ 
+ 
+        h2 {
+            font-size: 150%;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color:black;
+        }
+ 
+ 
+        p {
+            color:black
+        }
+ 
+ 
+        .right-column {
+            width: 50%;
+            padding: 10px;
+            margin: 50px;
+        }
+ 
+ 
+        #order-button {
+            margin-left: 50%;
+            width: 500px;
+            height: 50px;
+            color: white;
+            background-color: #C4AE8C;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
+    </style>
+ </head>
+ 
+ 
+ <body>
+    <div id="product-container" class="product-container">
+        <!-- Product details will be displayed here dynamically with the javascrypt-->
+      
+ 
+ 
+    <script>
+          
+        // Function to fetch and display product details based on the product ID from the URL
+        function showProductDetails() {
+       
+            // Get the product ID from the URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+ 
+ 
+            // Use fetch to get product details from the server
+            fetch(`get_product_details.php?id=${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the HTML content with the product details
+                    document.getElementById('product-container').innerHTML = `
+                    <div class="left-column">
+                        <img src="${data.ProductImage}" alt="Product Picture">
+                    </div>
+                    <div class="right-column">
+                        <h2>${data.ProductName}</h2>
+                        <p>${data.ProductDescription}</p>
+                        <p>Price: ${data.ProductPrice}</p>
+                    </div>
+                    `;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+ 
+ 
+        // Call the function when the page loads
+        window.onload = showProductDetails;
 
-// Function to get product information by product ID
-function getProductInfo($productId, $products) {
-    if (array_key_exists($productId, $products)) {
-        return $products[$productId];
-    } else {
-        return null; // Product ID not found
-    }
-}
 
-// Get the product ID from the URL parameter
-$productId = $_GET['id'];
+        // function to add the order to the shoppingcart 
+        function addToShoppingcart() {
+           const urlParams = new URLSearchParams(window.location.search);
+           const productId = urlParams.get('id');
 
-// Debugging statement to check the value of $productId - Chiara
-var_dump($productId);
 
-// The sql query to the database
-$sql = "SELECT * FROM Products WHERE id = $productId";
-$result = mysqli_query($conn, $sql);
+           // Use fetch to add the product ID to the database through orders.php
+           fetch(`orders.php?productId=${productId}`, { method: 'POST' })
+               .then(response => response.text())
+               .then(result => console.log(result))
+               .catch(error => console.error('Error:', error));
+       }
 
-// Check if the query was successful
-if (!$result) {
-    // Handle the error if the query fails
-    die("Error in SQL query: " . mysqli_error($conn));
-}
 
-// get the info through the function
-$productDetails = mysqli_fetch_assoc($result);
-$productInfo = getProductInfo($productId, $productDetails);
+       // Call the function when the page loads
+       window.onload = () => {
+           showProductDetails();
+          
+           // Attach the addToCart function to the "Add to Cart" button click event
+           document.getElementById('addToShoppingcartButton').addEventListener('click', addToShoppingcart);
+       };
 
-// Check if the product ID was found and send the information through JSON encoding
-if ($productInfo !== null) {
-    header('Content-Type: application/json');
-    echo json_encode($productInfo);
+    </script>
+ 
 
-} else {
-    // Product ID not found
-    header('HTTP/1.1 404 Not Found');
-    echo json_encode(array('error' => 'Product not found'));
-}
-
-// Free result set
-mysqli_free_result($result);
-
-closeConnection($conn);
-?>
+    <!-- add product to order button -->
+    <button id="addToShoppingcartButton">Add to Shoppingcart</button>
+ 
+ 
+ </body>
+ </html>
