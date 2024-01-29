@@ -12,7 +12,6 @@ if(!isset_($_SESSION['username'])){
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
   <head>
