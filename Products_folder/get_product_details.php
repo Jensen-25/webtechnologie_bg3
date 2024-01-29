@@ -1,4 +1,5 @@
 <?php
+
 include '/var/www/connections/connections.php';
 
 $conn = openConnection();
@@ -20,6 +21,9 @@ function getProductInfo($productId, $products) {
 
 // Get the product ID from the URL parameter
 $productId = $_GET['id'];
+
+// Debugging statement to check the value of $productId - Chiara
+var_dump($productId);
 
 // The sql query to the database
 $sql = "SELECT * FROM Products WHERE id = $productId";
