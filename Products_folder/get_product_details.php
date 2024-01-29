@@ -19,10 +19,10 @@ function getProductInfo($productId, $products) {
 }
 
 // Get the product ID from the URL parameter
-$productId = $_GET['id'];
+$productId = $_GET['ProductID'];
 
 // The sql query to the database
-$sql = "SELECT * FROM Products WHERE id = $productId";
+$sql = "SELECT * FROM Products WHERE ProductID = " . (int)$productId;
 $result = mysqli_query($conn, $sql);
 
 // Check if the query was successful
