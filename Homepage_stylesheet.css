@@ -196,9 +196,12 @@ margin-bottom: 2%;
 }
 
 h3.footer {
-margin-top: 4%;
-margin-bottom: 4%;
+margin-top: 3.5%;
+margin-bottom: 5%;
 font-size: 120%;
+color: white;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+align-self:stretch;
 }
 
 p.footer {
@@ -217,16 +220,8 @@ font-size: 100%;
 align-self:stretch;
 }
 
-
-
+/*Vgm is dit voor de navbar en footer*/
 p{
-color: white;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-size: 100%;
-align-self:stretch;
-}
-
-h3{
 color: white;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size: 100%;
