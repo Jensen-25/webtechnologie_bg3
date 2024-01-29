@@ -6,6 +6,15 @@ include '/var/www/connections/connections.php';
 
 $connection = openConnection();
 
+// Redirect to homepage if a user/admin already logged in (according to coockies).
+if(isset($_SESSION['admin'])){
+    header('location:../admin_homepage.php');
+    exit();
+} elseif(isset($_SESSION['user'])){
+    header('location:../user_homepage.php');
+    exit();
+}
+
 // form has to be submitted before executation
 if(isset($_POST['submit'])){
     $username = mysqli_real_escape_string($connection, $_POST['username']);
