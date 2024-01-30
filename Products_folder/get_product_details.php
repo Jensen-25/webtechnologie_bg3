@@ -9,14 +9,14 @@ if ($conn->connect_error) {
     exit();
 }
 
-// Function to get product information by product ID
-function getProductInfo($productId, $products) {
-    if (array_key_exists($productId, $products)) {
-        return $products[$productId];
-    } else {
-        return null; // Product ID not found
-    }
-}
+// // Function to get product information by product ID
+// function getProductInfo($productId, $products) {
+//     if (array_key_exists($productId, $products)) {
+//         return $products[$productId];
+//     } else {
+//         return null; // Product ID not found
+//     }
+// }
 
 // Get the product ID from the URL parameter
 $productId = $_GET['id'];
