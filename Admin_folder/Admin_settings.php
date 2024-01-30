@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Database</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -15,14 +19,14 @@
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 8px;
+            padding: 12px;
+            width: 10%; /* Set a specific width for all cells */
         }
 
         th {
             background-color: #f2f2f2;
         }
     </style>
-</head>
 
 <body>
 <?php 
