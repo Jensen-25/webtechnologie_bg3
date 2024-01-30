@@ -35,8 +35,8 @@ if (!$result) {
 }
 
 // get the info through the function
-$productDetails = mysqli_fetch_assoc($result);
-$productInfo = getProductInfo($productId, $productDetails);
+$productInfo = mysqli_fetch_assoc($result);
+// $productInfo = getProductInfo($productId, $productDetails);
 
 // Check if the product ID was found and send the information through JSON encoding
 if ($productInfo !== null) {
