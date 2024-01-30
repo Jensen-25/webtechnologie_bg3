@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
                     setcookie("pass", $row['Password'], time() + (86400 * 30));
                 }
                 // Redirect to the admin homepage
-                header('location:../admin_homepage.php');
+                header('location:../user_homepage.php');
                 exit();
             }
 
