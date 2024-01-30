@@ -14,33 +14,51 @@
         
     <!-- Navigatie bar -->
     <script src="../FAQ/Navbar.js" defer></script>
-
-     
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        table {
+        .table {
             border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
-        th, td {
-            border: 1px solid #dddddd;
+        .table thead tr {
+            background-color: #009879;
+            color: #ffffff;
             text-align: left;
-            padding: 12px;
-            width: 10%; /* Set a specific width for all cells */
         }
 
-        th {
-            background-color: #f2f2f2;
+        .table th,
+        .table td {
+            padding: 12px 15px;
+        }
+
+        .table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
         }
     </style>
+</head>
 
 <body>
+
+
+
+
 <?php 
 
 include '/var/www/connections/connections.php';
@@ -67,14 +85,18 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         while ($row = $result->fetch_assoc()) {
             echo "<table>";
             echo "<tr>
-                <td>" . $row["FirstName"] . "</td>
-                <td>" . $row["LastName"] . "</td>
-                <td>" . $row["Email"] . "</td>
-                <td>" . $row["Phonenumber"] . "</td>
-                <td>" . $row["UserName"] . "</td>
-                <td>*****</td>
-                <td>" . $row["IsAdmin"] . "</td>
-              </tr>";
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>User Name</th>
+                    <th>Is Admin</th>
+                </tr>";
+            echo "<tr>
+                    <td>" . $row["FirstName"] . "</td>
+                    <td>" . $row["LastName"] . "</td>
+                    <td>" . $row["UserName"] . "</td>
+                    <td>" . $row["IsAdmin"] . "</td>
+                </tr>";
+            echo "</table>";
         }
     }
 }
