@@ -8,7 +8,7 @@ $connection = openConnection();
 
 // Redirect to homepage if a user/admin already logged in (according to coockies).
 if(isset($_SESSION['admin'])){
-    header('location:../admin_homepage.php');
+    header('location:../user_homepage.php');
     exit();
 } elseif(isset($_SESSION['user'])){
     header('location:../user_homepage.php');
@@ -57,9 +57,11 @@ if(isset($_POST['submit'])){
                 }
 
                  // Redirect to the user homepage
-                 header('location:../user_homepage.php');  
-                 exit();
+                 
             }
+            // go to the homepage if logged in 
+            header('location:../user_homepage.php');  
+            exit();
         }         
         else {
             echo "Invalid username or password";
