@@ -3,6 +3,7 @@
 include '/var/www/connections/connections.php';
 
 session_start();
+
 ?>
 
 

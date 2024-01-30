@@ -11,6 +11,8 @@ function createNavbar() {
       { text: 'Registration', link: '../Login_folder/registratiescherm.php' },
       { text: 'FAQ', link: '../FAQ/FAQ.html' },
       { text: 'Shopping Cart', link: '../Shoppingcart_folder/shoppingcart_page.html' },
+      { text: 'Admin', link: '../Admin_folder/Admin_settings.php' },
+
     ];
   
     navItems.forEach(item => {
