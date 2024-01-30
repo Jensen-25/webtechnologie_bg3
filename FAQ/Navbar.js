@@ -7,11 +7,22 @@ function createNavbar() {
   const navItems = [
     { text: 'Home', link: '../user_homepage.php' },
     { text: 'Products', link: '../Products_folder/main_products_page.html' },
-    { text: 'Login', link: '../Login_folder/Login_screen.php' },
-    { text: 'Registration', link: '../Login_folder/registratiescherm.php' },
-    { text: 'Admin', link: '../Admin_folder/Admin_settings.php' },
     { text: 'Shopping Cart', link: '../Shoppingcart_folder/shoppingcart_page.html' },
-  ];
+    { text: 'Admin', link: '../Admin_folder/Admin_settings.php' },
+    ];
+
+  const loggedInUser = getLoggedInUser(); // You need to implement this function
+
+  if (loggedInUser) {
+    // If logged in, display the username and add a logout option
+    navItems.push({ text: `Welcome, ${loggedInUser}`, link: '#' }); // Replace '#' with the logout link
+    navItems.push({ text: 'Logout', link: '#' }); // Replace '#' with the logout link
+  } else {
+    // If not logged in, show the login and registration options
+    navItems.push({ text: 'Login', link: '../Login_folder/Login_screen.php' });
+    navItems.push({ text: 'Registration', link: '../Login_folder/registratiescherm.php' });
+  }
+    
 
   navItems.forEach(item => {
     const listItem = document.createElement('li');
