@@ -5,7 +5,8 @@ body {
   background-repeat: no-repeat */
 }
 
-ul {
+/* Navigatie balk */
+.navbar {
 list-style-type: none;
 margin: 0;
 padding: 0;
@@ -14,11 +15,17 @@ background-color: #C4AE8C;
 font-family: Arial, Helvetica, sans-serif;
 }
 
-li {
+.navbar{
+position: sticky;
+top: 0;
+width: 100%;
+}
+
+.navbar li {
 float: left;
 }
 
-li a {
+.navbar li a {
 display: block;
 color: white;
 text-align: center;
@@ -31,14 +38,16 @@ li a:hover {
 background-color: #D9C7AA;
 }
 
-.active {
-background-color: #D9C7AA;
-}
 
-ul {
-position: sticky;
-top: 0;
-width: 100%;
+p{
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 100%;
+  align-self:stretch;
+  }
+    
+a:link, a:visited {
+color: white;
 }
 
 h1 {
@@ -57,9 +66,9 @@ color: black;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size: 100%;
 align-self:stretch;
-
 }
 
+/* Overbodig?
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -73,7 +82,7 @@ align-self:stretch;
 }
 .button:hover {
   background-color: #FFFFFF;
-}
+} */
 
 * {box-sizing:border-box}
 
@@ -220,16 +229,4 @@ color: white;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size: 100%;
 align-self:stretch;
-}
-
-
-p{
-color: white;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-size: 100%;
-align-self:stretch;
-}
-
-a:link, a:visited {
-color: white;
 }
