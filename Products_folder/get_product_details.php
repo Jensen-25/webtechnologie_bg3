@@ -21,8 +21,11 @@ if ($conn->connect_error) {
 // Get the product ID from the URL parameter
 $productId = $_GET['id'];
 
+// Debugging statement to check the value of $productId - Chiara
+echo "Product ID from URL: " . $productId;
+
 // The sql query to the database
-$sql = "SELECT * FROM Products WHERE id = $productId";
+$sql = "SELECT * FROM Products WHERE ProductID = " . (int)$productId;
 $result = mysqli_query($conn, $sql);
 
 // Check if the query was successful
@@ -32,8 +35,8 @@ if (!$result) {
 }
 
 // get the info through the function
-$productDetails = mysqli_fetch_assoc($result);
-$productInfo = getProductInfo($productId, $productDetails);
+$productInfo = mysqli_fetch_assoc($result);
+// $productInfo = getProductInfo($productId, $productDetails);
 
 // Check if the product ID was found and send the information through JSON encoding
 if ($productInfo !== null) {
