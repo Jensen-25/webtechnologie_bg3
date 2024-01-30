@@ -3,6 +3,15 @@
 // Include het bestand met databaseconnectiefuncties
 include '/var/www/connections/connections.php';
 $connection = openConnection();
+
+// Functie om te controleren of een gebruiker al in de database bestaat op basis van het e-mailadres
+function userExists($connection, $email) {
+    $email = mysqli_real_escape_string($connection, $email);
+    $sql = "SELECT * FROM Users WHERE Email = '$email'";
+    $result = mysqli_query($connection, $sql);
+    return mysqli_num_rows($result) > 0;
+}
+
 if (isset($_POST['submit'])) {
     // Sanitize en haal gegevens op uit het formulier
     $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
@@ -24,6 +33,11 @@ if (isset($_POST['submit'])) {
         die("Error: All fields are required.");
     }
 
+    // Controleer of de gebruiker al bestaat
+    if (userExists($connection, $email)) {
+        die("Error: This user already exists in the database.");
+    }
+    
     // Hash het wachtwoord
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
