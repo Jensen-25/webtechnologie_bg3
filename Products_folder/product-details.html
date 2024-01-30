@@ -104,17 +104,17 @@
         }
 
         // function to add the order to the shoppingcart 
-        function addToShoppingcart() {
-           const urlParams = new URLSearchParams(window.location.search);
-           const productId = urlParams.get('id');
+    //     function addToShoppingcart() {
+    //        const urlParams = new URLSearchParams(window.location.search);
+    //        const productId = urlParams.get('id');
 
 
-           // Use fetch to add the product ID to the database through orders.php
-           fetch(`orders.php?productId=${productId}`, { method: 'POST' })
-               .then(response => response.text())
-               .then(result => console.log(result))
-               .catch(error => console.error('Error:', error));
-       }
+    //     //    // Use fetch to add the product ID to the database through orders.php
+    //     //    fetch(`orders.php?productId=${productId}`, { method: 'POST' })
+    //     //        .then(response => response.text())
+    //     //        .then(result => console.log(result))
+    //     //        .catch(error => console.error('Error:', error));
+    //    }
 
 
        // Call the function when the page loads
