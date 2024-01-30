@@ -12,7 +12,7 @@ session_start();
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="Homepage_stylesheet.css">
 
-        <!-- Link voor icoontjes -->
+        <!-- Link voor icoontjes footer-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title> Homepage User </title>
             
