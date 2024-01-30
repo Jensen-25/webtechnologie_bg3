@@ -1,0 +1,138 @@
+body {
+    background-color: #fffff0;
+    /* background-image: url("https://i.pinimg.com/564x/b6/22/f3/b622f3278885cbc049557b49f0ec5371.jpg");
+    background-size: 40%;
+    background-repeat: no-repeat */
+  }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C4AE8C;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.navbar_item {
+  float: left;
+  }
+
+.navbar_item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  }
+
+/* Change the link color to #111 (black) on hover */
+.navbar_item a:hover {
+  background-color: #D9C7AA;
+  }
+
+/* Change the link color to black*/
+a:link, a:visited { 
+  color: black;
+} 
+
+h1 {
+    margin-left: 25%;
+    margin-top: 5%;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 300%;
+    align-self:stretch;
+}
+
+h2 {
+  margin-left: 0%;
+  margin-top: 5%;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 100%;
+  align-self:stretch;
+
+}
+
+h3 {
+  margin-left: 0%;
+  margin-top: 5%;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 150%;
+  align-self:stretch;
+}
+
+h4 {
+  margin-left: 0%;
+  margin-top: 0%;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 100%;
+  align-self:stretch;
+}
+
+p{
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 100%;
+  align-self:stretch;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #7aa8b7;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+  }
+  .button:hover {
+    background-color: #FFFFFF;
+  }
+
+  * {box-sizing:border-box}
+
+ /* Accordion */
+.accordion {
+  background-color: #eee;
+  color: #000000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  }
+
+  .active, .accordion:hover {
+  background-color: #D9C7AA;
+  }
+
+  .accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  }
+
+  .active:after {
+  content: "\2212";
+  }
+
+  .panel {
+  padding: 0 18px;
+  margin: 10px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  }

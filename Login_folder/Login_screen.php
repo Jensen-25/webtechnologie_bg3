@@ -1,0 +1,63 @@
+<?php
+ session_start();
+ include '/var/www/connections/connections.php';
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Login_stylesheet.css">
+    <link rel="javascript" href="login_scherm.js">
+    
+    <!-- Navigatie bar -->
+    <script src="../FAQ/Navbar.js" defer></script>
+</head>
+
+<body>
+    <!-- Invoer van de inloggegevens -->
+    <hr>
+
+    <form class="login-box" id="loginForm" action="login.php" method="post" >
+        <h1><b>LOGIN</b></h1>
+        <!-- Filling in Username and Password -->
+        <label class="login-text" for="username"><b>Username</b></label> <br>
+        <input type="text" name ="username" id="username" autofocus placeholder="Enter username" required 
+         value="<?php if (isset($_COOKIE["user"])){echo $_COOKIE["user"];}?>"/> <br>
+
+        <label class="login-text" for="password"><b>Password</b></label> <br>
+        <input type="password" name="password" id="password" autofocus placeholder="Enter password"required
+        value="<?php if (isset($_COOKIE["pass"])){echo $_COOKIE["pass"];}?>"/> <br>
+
+        <input type="checkbox" name="remember"<?php if (isset($_COOKIE["user"]) && isset($_COOKIE["pass"])){ echo "checked";}?>> Remember me <br><br>
+
+        <button type="submit" name="submit" class="registerbtn" onclick="submitForm()"> Login </button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/index.html'; // Redirect to dashboard on success
+                } else {
+                    document.getElementById('errorMessage').innerText = 'Invalid credentials';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
