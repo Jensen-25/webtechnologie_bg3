@@ -1,35 +1,39 @@
+<?php
+ session_start();
+ include '/var/www/connections/connections.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Login_stylesheet.css">
     <link rel="javascript" href="login_scherm.js">
+    
     <!-- Navigatie bar -->
-    <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../Products_folder/main_products_page.html">Products</a></li>
-        <li><a href="../Login_folder/Login_screen.html">Login</a></li>
-        <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
-        <li><a href="../FAQ/FAQ.html">FAQ</a></li>
-        <li><a href="../Shoppingcart_folder/shoppingcart_page.html">Shopping Cart</a></li>
-    </ul>
+    <script src="../FAQ/Navbar.js" defer></script>
 </head>
 
 <body>
     <!-- Invoer van de inloggegevens -->
     <hr>
 
-    <form class="login-box" id="loginForm">
+    <form class="login-box" id="loginForm" action="login.php" method="post" >
         <h1><b>LOGIN</b></h1>
         <!-- Filling in Username and Password -->
         <label class="login-text" for="username"><b>Username</b></label> <br>
-        <input type="text" name ="username" id="username" autofocus placeholder="Enter username" required/> <br>
-        <label class="login-text" for="password"><b>Password</b></label> <br>
-        <input type="password" name="password" id="password" autofocus placeholder="Enter password"required/> <br>
+        <input type="text" name ="username" id="username" autofocus placeholder="Enter username" required 
+         value="<?php if (isset($_COOKIE["user"])){echo $_COOKIE["user"];}?>"/> <br>
 
-        <button type="button" class="registerbtn" onclick="submitForm()"> Login </button>
+        <label class="login-text" for="password"><b>Password</b></label> <br>
+        <input type="password" name="password" id="password" autofocus placeholder="Enter password"required
+        value="<?php if (isset($_COOKIE["pass"])){echo $_COOKIE["pass"];}?>"/> <br>
+
+        <input type="checkbox" name="remember"<?php if (isset($_COOKIE["user"]) && isset($_COOKIE["pass"])){ echo "checked";}?>> Remember me <br><br>
+
+        <button type="submit" name="submit" class="registerbtn" onclick="submitForm()"> Login </button>
     </form>
-    
+
     <script>
         function submitForm() {
             var username = document.getElementById('username').value;
@@ -55,3 +59,5 @@
             });
         }
     </script>
+</body>
+</html>

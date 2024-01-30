@@ -11,6 +11,9 @@
     <!-- Navigatie bar -->
     <script src="../FAQ/Navbar.js" defer></script>
 
+    <!-- Link voor icoontjes footer-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         .product-container {
             display: flex;
@@ -74,6 +77,7 @@
         <!-- Product details will be displayed here dynamically with the javascrypt-->
       
  
+ 
     <script>
           
         // Function to fetch and display product details based on the product ID from the URL
@@ -89,7 +93,7 @@
                 .then(response => response.json())
                 .then(data => {
                     // Update the HTML content with the product details
-                    document.getElementById('product-container')[0].innerHTML = `
+                    document.getElementById('product-container').innerHTML = `
                     <div class="left-column">
                         <img src="${data.ProductImage}" alt="Product Picture">
                     </div>
@@ -102,15 +106,15 @@
                 })
                 .catch(error => console.error('Error:', error));
         }
-
-       // Call the function when the page loads
-       window.onload = () => {
-           showProductDetails();
-          
-
-       };
-
+ 
+ 
+        // Call the function when the page loads
+        window.onload = showProductDetails;
     </script>
-  
+ 
+ 
  </body>
  </html>
+ 
+ 
+ 

@@ -1,58 +1,74 @@
 <?php
-// Start or resume the session
+
 session_start();
 
-// Include the connections file
 include '/var/www/connections/connections.php';
 
-// Open the database connection
-$conn = openConnection();
+$connection = openConnection();
 
-// Check for connection errors
-if ($conn->connect_error) {
-    echo "Failed to connect to MySQL: " . $conn->connect_error;
+// Redirect to homepage if a user/admin already logged in (according to coockies).
+if(isset($_SESSION['admin'])){
+    header('location:../user_homepage.php');
+    exit();
+} elseif(isset($_SESSION['user'])){
+    header('location:../user_homepage.php');
     exit();
 }
 
-// Function to sanitize input data
-function sanitizeInput($data) {
-    return htmlspecialchars(strip_tags(trim($data)));
-}
+// form has to be submitted before executation
+if(isset($_POST['submit'])){
+    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the submitted username and password
-    $username = sanitizeInput($_POST['username']);
-    $password = sanitizeInput($_POST['password']);
+    // Get variables from the database
+    $login_data = "SELECT * FROM Users WHERE 
+    UserName = '$username' && Password = '$password' ";
 
-    // Prepare and execute the query to check if the user exists
-    $sql = "SELECT * FROM Users WHERE UserName = ?";
-    $prep = $conn->prepare($sql);
-    $prep->bind_param("s", $username);
-    $prep->execute();
-    $result = $prep->get_result();
+    // execute the query
+    $result = mysqli_query($connection, $login_data);
 
-    // Check if a matching user was found
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        
-        // Verify the entered password against the stored hash
-        if (password_verify($password, $user['Password'])) {
+    // Check whether login went succesfully
+    if ($result) {
+        if($row = mysqli_fetch_assoc($result)) {
+            echo "Login successful!";
+            
+            // is an admin
+            if($row['IsAdmin'] == '1'){
+                $_SESSION['admin'] = $row['UserName'];
 
-            // Set user data in the session
-            $_SESSION['UserName'] = $username;
+                // set cookie for username and password if remember me chosen
+                if (isset($_POST['remember'])){
+                    setcookie("user", $row['UserName'], time() + (86400 * 30));
+                    setcookie("pass", $row['Password'], time() + (86400 * 30));
+                }
+                // Redirect to the admin homepage
+                header('location:../user_homepage.php');
+                exit();
+            }
 
-            echo json_encode(['success' => true]);
-        } else {
-            echo json_encode(['success' => false]);
+            // set cookie for username and password if remember me chosen
+            if($row['IsAdmin'] == '0'){
+                $_SESSION['user'] = $row['UserName'];
+
+                // set cookie for username and password 
+                if (isset($_POST['remember'])){
+                    setcookie("user", $row['UserName'], time() + (86400 * 30));
+                    setcookie("pass", $row['Password'], time() + (86400 * 30));
+                }
+
+                 // Redirect to the user homepage
+                 
+            }
+            // go to the homepage if logged in 
+            header('location:../user_homepage.php');  
+            exit();
+        }         
+        else {
+            echo "Invalid username or password";
         }
-    } else {
-        // Return failure response to the JavaScript
-        echo json_encode(['success' => false]);
     }
-
-    // Close the prepared statement
-    $prep->close();
-    // Close the database connection
-    $conn->close();
 }
+// Sluit de databaseverbinding
+closeConnection($connection);
+
 ?>
