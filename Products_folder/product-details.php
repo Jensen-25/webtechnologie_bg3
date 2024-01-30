@@ -95,8 +95,9 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
             echo "Product not found." ;
         }
     } else {
-        echo "Product ID not provided in the URL"
+        echo "Product ID not provided in the URL" ;
     }
+ 
 }
 closeConnection($connection);
 
