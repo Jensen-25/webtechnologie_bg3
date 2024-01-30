@@ -7,17 +7,14 @@
   <title> Shoppingcart Page </title>
   
   <!-- Navigatie bar -->
-  <script src="../FAQ/Navbar.js" defer></script>
-  
-  <!-- Navigatie bar -->
-  <!-- <ul>
+  <ul>
     <li><a href="../index.html">Home</a></li>
     <li><a href="../Products_folder/main_products_page.html">Products</a></li>
     <li><a href="../Login_folder/Login_screen.html">Login</a></li>
     <li><a href="../Login_folder/registratiescherm.html">Registration</a></li>
     <li><a href="../FAQ/FAQ.html">FAQ</a></li>
     <li><a href="../Shoppingcart_folder/shoppingcart_page.html">Shopping Cart</a></li>
-  </ul> -->
+  </ul>
 
 </head>
 
@@ -27,20 +24,20 @@
 
   <script>
     // Test array of product data
-    // const products = [
-    //     { ProductName: 'Yoghurt', ProductPrice: 19.99, ProductImage: '/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg', ProductID: 1},
-    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2}
-    // ];
+    const products = [
+        { OrderID: 1, ProductID: 1, ProductAmount: 1, ProductPrice $1.99},
+        { OrderID: 1, ProductID: 3, ProductAmount: 2, ProductPrice $1.99},
+        { OrderID: 1, ProductID: 5, ProductAmount: 3, ProductPrice $1.99},
+        { OrderID: 1, ProductID: 7, ProductAmount: 1, ProductPrice $1.99},
+        { OrderID: 1, ProductID: 9, ProductAmount: 1, ProductPrice $1.99},
+        { OrderID: 1, ProductID: 10, ProductAmount: 1, ProductPrice $1.99}
+    ];
 
-    // Function to fetch and display all products on the main page
+    // Function to fetch and display all products on the shopping_cart page
     function showAllProducts() {
 
         // Use fetch API to get all product details from the server
-        fetch('get_all_products.php') 
+        fetch('get_all_orders.php') 
             .then(response => response.json())
             .then(data => {
 
@@ -94,3 +91,4 @@
 </script>
 
 </body>
+
