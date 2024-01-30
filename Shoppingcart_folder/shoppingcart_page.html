@@ -25,4 +25,72 @@
 
   <h1> Shopping Cart </h1>
 
+  <script>
+    // Test array of product data
+    // const products = [
+    //     { ProductName: 'Yoghurt', ProductPrice: 19.99, ProductImage: '/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg', ProductID: 1},
+    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
+    //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2}
+    // ];
+
+    // Function to fetch and display all products on the main page
+    function showAllProducts() {
+
+        // Use fetch API to get all product details from the server
+        fetch('get_all_products.php') 
+            .then(response => response.json())
+            .then(data => {
+
+                // Update the product grid with the fetched product details
+                const productGrid = document.getElementById('product-grid');
+                productGrid.innerHTML = '';
+
+                data.forEach(product => {
+                    // Create a figure with class product
+                    const productFigure = document.createElement('figure');
+                    productFigure.className = 'product';
+                    productFigure.setAttribute('data-productid', product.ProductID);
+
+                    // Create the image for the grid
+                    const imageElement = document.createElement('img');
+                    imageElement.src = product.ProductImage;
+                    imageElement.alt = `${product.ProductName} Image`;
+
+                    // Create the caption for the figure
+                    const figCaption = document.createElement('figcaption');
+
+                    // Create the product name for the grid
+                    const headingElement = document.createElement('h3');
+                    headingElement.textContent = product.ProductName;
+
+                    // Create the product price for the grid
+                    const priceElement = document.createElement('p');
+                    priceElement.textContent = `Price: $${product.ProductPrice}`;
+
+                    // Add all the elements to the figure and figure to the grid
+                    figCaption.appendChild(headingElement);
+                    figCaption.appendChild(priceElement);
+
+                    productFigure.appendChild(imageElement);
+                    productFigure.appendChild(figCaption);
+
+                    productGrid.appendChild(productFigure);
+
+                    // Add an event listener to each product figure
+                    productFigure.addEventListener('click', function () {
+                        const productId = this.getAttribute('data-productid');
+                        // Redirect to the product details page with the product ID
+                        window.location.href = `product-details.html?id=${productId}`;
+                    });
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    // Call the function when the page loads
+    window.onload = showAllProducts;
+</script>
+
 </body>
