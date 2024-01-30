@@ -66,25 +66,36 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     exit;
 } else{
 
-    // extract table products from database
-    $product_data = "SELECT * FROM Product";
+    // Check if the product ID is provided in the URL
+    if (isset($_GET['id'])){
+        $productID = (int)$_GET['id'];
 
-    // execute the query
-    $result = mysqli_query($connection, $product_data);
 
-    if ($result->num_rows > 0){
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "<table>";
-            echo "<tr>
-                <td>" . $row["ProductName"] . "</td>
-                <td>" . $row["ProductPrice"] . "</td>
-                <td>" . $row["ProductDescription"] . "</td>
-                <td>" . $row["ProductImage"] . "</td>
-                <td>" . $row["ProteinAmount"] . "</td>
-                <td>" . $row["ProductStock"] . "</td>
-              </tr>";
+        // extract table products from database
+        $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
+
+        // execute the query
+        $result = mysqli_query($connection, $product_data);
+
+        if ($result->num_rows > 0){
+            // Output data of each row
+            while ($row = $result->fetch_assoc()) {
+                echo "<table>";
+                echo "<tr>
+                    <td>" . $row["ProductName"] . "</td>
+                    <td>" . $row["ProductPrice"] . "</td>
+                    <td>" . $row["ProductDescription"] . "</td>
+                    <td>" . $row["ProductImage"] . "</td>
+                    <td>" . $row["ProteinAmount"] . "</td>
+                    <td>" . $row["ProductStock"] . "</td>
+                </tr>";
+            }
         }
+        else {
+            echo "Product not found." ;
+        }
+    } else {
+        echo "Product ID not provided in the URL"
     }
 }
 closeConnection($connection);
