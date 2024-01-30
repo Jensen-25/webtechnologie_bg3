@@ -10,8 +10,20 @@
         <!-- Navigatie bar -->
         <script src="Navbar.js" defer></script>
 
+        <!-- Link voor icoontjes footer-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <style>
-            h1 {
+            .content {
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 5%;
+            margin-left:15%;
+            margin-right:15%;
+            background-color:#fffff0; 
+            }
+
+            .content h1 {
             text-align: centre;
             margin-bottom: 4%;
             color: black;
@@ -20,7 +32,7 @@
             align-self:stretch;
             }
             
-            h2 {
+            .content h2 {
             text-align: center;
             margin-top: 4%;
             color: black;
@@ -29,7 +41,7 @@
             align-self:stretch;
             }
             
-            p{
+            .content p{
             text-align: center;
             margin-top: 1%;
             color: black;
@@ -37,21 +49,14 @@
             font-size: 100%;
             align-self:stretch;
             }
-            
-            .div2 {
-            text-align: center;
-            margin-top: 4%;
-            margin-bottom: 5%;
-            margin-left:15%;
-            margin-right:15%;
-            background-color:#fffff0;     
-            }
-        </style>
+            </style>
     </head>
 
     <body>
+        
+        <!-- content -->
+        <div class="content">
         <h1>Delivery</h1>
-        <div class="div2">
             <h2>Delivery information</h2>
             <p>Fit 'n Flavors ships to the Netherlands only.<br><br>
             Orders placed on business days before 23:59 will be shipped the same day and are expected to be delivered the next business day. <br><br>
@@ -59,7 +64,7 @@
             </p>
         </div>
 
-        <div class="div2">
+        <div class="content">
             <h2>Shipping rates</h2>
             <p>Fit ‘n Flavors offers FREE shipping on all orders without returns.<br><br>
             In case of a return, the shipping costs are €4,95 and will be deducted from the amount of your refund.
@@ -72,40 +77,27 @@
         <div class="footer"> 
             <div class="row">
             <div class="column">
-                <h3>About us</h3>
-                <p> At Fit 'n Flavors, we believe that nutrition forms the foundation for an energetic and balanced life. 
-                    Our company has emerged from a shared passion for health, fitness, and delicious eating.
-                    <br> 
-                    <br> 
-                    At Fit 'n Flavors, we strive to deliver high-quality, protein-rich products that are not only nutritious but also delightfully tasty. 
-                    We understand that each individual has unique goals and taste preferences, which is why we have developed a wide range of products to meet all your needs.
-                    <br> <br>
-                    We aim to inspire you to bring out the best in yourself, both in the gym and beyond. Whether you're a seasoned athlete or just starting your fitness journey, Fit 'n Flavors is here to support you every step of the way.
-                    Thank you for being a part of the Fit 'n Flavors family. Together, we are building a flavorful and healthy future!
-                    </p>
+                <h3 class="footer">About Fit 'n Flavors</h3>
+                <p class="footer"> <a href="../About_us_folder/About_us.html">About us</a></p>
+                <p class="footer"> <a href="../About_us_folder/Terms_and_conditions.html">Terms & Conditions</a></p>
             </div>
+
             <div class="column">
-                <br> <br>
-                <h3>Follow us!</h3>
-                <p><a href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
-                    <a href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
-                    <a href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
-                
-                </p>
-                <br> <br>
-                <h3>Costumerservice</h3>
-                <p class="links">
-                    <a href="FAQ.html">FAQ</a>
-                    <br>
-                    <a href="Delivery.html">Delivery information</a>
-                    <br>
-                    <a href="Returns.html">Returns and refund policy</a>
-                    <br>
-                    <a href="Contact.html">Contact</a>
+                <h3 class="footer">Costumerservice</h3>
+                <p class="footer"><a href="../FAQ/FAQ.html">FAQ</a></p>
+                <p class="footer"><a href="../FAQ/Delivery.html">Delivery information</a></p>
+                <p class="footer"><a href="../FAQ/Returns.html">Returns and refund policy</a></p>
+                <p class="footer"><a href="../FAQ/Contact.html">Contact</a></p>
+            </div>
+            
+            <div class="column">
+                <h3 class="footer">Follow us!</h3>
+                <p class="footer"><a class="footer" href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
+                    <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
                 </p>
             </div>
             </div>
-        
         </div>
 
     </body>
