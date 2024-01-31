@@ -32,7 +32,8 @@
 
     .product-image {
         max-width: 300px;
-        margin-right: 20px;
+        margin-left: 20px;
+
     }
 
         table {
@@ -45,7 +46,8 @@
             border: 1px solid #dddddd;
             text-align: left;
             padding: 12px;
-            width: 10%; /* Set a specific width for all cells */
+            width: 90%; /* Set a specific width for all cells */
+            display:block;
         }
 
         th {
@@ -60,6 +62,17 @@
             background-color: #C4AE8C;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
+        }
+
+        /* Additional styles for displaying details --> NOG VERANDEREN!! */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+        }
+
+        .product-details div {
+            margin-bottom: 10px;
         }
     </style>
  </head>
@@ -94,26 +107,13 @@ $connection = openConnection();
             $row = $result->fetch_assoc();
             echo "<img src='" . $row["ProductImage"] . "' alt = 'Product Image' style='max-width: 100% ; '>";
             echo "</div>" ;
-            echo "<table>";
-            
-            echo "<tr>
-                <th>Product Name</th>
-                <td>" . $row["ProductName"] . "</td>
-
-                <th>Price</th>
-                <td>" . $row["ProductPrice"] . "</td>
-
-                <th>Product Description</th>
-                <td>" . $row["ProductDescription"] . "</td>
-
-                <th>Protein Amount</th>
-                <td>" . $row["ProteinAmount"] . "</td>
-
-                <th>Product Stock</th>
-                <td>" . $row["ProductStock"] . "</td>
-
-            </tr>";
-            echo "</table>" ;
+            echo "<div class='product-details'>";
+            echo "<div><strong>Product Name:</strong> " . $row["ProductName"] . "</div>";
+            echo "<div><strong>Price:</strong> " . $row["ProductPrice"] . "</div>";
+            echo "<div><strong>Product Description:</strong> " . $row["ProductDescription"] . "</div>";
+            echo "<div><strong>Protein Amount:</strong> " . $row["ProteinAmount"] . "</div>";
+            echo "<div><strong>Product Stock:</strong> " . $row["ProductStock"] . "</div>";
+            echo "</div>";
         }
         else {
             echo "Product not found." ;
