@@ -80,6 +80,11 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     $result = mysqli_query($connection, $user_data);
 
     if ($result->num_rows > 0){
+        if($row["IsAdmin"] == 0){
+            $row["IsAdmin"] == 'no'
+        } else{
+            $row["IsAdmin"] == 'yes'
+        }
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
             echo "<table>";
@@ -87,7 +92,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>User Name</th>
-                    <th>Is Admin</th>
+                    <th>Admin</th>
                 </tr>";
             echo "<tr>
                     <td>" . $row["FirstName"] . "</td>
