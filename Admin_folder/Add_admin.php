@@ -30,44 +30,58 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
             
         <!-- Navigatie bar -->
         <?php include '../Navbar_folder/Navbar_link.php'; ?>
-    <style>
-        .table {
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.9em;
-            font-family: sans-serif;
-            min-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-        }
+        <style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1em;
+        font-family: 'Arial', sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
 
-        .table thead tr {
-            background-color: #009879;
-            color: #ffffff;
-            text-align: left;
-        }
+    .table thead {
+        background-color: #fff; /* White background */
+        color: #573d28; /* Brown text color */
+    }
 
-        .table th,
-        .table td {
-            padding: 12px 15px;
-        }
+    .table th,
+    .table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0d3c3; /* Beige border color */
+    }
 
-        .table tbody tr {
-            border-bottom: 1px solid #dddddd;
-        }
+    .table tbody tr {
+        transition: background-color 0.3s;
+    }
 
-        .table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
-        }
+    .table tbody tr:nth-of-type(even) {
+        background-color: #f9f9f9; /* Light beige background for even rows */
+    }
 
-        .table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
-        }
+    .table tbody tr:hover {
+        background-color: #e3dbc9; /* Light brown background for hover effect */
+    }
 
-        .table tbody tr.active-row {
-            font-weight: bold;
-            color: #009879;
-        }
-    </style>
+    .table tbody tr:last-of-type {
+        border-bottom: 2px solid #e0d3c3; /* Beige border color for the last row */
+    }
+
+    .table tbody tr.active-row {
+        font-weight: bold;
+        color: #573d28; /* Brown text color for active row */
+    }
+
+    .table a {
+        text-decoration: none;
+        color: #573d28; /* Brown link color */
+    }
+
+    .table a:hover {
+        text-decoration: underline;
+    }
+</style>
 </head>
 
 <body>
