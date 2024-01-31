@@ -31,70 +31,64 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         <!-- Navigatie bar -->
         <?php include '../Navbar_folder/Navbar_link.php'; ?>
         <style>
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 1em;
-        font-family: 'Arial', sans-serif;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .table thead {
-        background-color: #fff; /* White background */
-        color: #573d28; /* Brown text color */
-    }
-
-    .table th,
-    .table td {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 1px solid #e0d3c3; /* Beige border color */
-    }
-
-    .table tbody tr {
-        transition: background-color 0.3s;
-    }
-
-    .table tbody tr:nth-of-type(even) {
-        background-color: #f9f9f9; /* Light beige background for even rows */
-    }
-
-    .table tbody tr:hover {
-        background-color: #e3dbc9; /* Light brown background for hover effect */
-    }
-
-    .table tbody tr:last-of-type {
-        border-bottom: 2px solid #e0d3c3; /* Beige border color for the last row */
-    }
-
-    .table tbody tr.active-row {
-        font-weight: bold;
-        color: #573d28; /* Brown text color for active row */
-    }
-
-    .table a {
-        text-decoration: none;
-        color: #573d28; /* Brown link color */
-    }
-
-    .table a:hover {
-        text-decoration: underline;
-    }
-</style>
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                font-size: 1em;
+                font-family: 'Arial', sans-serif;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            }
+            .table thead {
+                background-color: #fff; 
+                color: #573d28; 
+            }
+            .table th,
+            .table td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #e0d3c3; 
+            }
+            .table tbody tr {
+                transition: background-color 0.3s;
+            }
+            .table tbody tr:nth-of-type(even) {
+                background-color: #f9f9f9; 
+            }
+            .table tbody tr:hover {
+                background-color: #e3dbc9; 
+            }
+            .table tbody tr:last-of-type {
+                border-bottom: 2px solid #e0d3c3; 
+            }
+            .table tbody tr.active-row {
+                font-weight: bold;
+                color: #573d28; 
+            }
+            .table a {
+                text-decoration: none;
+                color: #573d28; 
+            }
+            .table a:hover {
+                text-decoration: underline;
+            }
+        </style>
 </head>
 
 <body>
     <table class="table">
             <thead>
                 <tr>
+                    <!-- Column names of the display -->
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>User Name</th>
-                    <th>Admin</th>
-                        <?php 
+                    <th>Admin Status</th>
+                    <th>Select User</th>
+                        <?php
+                            // There has to be more than 0 rows in database 
                             if ($result->num_rows > 0){
-                                // Output data of each row
+                                // Add database table output per user to the displayed table
                                 while ($row = $result->fetch_assoc()) {
                                     ?>
                                     <tr>
@@ -102,17 +96,34 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                                         <td><?php echo $row["LastName"]; ?></td>
                                         <td><?php echo $row["UserName"]; ?></td>
                                         <td><?php echo $row["IsAdmin"]; ?></td>
-                                        <td><input type="radio" name="selected_user" value="<?php echo $row['UserID']; ?>"></td>
+                                        <!-- Radiobutton to select the user who is to be admin -->
+                                        <td><input type="radio" name="selected_user" value="<?php echo $row["UserName"]; ?>"></td>
                                     </tr>
                                 <?php
                                     }
                                 } else {
+                                    // Message when zero rows of data are found in the database
                                     echo "<tr><td colspan='4'>No records found</td></tr>";
                                 }
                                 ?>
                             </tbody>
                         </table>
+                    <!-- Submission at the end of the page -->
+                    <input type="submit" name="MakeAdmin" value="MakeAdmin">
                     <?php
+                    }
+
+                    if (isset($_POST['MakeAdmin'])) {
+                        $username = "UserName"
+                        if ($row["IsAdmin"] == 0){
+                            $update_user_status = "UPDATE Users 
+                            SET IsAdmin = '1' WHERE UserName = '$username';"
+                    } else{
+                            $update_user_status = "UPDATE Users 
+                            SET IsAdmin = '0' WHERE UserName = '$username';"
+                    }
+                    $result = mysqli_query($connection, $update_user_status);
+
                     }
                 
                     closeConnection($connection);
