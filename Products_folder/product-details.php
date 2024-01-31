@@ -1,28 +1,19 @@
-<?php
-include '/var/www/connections/connections.php';
-session_start();
-?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- Link naar de CSS sheet -->
-        <link rel="stylesheet" href="../Homepage_stylesheet.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details Page</title>
 
-        <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title> Homepage User </title>
-            
-        <!-- Navigatie bar -->
-        <?php
-            if (isset($_SESSION['admin']) || isset($_SESSION['user'])) {
-                ?>
-                <script src="../Navbar_folder/Navbar_loggedin.js" defer></script>
-        <?php } else {
-                ?>
-                <script src="../Navbar_folder/navbar.js" defer></script>
-        <?php  }
-        ?>  
+    <!-- Link naar de CSS sheet -->
+    <link rel="stylesheet" href="/Homepage_stylesheet.css">
+
+    <!-- Navigatie bar -->
+    <script src="../FAQ/Navbar.js" defer></script>
+
+    <!-- Link voor icoontjes footer-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
     body {
             font-family: Arial, sans-serif;
@@ -45,7 +36,7 @@ session_start();
             background-color: #f2f2f2;
         }
 
-        /* #order-button {
+        #ShoppingcartButton {
             margin-left: 50%;
             width: 500px;
             height: 50px;
@@ -53,7 +44,7 @@ session_start();
             background-color: #C4AE8C;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
-        } */
+        }
     </style>
  </head>
  
@@ -102,10 +93,25 @@ $connection = openConnection();
         echo "Product ID not provided in the URL" ;
     }
 
+    
+
 closeConnection($connection);
 
 ?>
- 
+
+<!-- Add to shoppingcart button -->
+
+<button id="ShoppingcartButton">Add to shoppingcart</button>
+
+<script>
+    var btn = document.getElementById('ShoppingcartButton');
+    btn.addEventListener('click', function () {
+        const productId = <?php echo $ProductID?>
+        // Redirect to the shoppingcart page with the product ID
+        window.location.href = `orders.php?id=${productId}`;
+    });
+</script>
+
         <!-- Footer -->
         <div class="footer"> 
             <div class="row">
@@ -138,6 +144,3 @@ closeConnection($connection);
  
  </body>
  </html>
- 
- 
- 
