@@ -1,6 +1,21 @@
 <?php
+// PHP script to extract user data from the database
 include '/var/www/connections/connections.php';
 session_start();
+$connection = openConnection();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
+    header("location: ../user_homepage.php/");
+    exit;
+} else{
+
+    // extract table users from database
+    $user_data = "SELECT * FROM Users";
+
+    // execute the query
+    $result = mysqli_query($connection, $user_data);
+
 ?>
 
 <!DOCTYPE html>
@@ -63,50 +78,37 @@ session_start();
 </head>
 
 <body>
-
-<?php 
-$connection = openConnection();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
-    header("location: ../user_homepage.php/");
-    exit;
-} else{
-
-    // extract table users from database
-    $user_data = "SELECT * FROM Users";
-
-    // execute the query
-    $result = mysqli_query($connection, $user_data);
-
-    if ($result->num_rows > 0){
-        if($row["IsAdmin"] == 0){
-            $row["IsAdmin"] == 'no'
-        } else{
-            $row["IsAdmin"] == 'yes'
-        }
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "<table>";
-            echo "<tr>
+    <table class="table">
+            <thead>
+                <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>User Name</th>
                     <th>Admin</th>
-                </tr>";
-            echo "<tr>
-                    <td>" . $row["FirstName"] . "</td>
-                    <td>" . $row["LastName"] . "</td>
-                    <td>" . $row["UserName"] . "</td>
-                    <td>" . $row["IsAdmin"] . "</td>
-                </tr>";
-            echo "</table>";
-        }
-    }
-}
-closeConnection($connection);
-
-?>
+                        <?php 
+                            if ($result->num_rows > 0){
+                                // Output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row["FirstName"]; ?></td>
+                                        <td><?php echo $row["LastName"]; ?></td>
+                                        <td><?php echo $row["UserName"]; ?></td>
+                                        <td><?php echo $row["IsAdmin"]; ?></td>
+                                    </tr>
+                                <?php
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='4'>No records found</td></tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    <?php
+                    }
+                
+                    closeConnection($connection);
+                    ?>
 
         <!-- Footer -->
         <div class="footer"> 
