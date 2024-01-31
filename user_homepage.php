@@ -50,8 +50,6 @@ session_start();
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
-        <!-- Footer -->
-        <?php include '/Navbar_folder/Footer.php'; ?>
 
         <script>
         let slideIndex = 1;
@@ -88,7 +86,8 @@ session_start();
         <h1> Welcome to Fit 'n Flavors! </h1>
         <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
 
-
+        <!-- Footer -->
+        <?php include '../Navbar_folder/Footer.php'; ?>
         
     </body>
 </html>
