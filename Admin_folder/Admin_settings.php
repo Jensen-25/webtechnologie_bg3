@@ -23,7 +23,47 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
             
         <!-- Navigatie bar -->
         <?php include '../Navbar_folder/Navbar_link.php'; ?>
+<style>
+        /* Set height of body and the document to 100% to enable "full page tabs" */
+        body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial;
+        }
+
+        /* Style tab links */
+        .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+        }
+
+        .tablink:hover {
+        background-color: #777;
+        }
+
+        /* Style the tab content (and add height:100% for full page content) */
+        .tabcontent {
+        color: white;
+        display: none;
+        padding: 100px 20px;
+        height: 100%;
+        }
+
+        #Home {background-color: red;}
+        #News {background-color: green;}
+        #Contact {background-color: blue;}
+        #About {background-color: orange;}
+</style>
+
 </head>
+
 <body>
     <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
     <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
@@ -38,7 +78,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     <div id="News" class="tabcontent">
     <h3>News</h3>
     <p>Some news this fine day!</p> 
-    <?php include 'Admin_folder/Add_admin.php'; ?>
+    <?php include '../Admin_folder/Add_admin.php'; ?>
     </div>
 
     <div id="Contact" class="tabcontent">
