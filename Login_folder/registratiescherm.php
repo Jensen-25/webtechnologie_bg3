@@ -281,8 +281,10 @@ session_start();
                     var password2 = document.getElementById("password_2").value;
     
                     // Checking if a box is not empty or an email is not valid or a password is not valid
-                    if (inputValue.trim() === '' || (inputType === 'email' && !validateEmail(inputValue)) || 
-                    (inputType === 'password' && !validatePassword(inputValue))) {
+                    if (inputValue.trim() === '' || 
+                    (inputType === 'email' && !validateEmail(inputValue)) || 
+                    (inputType === 'password' && !validatePassword(inputValue)) || 
+                    (inputType === 'phonenumber' && !validatePhonenumber(inputValue))) {
                         isValid = false;
                         alert('Please enter a valid ' + inputId + '.');
                         break;
@@ -309,10 +311,23 @@ session_start();
                     }
                 }
             }
+            
+            // Simple phonenumber validation
+            function validatePhonenumber(phonenumber) {
+                // Should be 10 characters long
+                if (!phonenumber.length === 10) {
+                    return false;
+                }
+                // Should only contain numbers
+                if (!/^[0-9]+$/.test(phonenumber)) {
+                    return false;
+                }
+                return true;
+            }
     
             // Simple email validation using a regular expression
             function validateEmail(email) {
-                // Deze emailRegex is van het internet gehaald op w3schools.com
+                // This emailRegex is taken from w3schools.com
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return emailRegex.test(email);
             }
@@ -322,27 +337,22 @@ session_start();
                 if (password.length < 8) {
                     return false;
                 }
-    
                 // Should contain at least one uppercase letter
                 if (!/[A-Z]/.test(password)) {
                     return false;
                 }
-    
                 // Should contain at least one lowercase letter
                 if (!/[a-z]/.test(password)) {
                     return false;
                 }
-    
                 // Should contain at least one digit
                 if (!/\d/.test(password)) {
                     return false;
                 }
-    
                 // Should contain at least one special character (you can customize this set)
                 if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
                     return false;
                 }
-    
                 // All criteria met, so the password is valid
                 return true;
             }
