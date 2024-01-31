@@ -9,6 +9,5 @@
     </script>
 </head>
 <body>
-    <p>If you are not redirected, <a href="user_homepage.php" click here </a>.</p>
 </body>
 </html>
