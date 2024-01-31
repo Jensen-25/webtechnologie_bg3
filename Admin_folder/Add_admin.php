@@ -117,14 +117,14 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                         $username = "UserName";
                         if ($row["IsAdmin"] == 0){
                             $update_user_status = "UPDATE Users 
-                            SET IsAdmin = '1' WHERE UserName = '$username';"
+                            SET IsAdmin = '1' WHERE UserName = '$username'";
                     } else{
                             $update_user_status = "UPDATE Users 
-                            SET IsAdmin = '0' WHERE UserName = '$username';"
-                    }
+                            SET IsAdmin = '0' WHERE UserName = '$username'";
+                    };
                     $result = mysqli_query($connection, $update_user_status);
 
-                    }
+                    };
                 
                     closeConnection($connection);
                     ?>
