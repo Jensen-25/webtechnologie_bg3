@@ -26,7 +26,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 </head>
 
 <body>
-<a href="Admin_folder/Add_admin.php"> Fit 'n Flavors Admins </a>
+<a href="../Admin_folder/Add_admin.php"> Fit 'n Flavors Admins </a>
 <a href="Admin_folder/Add_products.php"> Fit 'n Flavors Products </a>
 
 </body>
