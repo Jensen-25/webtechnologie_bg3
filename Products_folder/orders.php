@@ -73,11 +73,13 @@ $connection = openConnection();
 
 
             // Add product to ordered products database
-            $ordered_product_data = "INSERT INTO OrderedProducts(OrderID) VALUES ($OrderID)" ;
+            $insert_order_query = "INSERT INTO OrderedProducts(OrderID) VALUES ($OrderID)" ;
             
-            $ordered_product_data = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
+            $insert_product_query = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
             SELECT ProductID, ProductPrice FROM Products
             WHERE ProductID='$productID'";
+
+            $ordered_products_data = "SELECT * FROM OrderedProducts" ;
 
             // extract table products from database
             $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
