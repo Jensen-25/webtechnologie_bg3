@@ -114,7 +114,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                     }
 
                     if (isset($_POST['MakeAdmin'])) {
-                        $username = "UserName"
+                        $username = "UserName";
                         if ($row["IsAdmin"] == 0){
                             $update_user_status = "UPDATE Users 
                             SET IsAdmin = '1' WHERE UserName = '$username';"
