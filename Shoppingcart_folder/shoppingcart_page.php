@@ -1,3 +1,9 @@
+<?php
+include '/var/www/connections/connections.php';
+
+session_start();
+$connection = openConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,19 +44,25 @@
         th {
             background-color: #f2f2f2;
         }
+
+        #CheckoutButton {
+            margin-left: 50%;
+            width: 500px;
+            height: 50px;
+            color: white;
+            background-color: #C4AE8C;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
     </style>
 
 <body>
 
+<h1><b>Shoppingcart</b></h1>
+<p>Your items:</p>
 
 <?php 
 
-include '/var/www/connections/connections.php';
-
-// Initialize the session
-session_start();
-
-$connection = openConnection();
 
     // Check if the Order ID is provided in the URL
     if (isset($_GET['id'])){
