@@ -62,7 +62,7 @@ $connection = openConnection();
 <p>Your items:</p>
 
 <?php 
-session_start();
+
 
 // Check if the shopping cart and product quantities arrays are set in the session
 if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
