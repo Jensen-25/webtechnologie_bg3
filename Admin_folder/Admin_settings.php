@@ -30,4 +30,4 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 <a href="Admin_folder/Add_products.php"> Fit 'n Flavors Products </a>
 
 </body>
-
+<?php } ?>
