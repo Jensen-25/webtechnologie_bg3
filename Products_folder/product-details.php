@@ -18,6 +18,22 @@
     body {
             font-family: Arial, sans-serif;
         }
+    
+    /* nog aanpassen! */
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+
+    .product-image {
+        max-width: 300px;
+        margin-right: 20px;
+    }
 
         table {
             border-collapse: collapse;
@@ -50,7 +66,7 @@
  
  
  <body>
-
+<div class="container">
 <?php 
 
 include '/var/www/connections/connections.php';
@@ -74,15 +90,28 @@ $connection = openConnection();
 
         if ($result->num_rows == 1 ){
             // Output data of each row
-            echo "<table>";
+            echo "<div class='product-image'>";
             $row = $result->fetch_assoc();
+            echo "<img src='" . $row["ProductImage"] . "' alt = 'Product Image' style='max-width: 100% ; '>";
+            echo "</div>" ;
+            echo "<table>";
+            
             echo "<tr>
+                <th>Product Name</th>
                 <td>" . $row["ProductName"] . "</td>
+
+                <th>Price</th>
                 <td>" . $row["ProductPrice"] . "</td>
+
+                <th>Product Description</th>
                 <td>" . $row["ProductDescription"] . "</td>
-                <td>" . $row["ProductImage"] . "</td>
+
+                <th>Protein Amount</th>
                 <td>" . $row["ProteinAmount"] . "</td>
+
+                <th>Product Stock</th>
                 <td>" . $row["ProductStock"] . "</td>
+
             </tr>";
             echo "</table>" ;
         }
@@ -102,6 +131,8 @@ closeConnection($connection);
 <!-- Add to shoppingcart button -->
 
 <button id="ShoppingcartButton">Add to shoppingcart</button>
+
+</div>
 
 <script>
     var btn = document.getElementById('ShoppingcartButton');
