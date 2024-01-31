@@ -12,10 +12,23 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html>\
 <html>
     <head>
-    <style>
+        <!-- Link naar de CSS sheet -->
+        <link rel="stylesheet" href="../Homepage_stylesheet.css">
+
+        <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            
+        <!-- Navigatie bar -->
+        <?php include '../Navbar_folder/Navbar_link.php'; ?>
+
+
+</head>
+
+<body>
+<style>
         /* Set height of body and the document to 100% to enable "full page tabs" */
         body, html {
         height: 100%;
@@ -53,19 +66,6 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         #Contact {background-color: #CD7F32;}
         #About {background-color: #A52A2A;}
 </style>
-        <!-- Link naar de CSS sheet -->
-        <link rel="stylesheet" href="../Homepage_stylesheet.css">
-
-        <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            
-        <!-- Navigatie bar -->
-        <?php include '../Navbar_folder/Navbar_link.php'; ?>
-
-
-</head>
-
-<body>
     <button class="tablink" onclick="openPage('Home', this, '#A52A2A')">Home</button>
     <button class="tablink" onclick="openPage('News', this, 'E1C16E')" id="defaultOpen">News</button>
     <button class="tablink" onclick="openPage('Contact', this, '#CD7F32')">Contact</button>
@@ -79,7 +79,6 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     <div id="News" class="tabcontent">
     <h3>News</h3>
     <p>Some news this fine day!</p> 
-    <?php include '../Admin_folder/Add_admin.php'; ?>
     </div>
 
     <div id="Contact" class="tabcontent">
