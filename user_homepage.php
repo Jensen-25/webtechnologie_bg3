@@ -16,10 +16,6 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-=======
-
->>>>>>> b7edf6d79c0a809b0215715a7fad656da0d507b8
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="Homepage_stylesheet.css">
 
@@ -192,8 +188,6 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
 
 
     <body>
-<<<<<<< HEAD
-=======
        
     
     <body>
@@ -201,7 +195,6 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
         <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
 
 
->>>>>>> b7edf6d79c0a809b0215715a7fad656da0d507b8
         <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
@@ -270,17 +263,10 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             <p>Shop all your favorite protein brands in one place and elevate your fitness journey with devine flavors!" </p>
             </div>
 
-<<<<<<< HEAD
-        <h1> Welcome to Fit 'n Flavors! </h1>
-        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
-
-
-=======
             <!-- <button class="button button1">Start shopping</button> -->
             <div class="button-block">
             <a class="button button1" href="Products_folder/main_products_page.php">Start shopping</a>
         </div>
->>>>>>> b7edf6d79c0a809b0215715a7fad656da0d507b8
         <!-- Footer -->
         <?php include 'Navbar_folder/Footer.php'; ?>
         
