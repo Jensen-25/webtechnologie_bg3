@@ -1,7 +1,7 @@
-<!-- <?php
+<?php
  session_start();
  include '/var/www/connections/connections.php';
-?> -->
+?>
 
 <!DOCTYPE html>
     <html>
@@ -21,8 +21,8 @@
 
             <style>
                 .content {
-                margin-top: 5%;
-                margin-bottom: 5%;
+                margin-top: 2%;
+                margin-bottom: 2%;
                 display: flex;
                 align-self: center;
                 align-items: center;
@@ -42,7 +42,6 @@
                 align-items: center;
                 }
 
-
                 input[type="text"],
                 input[type="password"] {
                 width: 100%;
@@ -54,6 +53,7 @@
                 box-sizing: border-box;
                 flex-direction: column;
                 margin-bottom: 20px;
+                font-family: Arial, Helvetica, sans-serif;
                 }
 
                 input[type="text"]:focus,
@@ -117,7 +117,7 @@
                 border-radius: 25px;
                 padding: 10px 20px;
                 font-size: 17px;
-                font-family: Raleway;
+                font-family: Arial, Helvetica, sans-serif;
                 cursor: pointer;
                 } 
 
