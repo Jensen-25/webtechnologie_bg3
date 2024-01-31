@@ -19,10 +19,12 @@ session_start();
         <!-- Navigatie bar -->
         <?php
             if (isset($_SESSION['admin']) || isset($_SESSION['user'])) {
-                include 'Navbar_folder/Navbar_loggedin.js';
-            } else {
-                include 'Navbar_folder/navbar.js';
-            }
+                ?>
+                <script src="../FAQ/navbar.js" defer></script>
+        <?php } else {
+                ?>
+                <script src="../Navbar_folder/Navbar_loggedin.js" defer></script>
+        <?php  }
     ?>
     </head>
 
