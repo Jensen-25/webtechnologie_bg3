@@ -88,7 +88,7 @@ session_start();
 
 
         <!-- Footer -->
-        <?php include '/Navbar_folder/Footer.php'; ?>
+        <?php include '../Navbar_folder/Footer.php'; ?>
 
     </body>
 </html>
