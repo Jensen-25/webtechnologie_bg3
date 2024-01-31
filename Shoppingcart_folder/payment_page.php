@@ -67,6 +67,7 @@
 
 
         <body>
+
             <div class="content">
             <form class="payment-box" id="PaymentForm" action="PHP BESTAND" method="post" >
                 <h1><b>Payment</b></h1>
@@ -110,6 +111,38 @@
                 
             </form>
             </div>
+
+            <?php 
+            session_start();
+            include '/var/www/connections/connections.php';
+            $connection = openConnection();
+
+            if (isset($_POST['Proceed'])) {
+                // Sanitize en get data from form
+                $FirstName = mysqli_real_escape_string($connection, $_POST['firstname']);
+                $LastName = mysqli_real_escape_string($connection, $_POST['lastname']);
+                $PostalCode = mysqli_real_escape_string($connection, $_POST['PostalCode']);
+                // $StreetName = mysqli_real_escape_string($connection, $_POST['']);
+                $HouseNumber = mysqli_real_escape_string($connection, $_POST['HouseNumber']);
+
+                // Adressquery to add data in the adresses table
+                $AdressQuery = "INSERT INTO Adresses (PostalCode, HouseNumber)
+                        VALUES ('$PostalCode', '$HouseNumber')";
+                
+                // OrdersQuery to add data in the orders table
+                $OrdersQuery = "INSERT INTO Orders (OrderID, UserID, AdresID, OrderDate, PaidDateTime)
+                        VALUES ('$OrderID', '$UserID', '$AdresID','$OrderDate', '$PaidDateTime')";
+
+                // Execute the Adress query
+                $ResultAdress = mysqli_query($connection, $AdressQuery);
+                
+                // Execute the orders query
+                $ResultOrders = mysqli_query($connection, $OrdersQuery);
+            }
+
+            // Sluit de databaseverbinding
+            closeConnection($connection);
+            ?>
             <?php include '../Navbar_folder/Footer.php'; ?>
 
         </body>

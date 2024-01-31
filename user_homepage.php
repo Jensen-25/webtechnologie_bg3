@@ -32,7 +32,7 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            /* margin: 4px 2px; */
+            margin: 4px 2px;
             transition-duration: 0.4s;
             cursor: pointer;
             }
@@ -87,6 +87,7 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             z-index: 10000;
             color: white;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 1%;
         }
 
         #cookie-popup p {
