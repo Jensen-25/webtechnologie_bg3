@@ -102,57 +102,6 @@ $connection = openConnection();
         $result = mysqli_query($connection, $product_data);
 
         if ($result->num_rows == 1 ){
-<<<<<<< HEAD
-            ?>
-                <div class='product-image'>
-                    <img src='<?php echo $row["ProductImage"]; ?>' alt='Product Image' style='max-width: 100%;'>
-                        </div>
-                        <table>
-                            <tr>
-                                <th>Product Name</th>
-                                <td><?php echo $row["ProductName"]; ?></td>
-
-                                <th>Price</th>
-                                <td><?php echo $row["ProductPrice"]; ?></td>
-
-                                <th>Product Description</th>
-                                <td><?php echo $row["ProductDescription"]; ?></td>
-
-                                <th>Protein Amount</th>
-                                <td><?php echo $row["ProteinAmount"]; ?></td>
-
-                                <th>Product Stock</th>
-                                <td><?php echo $row["ProductStock"]; ?></td>
-                            </tr>
-                        </table>
-
-            <?php
-            // // Output data of each row
-            // echo "<div class='product-image'>";
-            // $row = $result->fetch_assoc();
-            // echo "<img src='" . $row["ProductImage"] . "' alt = 'Product Image' style='max-width: 100% ; '>";
-            // echo "</div>" ;
-            // echo "<table>";
-            
-            // echo "<tr>
-            //     <th>Product Name</th>
-            //     <td>" . $row["ProductName"] . "</td>
-
-            //     <th>Price</th>
-            //     <td>" . $row["ProductPrice"] . "</td>
-
-            //     <th>Product Description</th>
-            //     <td>" . $row["ProductDescription"] . "</td>
-
-            //     <th>Protein Amount</th>
-            //     <td>" . $row["ProteinAmount"] . "</td>
-
-            //     <th>Product Stock</th>
-            //     <td>" . $row["ProductStock"] . "</td>
-
-            // </tr>";
-            // echo "</table>" ;
-=======
             // Output data of each row
             echo "<div class='product-image'>";
             $row = $result->fetch_assoc();
@@ -165,7 +114,6 @@ $connection = openConnection();
             echo "<div><strong>Protein Amount:</strong> " . $row["ProteinAmount"] . "</div>";
             echo "<div><strong>Product Stock:</strong> " . $row["ProductStock"] . "</div>";
             echo "</div>";
->>>>>>> 1afab0705d52d0f195257283831a1cc483e6816b
         }
         else {
             echo "Product not found." ;
