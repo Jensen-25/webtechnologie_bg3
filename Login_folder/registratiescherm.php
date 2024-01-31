@@ -10,7 +10,7 @@ session_start();
 <html>
     <head>
         <!-- Link naar de CSS sheet -->
-        <link rel="stylesheet" href="Homepage_stylesheet.css">
+        <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
         <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
