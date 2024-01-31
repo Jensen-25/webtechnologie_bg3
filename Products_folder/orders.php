@@ -72,9 +72,16 @@ $connection = openConnection();
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
-        // // Check if the user is logged in and set an order ID for that user
-        // if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
+        if (isset($_POST['submit'])) {
             $OrderID = rand();
+            
+
+
+            $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
+            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
+
+            // Voer de query uit
+            $resultaat = mysqli_query($connection, $sql);
 
 
             // Add product to ordered products database
@@ -110,6 +117,7 @@ $connection = openConnection();
     else {
         echo "Product ID not provided in the URL" ;
     }
+}
 
 
 
