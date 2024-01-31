@@ -75,15 +75,6 @@ $connection = openConnection();
         if (isset($_POST['submit'])) {
             $OrderID = rand();
             
-
-
-            $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
-            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
-
-            // Voer de query uit
-            $resultaat = mysqli_query($connection, $sql);
-
-
             // Add product to ordered products database
             $insert_order_query = "INSERT INTO OrderedProducts(OrderID) VALUES ($OrderID)" ;
             
