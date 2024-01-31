@@ -289,10 +289,12 @@ session_start();
                     }
     
                     //   Alert user if the password and repeat password do not match
-                    if (!ValidateMatchingPasswords(password1, password2)) {
-                        isValid = false;
-                        alert('Your passwords do not match');
-                        break;
+                    if (currentStep === 3) {
+                        if (!ValidateMatchingPasswords(password1, password2)) {
+                            isValid = false;
+                            alert('Your passwords do not match');
+                            break;
+                        }
                     }
                 }
     
