@@ -136,7 +136,7 @@ closeConnection($connection);
     btn.addEventListener('click', function () {
         const productId = <?php echo $productID ?>;
         // Redirect to the shopping cart page with the product ID
-        window.location.href = `shoppingcart_page.php?id=${productId}`;
+        window.location.href = `shoppingcart_page.php?`;
     });
 </script>
         <!-- Footer -->
