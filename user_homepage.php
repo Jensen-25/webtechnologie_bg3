@@ -9,17 +9,71 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="Homepage_stylesheet.css">
 
         <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title> Homepage User </title>
+
+        <title>Homepage</title>
+        <style>
+            .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            /* margin: 4px 2px; */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            }
+
+            .button1 {
+            background-color: #C4AE8C; 
+            color: black; 
+            border: 2px solid #C4AE8C;
+            align-self: center;
+            }
+
+            .button1:hover {
+            background-color: #D9C7AA;
+            color: white;
+            }
+
+            .button-block {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            justify-content: center;
+            display: flex;
+            }
+            
+            .description {
+            margin-top: 4%;
+            margin-bottom: 4%;
+            margin-left: 25%;
+            margin-right: 25%;
+            }
+            
+            .description p {
+            color: black;
+            font-size: 110%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            }
+        </style>
             
         <?php include 'Navbar_folder/Navbar_link.php'; ?>
     </head>
 
     <body>
+
+        <h1> Welcome to Fit 'n Flavors! </h1>
+        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
+
         <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
@@ -81,11 +135,16 @@ session_start();
         dots[slideIndex-1].className += " active";
         }
         </script>
+        <div class="description">
+        <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones.
+        <p>Indulge in a curated selection of top-notch protein brands that cater to your fitness goals and tantalize your taste buds with a symphony of flavors. From the bold richness of chocolate to the refreshing zest of fruit-inspired blends, we've got it all.
+        <p>Shop all your favorite protein brands in one place and <br>elevate your fitness journey with devine flavors!" 
+        </div>
 
-
-        <h1> Welcome to Fit 'n Flavors! </h1>
-        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
-
+        <!-- <button class="button button1">Start shopping</button> -->
+        <div class="button-block">
+        <a class="button button1" href="Products_folder/main_products_page.php">Start shopping</a>
+        </div>
 
         <!-- Footer -->
         <div class="footer"> 
