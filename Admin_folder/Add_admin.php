@@ -129,7 +129,8 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                                     echo '<p class="error-message">Error updating user status.</p>';
                                 }
                             }
-    }
+                        }
+    ?>
 
         <!-- Footer -->
         <div class="footer"> 
