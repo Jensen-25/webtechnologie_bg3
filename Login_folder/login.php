@@ -39,7 +39,6 @@ if(isset($_POST['submit'])){
                 // set cookie for username and password if remember me chosen
                 if (isset($_POST['remember'])){
                     setcookie("user", $row['UserName'], time() + (86400 * 30));
-                    setcookie("pass", $row['Password'], time() + (86400 * 30));
                 }
                 // Redirect to the admin homepage
                 header('location:../user_homepage.php');

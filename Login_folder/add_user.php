@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $phonenumber = mysqli_real_escape_string($connection, $_POST['phonenumber']);
     $username = mysqli_real_escape_string($connection, $_POST['username']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $password = $_POST['password'];
     $password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
 
     // Controleer of de wachtwoorden overeenkomen
