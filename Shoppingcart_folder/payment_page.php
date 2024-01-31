@@ -110,6 +110,7 @@
                 
             </form>
             </div>
+            <?php include '../Navbar_folder/Footer.php'; ?>
 
         </body>
 

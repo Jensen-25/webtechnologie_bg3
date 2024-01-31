@@ -29,4 +29,5 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 <a href="../Admin_folder/Add_admin.php"> Fit 'n Flavors Admins </a>
 <a href="Admin_folder/Add_products.php"> Fit 'n Flavors Products </a>
 
+<?php include '../Navbar_folder/Footer.php'; ?>
 </body>
