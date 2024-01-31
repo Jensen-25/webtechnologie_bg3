@@ -76,6 +76,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 </head>
 
 <body>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <table class="table">
             <thead>
                 <tr>
@@ -110,6 +111,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                         </table>
                     <!-- Submission at the end of the page -->
                     <input type="submit" name="MakeAdmin" value="MakeAdmin">
+                    </form>
                     <?php
                         if (isset($_POST['MakeAdmin'])) {
                             $selected_user = isset($_POST['selected_user']) ? $_POST['selected_user'] : '';
