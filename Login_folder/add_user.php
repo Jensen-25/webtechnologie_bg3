@@ -5,26 +5,28 @@ include '/var/www/connections/connections.php';
 $connection = openConnection();
 
 // Check if form is submitted
-if (isset($_POST['submit'])) {
-    // Get reCAPTCHA-response from form
-    $recaptchaResponse = $_POST['g-recaptcha-response'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Check if reCAPTCHA-response is set
+    if (isset($_POST['g-recaptcha-response'])) {
+        // Get reCAPTCHA-response from form
+        $recaptchaResponse = $_POST['g-recaptcha-response'];
 
-    // Verify reCAPTCHA-response with API
-    $secretKey = '6LfkU2IpAAAAAIU6SiQEgYxV-RbeBXNvza0PLzaG';
-    $verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}";
+        // Verify reCAPTCHA-response with API
+        $secretKey = '6LfkU2IpAAAAAIU6SiQEgYxV-RbeBXNvza0PLzaG';
+        $verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}";
 
-    $recaptchaData = file_get_contents($verificationUrl);
-    $recaptchaResult = json_decode($recaptchaData);
+        $recaptchaData = file_get_contents($verificationUrl);
+        $recaptchaResult = json_decode($recaptchaData);
 
-    // Check if verification has succeeded
-    if ($recaptchaResult->success) {
-        echo "Verification succeeded!";
+        // Check if verification has succeeded
+        if ($recaptchaResult->success) {
+            echo "Verification succeeded!";
+        } else {
+            echo "Verification failed. Try again.";
+        }
     } else {
-        echo "Verification failed. Try again.";
+        echo "Please submit registration form.";
     }
-} else {
-    echo "Please submit registration form.";
-}
 
 // Functie om te controleren of een gebruiker al in de database bestaat op basis van het e-mailadres
 function userExists($connection, $email) {
