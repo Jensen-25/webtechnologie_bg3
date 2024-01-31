@@ -20,7 +20,7 @@ session_start();
     </head>
 
     <body>
-    <?php include_once 'cookies.php'; ?>
+    <?php include 'cookies.php'; ?>
         <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
