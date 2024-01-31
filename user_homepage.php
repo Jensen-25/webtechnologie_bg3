@@ -20,7 +20,7 @@ session_start();
     </head>
 
     <body>
-    <?php include '../coockies.php'; ?>
+    <?php include_once 'coockies.php'; ?>
         <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
