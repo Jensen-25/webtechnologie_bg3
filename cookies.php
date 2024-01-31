@@ -11,7 +11,7 @@
     background-color: #ADD8E6;
     color: #fff;
     border-radius: 8px;
-    z-index: 100;
+    z-index: 10000;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
