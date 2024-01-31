@@ -5,7 +5,7 @@ include '/var/www/connections/connections.php';
 $connection = openConnection();
 
 // Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if (isset($_POST['submit'])) {
     // Get reCAPTCHA-response from form
     $recaptchaResponse = $_POST['g-recaptcha-response'];
 
