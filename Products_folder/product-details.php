@@ -59,12 +59,7 @@ include '/var/www/connections/connections.php';
 session_start();
 
 $connection = openConnection();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
-    header("location: ../user_homepage.php/");
-    exit;
-} else{
+
 
     // Check if the product ID is provided in the URL
     if (isset($_GET['id'])){
@@ -77,19 +72,19 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         // execute the query
         $result = mysqli_query($connection, $product_data);
 
-        if ($result->num_rows > 0){
+        if ($result->num_rows == 1 ){
             // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                echo "<table>";
-                echo "<tr>
-                    <td>" . $row["ProductName"] . "</td>
-                    <td>" . $row["ProductPrice"] . "</td>
-                    <td>" . $row["ProductDescription"] . "</td>
-                    <td>" . $row["ProductImage"] . "</td>
-                    <td>" . $row["ProteinAmount"] . "</td>
-                    <td>" . $row["ProductStock"] . "</td>
-                </tr>";
-            }
+            echo "<table>";
+            $row = $result->fetch_assoc();
+            echo "<tr>
+                <td>" . $row["ProductName"] . "</td>
+                <td>" . $row["ProductPrice"] . "</td>
+                <td>" . $row["ProductDescription"] . "</td>
+                <td>" . $row["ProductImage"] . "</td>
+                <td>" . $row["ProteinAmount"] . "</td>
+                <td>" . $row["ProductStock"] . "</td>
+            </tr>";
+            echo "</table>" ;
         }
         else {
             echo "Product not found." ;
@@ -97,8 +92,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     } else {
         echo "Product ID not provided in the URL" ;
     }
- 
-}
+
 closeConnection($connection);
 
 ?>
