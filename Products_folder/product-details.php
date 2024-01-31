@@ -1,3 +1,8 @@
+<?php
+include '/var/www/connections/connections.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
