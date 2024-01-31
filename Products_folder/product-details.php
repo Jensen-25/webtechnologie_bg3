@@ -127,7 +127,7 @@ closeConnection($connection);
 
 <!-- Add to shoppingcart button -->
 
-<button id="ShoppingcartButton">Add to shoppingcart</button>
+<button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
 
 </div>
 

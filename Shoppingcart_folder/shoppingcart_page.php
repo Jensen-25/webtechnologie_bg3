@@ -62,32 +62,43 @@ $connection = openConnection();
 <p>Your items:</p>
 
 <?php 
+session_start();
 
+// Check if the shopping cart and product quantities arrays are set in the session
+if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
+    // Connect to the database and retrieve product details based on the product IDs in the shopping cart
+    include '/var/www/connections/connections.php';
+    $connection = openConnection();
 
-    // Check if the Order ID is provided in the URL
-    if (isset($_GET['id'])){
-      $OrderID = (int)$_GET['id'];
+    echo "<h2>Shopping Cart:</h2>";
 
-      // extract table OrderedProducts from database
-      $orderedproducts_data = "SELECT * FROM OrderedProducts WHERE OrderID = $OrderID" ;
+    // Loop through each product in the shopping cart
+    foreach ($_SESSION['shopping_cart'] as $productId) {
+        // Retrieve product details from the database
+        $product_data = "SELECT * FROM Products WHERE ProductID = $productId";
+        $result = mysqli_query($connection, $product_data);
 
-      // execute the query
-      $result = mysqli_query($connection, $orderedproducts_data);
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
 
-      if ($result->num_rows > 0){
-          // Output data of each row
-          while ($row = $result->fetch_assoc()) {
-              echo "<table>";
-              echo "<tr>
-                  <td>" . $row["ProductID"] . "</td>
-                  <td>" . $row["ProductAmount"] . "</td>
-                  <td>" . $row["ProductPrice"] . "</td>
-                </tr>";
-          }
-      }
+            // Display product details and quantity
+            echo "<div>";
+            echo "<img src='" . $row["ProductImage"] . "' alt='Product Image' style='max-width: 100%;'>";
+            echo "<div><strong>Product Name:</strong> " . $row["ProductName"] . "</div>";
+            echo "<div><strong>Price:</strong> " . $row["ProductPrice"] . "</div>";
+            echo "<div><strong>Quantity:</strong> " . $_SESSION['product_quantities'][$productId] . "</div>";
+            // Add more details if needed
+
+            echo "</div>";
+        }
     }
-closeConnection($connection);
 
+    closeConnection($connection);
+} else {
+    echo "<p>Your shopping cart is empty.</p>";
+}
+
+closeConnection($connection);
 ?>
 
 

@@ -1,3 +1,11 @@
+<?php 
+include '/var/www/connections/connections.php';
+
+// Initialize the session
+session_start();
+
+$connection = openConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,20 +77,11 @@
 <h1><b> The product has been added to your shoppingcart! <b></h1>
 
 <?php 
-
-include '/var/www/connections/connections.php';
-
-// Initialize the session
-session_start();
-
-$connection = openConnection();
-
-
     // Check if the product ID is provided in the URL
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
-        if (isset($_POST['submit'])) {
+        if (isset($_POST['add'])) {
             $OrderID = rand();
 
             // Add product to ordered products database
