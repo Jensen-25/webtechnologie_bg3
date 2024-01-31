@@ -110,8 +110,8 @@ closeConnection($connection);
 <button id="ShoppingcartButton">Go to shoppingcart</button>
 
 <script>
-    var btn = document.getElementById('ShoppingcartButton');
-    btn.addEventListener('click', function () {
+    var shoppingbtn = document.getElementById('ShoppingcartButton');
+    shoppingbtn.addEventListener('click', function () {
         const OrderId = <?php echo $OrderID?>
         // Redirect to the shoppingcart page with the product ID
         window.location.href = `shoppingcart_page.php?id=${OrderId}`;
@@ -122,8 +122,8 @@ closeConnection($connection);
 <button id="ProductsButton">Go to products</button>
 
 <script>
-    var btn = document.getElementById('ProductsButton');
-    btn.addEventListener('click', function () {
+    var productsbtn = document.getElementById('ProductsButton');
+    productsbtn.addEventListener('click', function () {
         window.location.href = `main_products_page.html`;
     });
 </script>
