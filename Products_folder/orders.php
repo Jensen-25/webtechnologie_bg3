@@ -37,6 +37,16 @@
         }
 
         #ShoppingcartButton {
+            margin-left: 30%;
+            width: 500px;
+            height: 50px;
+            color: white;
+            background-color: #C4AE8C;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 150%;
+        }
+
+        #ProductsButton {
             margin-left: 50%;
             width: 500px;
             height: 50px;
