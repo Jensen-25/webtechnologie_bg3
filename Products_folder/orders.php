@@ -67,8 +67,8 @@ $connection = openConnection();
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
-        // Check if the user is logged in and set an order ID for that user
-        if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
+        // // Check if the user is logged in and set an order ID for that user
+        // if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
             $OrderID = rand();
 
 
@@ -99,7 +99,8 @@ $connection = openConnection();
                 echo "Product not found." ;
             }
         } 
-    }else {
+    // }
+    else {
         echo "Product ID not provided in the URL" ;
     }
 
