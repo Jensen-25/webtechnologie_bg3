@@ -111,23 +111,25 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                     <!-- Submission at the end of the page -->
                     <input type="submit" name="MakeAdmin" value="MakeAdmin">
                     <?php
-                    }
+                        if (isset($_POST['MakeAdmin'])) {
+                            $selected_user = isset($_POST['selected_user']) ? $_POST['selected_user'] : '';
+                            if (!empty($selected_user)) {
+                                $update_user_status = "UPDATE Users 
+                                                    SET IsAdmin = CASE 
+                                                                    WHEN IsAdmin = 0 THEN 1
+                                                                    WHEN IsAdmin = 1 THEN 0
+                                                                    ELSE IsAdmin
+                                                                END
+                                                    WHERE UserName = '$selected_user'";
+                                $result = mysqli_query($connection, $update_user_status);
 
-                    if (isset($_POST['MakeAdmin'])) {
-                        $username = "UserName";
-                        if ($row["IsAdmin"] == 0){
-                            $update_user_status = "UPDATE Users 
-                            SET IsAdmin = '1' WHERE UserName = '$username'";
-                    } else{
-                            $update_user_status = "UPDATE Users 
-                            SET IsAdmin = '0' WHERE UserName = '$username'";
-                    };
-                    $result = mysqli_query($connection, $update_user_status);
-
-                    };
-                
-                    closeConnection($connection);
-                    ?>
+                                if ($result) {
+                                    echo '<p class="success-message">User ' . $selected_user . ' is now an admin.</p>';
+                                } else {
+                                    echo '<p class="error-message">Error updating user status.</p>';
+                                }
+                            }
+    }
 
         <!-- Footer -->
         <div class="footer"> 
