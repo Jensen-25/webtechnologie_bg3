@@ -13,7 +13,7 @@
     <title> Shoppingcart </title>
         
     <!-- Navigatie bar -->
-    <script src="../FAQ/Navbar.js" defer></script>
+    <?php include '../Navbar_folder/Navbar_link.php'; ?>
 
      
 
