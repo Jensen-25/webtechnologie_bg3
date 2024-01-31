@@ -12,7 +12,7 @@ session_start();
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="Homepage_stylesheet.css">
 
-        <!-- Link voor icoontjes footer-->
+        <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title> Homepage User </title>
             
@@ -21,7 +21,7 @@ session_start();
     </head>
 
     <body>
-        <!-- Slideshow container -->
+        <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
             <!-- Full-width images with number and caption text -->
