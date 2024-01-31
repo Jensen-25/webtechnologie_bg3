@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Link naar de CSS sheet -->
-    <link rel="stylesheet" href="Homepage_stylesheet.css">
+    <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
     <!-- Link voor icoontjes footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -102,36 +102,12 @@ closeConnection($connection);
     btn.addEventListener('click', function () {
         const OrderId = <?php echo $OrderID?>
         // Redirect to the payment page with the Order ID
-        window.location.href = `payment_page.html?id=${OrderId}`;
+        window.location.href = `payment_page.php?id=${OrderId}`;
     });
 </script>
 
         <!-- Footer -->
-        <div class="footer"> 
-            <div class="row">
-            <div class="column">
-                <h3 class="footer">About Fit 'n Flavors</h3>
-                <p class="footer"> <a href="../About_us_folder/About_us.html">About us</a></p>
-                <p class="footer"> <a href="../About_us_folder/Terms_and_conditions.html">Terms & Conditions</a></p>
-            </div>
-
-            <div class="column">
-                <h3 class="footer">Costumerservice</h3>
-                <p class="footer"><a href="../FAQ/FAQ.html">FAQ</a></p>
-                <p class="footer"><a href="../FAQ/Delivery.html">Delivery information</a></p>
-                <p class="footer"><a href="../FAQ/Returns.html">Returns and refund policy</a></p>
-                <p class="footer"><a href="../FAQ/Contact.html">Contact</a></p>
-            </div>
-            
-            <div class="column">
-                <h3 class="footer">Follow us!</h3>
-                <p class="footer"><a class="footer" href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
-                </p>
-            </div>
-            </div>
-        </div>
+        <?php include '../Navbar_folder/Footer.php'; ?>
 </body>
 
 </html>

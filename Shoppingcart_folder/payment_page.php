@@ -30,7 +30,7 @@
                             alert("Your payment was successful! Thank you for shopping at Fit 'n flavors.");
 
                             // Redirect to the homepage
-                            window.location.href =("https://bg3.webtech-uva.nl/user_homepage.php");
+                            window.location.href ="../user_homepage.php";
                         }
                      }
                 </script>
@@ -110,6 +110,7 @@
                 
             </form>
             </div>
+            <?php include '../Navbar_folder/Footer.php'; ?>
 
         </body>
 

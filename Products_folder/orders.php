@@ -6,10 +6,10 @@
     <title>Order page</title>
 
     <!-- Link naar de CSS sheet -->
-    <link rel="stylesheet" href="/Homepage_stylesheet.css">
+    <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
     <!-- Navigatie bar -->
-    <?php include '../Navbar_folder/Navbar_link.php'; ?>
+    <script src="../Navbar_folder/navbar.js" defer></script>
 
     <!-- Link voor icoontjes footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,13 +45,18 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
         }
+
+    p {
+    
+
+    }
     </style>
  </head>
  
  
  <body>
 
-<h> The product has been added to your shoppingcart! </h>
+<p><b> The product has been added to your shoppingcart! <b></p>
 
 <?php 
 
@@ -67,37 +72,46 @@ $connection = openConnection();
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
+        // // Check if the user is logged in and set an order ID for that user
+        // if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
+            $OrderID = rand();
 
-        // Add product to ordered products database
-        $ordered_product_data = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
-        SELECT ProductID, ProductPrice FROM Products
-        WHERE ProductID='$productID'";
 
-        // extract order id from ordered products database
-        $OrderID = "SELECT * FROM OrderedProducts WHERE ProductID = $productID";
+            // Add product to ordered products database
+            $insert_order_query = "INSERT INTO OrderedProducts(OrderID) VALUES ($OrderID)" ;
+            
+            $insert_product_query = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
+            SELECT ProductID, ProductPrice FROM Products
+            WHERE ProductID='$productID'";
 
-        // extract table products from database
-        $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
+            $ordered_products_data = "SELECT * FROM OrderedProducts" ;
 
-        // execute the query
-        $result = mysqli_query($connection, $product_data);
+            // extract table products from database
+            $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
 
-        if ($result->num_rows == 1 ){
-            // Output data of each row
-            echo "<table>";
-            $row = $result->fetch_assoc();
-            echo "<tr>
-                <td>" . $row["ProductName"] . "</td>
-                <td>" . $row["ProductPrice"] . "</td>
-            </tr>";
-            echo "</table>" ;
-        }
-        else {
-            echo "Product not found." ;
-        }
-    } else {
+            // execute the query
+            $result = mysqli_query($connection, $product_data);
+
+            if ($result->num_rows == 1 ){
+                // Output data of each row
+                echo "<table>";
+                $row = $result->fetch_assoc();
+                echo "<tr>
+                    <td>" . $row["ProductName"] . "</td>
+                    <td>" . $row["ProductPrice"] . "</td>
+                </tr>";
+                echo "</table>" ;
+            }
+            else {
+                echo "Product not found." ;
+            }
+        } 
+    // }
+    else {
         echo "Product ID not provided in the URL" ;
     }
+
+
 
     
 
@@ -110,11 +124,11 @@ closeConnection($connection);
 <button id="ShoppingcartButton">Go to shoppingcart</button>
 
 <script>
-    var btn = document.getElementById('ShoppingcartButton');
-    btn.addEventListener('click', function () {
+    var shoppingbtn = document.getElementById('ShoppingcartButton');
+    shoppingbtn.addEventListener('click', function () {
         const OrderId = <?php echo $OrderID?>
         // Redirect to the shoppingcart page with the product ID
-        window.location.href = `shoppingcart_page.php?id=${OrderId}`;
+        window.location.href = `../Shoppingcart_folder/shoppingcart_page.php?id=${OrderId}`;
     });
 </script>
 
@@ -122,44 +136,17 @@ closeConnection($connection);
 <button id="ProductsButton">Go to products</button>
 
 <script>
-    var btn = document.getElementById('ProductsButton');
-    btn.addEventListener('click', function () {
-        window.location.href = `main_products_page.html`;
+    var productsbtn = document.getElementById('ProductsButton');
+    productsbtn.addEventListener('click', function () {
+        window.location.href = `main_products_page.php`;
     });
 </script>
 
         <!-- Footer -->
-        <div class="footer"> 
-            <div class="row">
-            <div class="column">
-                <h3 class="footer">About Fit 'n Flavors</h3>
-                <p class="footer"> <a href="../About_us_folder/About_us.html">About us</a></p>
-                <p class="footer"> <a href="../About_us_folder/Terms_and_conditions.html">Terms & Conditions</a></p>
-            </div>
-
-            <div class="column">
-                <h3 class="footer">Costumerservice</h3>
-                <p class="footer"><a href="../FAQ/FAQ.html">FAQ</a></p>
-                <p class="footer"><a href="../FAQ/Delivery.html">Delivery information</a></p>
-                <p class="footer"><a href="../FAQ/Returns.html">Returns and refund policy</a></p>
-                <p class="footer"><a href="../FAQ/Contact.html">Contact</a></p>
-            </div>
-            
-            <div class="column">
-                <h3 class="footer">Follow us!</h3>
-                <p class="footer"><a class="footer" href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
-                </p>
-            </div>
-            </div>
-        </div>
+        <?php include '../Navbar_folder/Footer.php'; ?>
  
 
  
  
  </body>
  </html>
- 
- 
- 

@@ -9,5 +9,6 @@
     </script>
 </head>
 <body>
+<?php include 'cookies.php'; ?>
 </body>
 </html>

@@ -70,10 +70,6 @@ session_start();
     </head>
 
     <body>
-
-        <h1> Welcome to Fit 'n Flavors! </h1>
-        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
-
         <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
@@ -135,42 +131,14 @@ session_start();
         dots[slideIndex-1].className += " active";
         }
         </script>
-        <div class="description">
-        <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones.
-        <p>Indulge in a curated selection of top-notch protein brands that cater to your fitness goals and tantalize your taste buds with a symphony of flavors. From the bold richness of chocolate to the refreshing zest of fruit-inspired blends, we've got it all.
-        <p>Shop all your favorite protein brands in one place and <br>elevate your fitness journey with devine flavors!" 
-        </div>
 
-        <!-- <button class="button button1">Start shopping</button> -->
-        <div class="button-block">
-        <a class="button button1" href="Products_folder/main_products_page.php">Start shopping</a>
-        </div>
+
+        <h1> Welcome to Fit 'n Flavors! </h1>
+        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
+
 
         <!-- Footer -->
-        <div class="footer"> 
-            <div class="row">
-            <div class="column">
-                <h3 class="footer">About Fit 'n Flavors</h3>
-                <p class="footer"> <a href="../About_us_folder/About_us.html">About us</a></p>
-                <p class="footer"> <a href="../About_us_folder/Terms_and_conditions.html">Terms & Conditions</a></p>
-            </div>
-
-            <div class="column">
-                <h3 class="footer">Costumerservice</h3>
-                <p class="footer"><a href="../FAQ/FAQ.html">FAQ</a></p>
-                <p class="footer"><a href="../FAQ/Delivery.html">Delivery information</a></p>
-                <p class="footer"><a href="../FAQ/Returns.html">Returns and refund policy</a></p>
-                <p class="footer"><a href="../FAQ/Contact.html">Contact</a></p>
-            </div>
-            
-            <div class="column">
-                <h3 class="footer">Follow us!</h3>
-                <p class="footer"><a class="footer" href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
-                </p>
-            </div>
-            </div>
-        </div>
+        <?php include 'Navbar_folder/Footer.php'; ?>
+        
     </body>
 </html>
