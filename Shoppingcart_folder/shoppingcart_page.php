@@ -1,3 +1,9 @@
+<?php
+include '/var/www/connections/connections.php';
+
+session_start();
+$connection = openConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,12 +51,6 @@
 
 <?php 
 
-include '/var/www/connections/connections.php';
-
-// Initialize the session
-session_start();
-
-$connection = openConnection();
 
     // Check if the Order ID is provided in the URL
     if (isset($_GET['id'])){
