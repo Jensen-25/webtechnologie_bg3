@@ -67,37 +67,43 @@ $connection = openConnection();
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
+        // Check if the user is logged in and set an order ID for that user
+        if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
+            $OrderID = rand();
 
-        // Add product to ordered products database
-        $ordered_product_data = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
-        SELECT ProductID, ProductPrice FROM Products
-        WHERE ProductID='$productID'";
 
-        // extract order id from ordered products database
-        $OrderID = "SELECT * FROM OrderedProducts WHERE ProductID = $productID";
+            // Add product to ordered products database
+            $ordered_product_data = "INSERT INTO OrderedProducts(OrderID) VALUES ($OrderID)" ;
+            
+            $ordered_product_data = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
+            SELECT ProductID, ProductPrice FROM Products
+            WHERE ProductID='$productID'";
 
-        // extract table products from database
-        $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
+            // extract table products from database
+            $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
 
-        // execute the query
-        $result = mysqli_query($connection, $product_data);
+            // execute the query
+            $result = mysqli_query($connection, $product_data);
 
-        if ($result->num_rows == 1 ){
-            // Output data of each row
-            echo "<table>";
-            $row = $result->fetch_assoc();
-            echo "<tr>
-                <td>" . $row["ProductName"] . "</td>
-                <td>" . $row["ProductPrice"] . "</td>
-            </tr>";
-            echo "</table>" ;
-        }
-        else {
-            echo "Product not found." ;
-        }
-    } else {
+            if ($result->num_rows == 1 ){
+                // Output data of each row
+                echo "<table>";
+                $row = $result->fetch_assoc();
+                echo "<tr>
+                    <td>" . $row["ProductName"] . "</td>
+                    <td>" . $row["ProductPrice"] . "</td>
+                </tr>";
+                echo "</table>" ;
+            }
+            else {
+                echo "Product not found." ;
+            }
+        } 
+    }else {
         echo "Product ID not provided in the URL" ;
     }
+
+
 
     
 
