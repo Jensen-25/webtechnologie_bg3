@@ -17,7 +17,13 @@ session_start();
         <title> Homepage User </title>
             
         <!-- Navigatie bar -->
-        <script src="../FAQ/Navbar.js" defer></script>
+        <?php
+            if (isset($_SESSION['admin']) || isset($_SESSION['user'])) {
+                include 'Navbar_folder/Navbar_loggedin.js';
+            } else {
+                include 'Navbar_folder/navbar.js';
+            }
+    ?>
     </head>
 
     <body>
