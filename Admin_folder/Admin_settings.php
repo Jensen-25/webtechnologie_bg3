@@ -31,7 +31,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 <style>
         /* Set height of body and the document to 100% to enable "full page tabs" */
         body, html {
-        height: 100%;
+        height: 25%;
         margin: 0;
         font-family: Arial;
         }
@@ -58,7 +58,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         color: white;
         display: none;
         padding: 100px 20px;
-        height: 100%;
+        height: 25%;
         }
 
         #Home {background-color: #EADDCA;}
@@ -66,34 +66,31 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         #Contact {background-color: #CD7F32;}
         #About {background-color: #A52A2A;}
 </style>
-    <button class="tablink" onclick="openPage('Home', this, '#A52A2A')">Home</button>
-    <button class="tablink" onclick="openPage('News', this, 'E1C16E')" id="defaultOpen">News</button>
-    <button class="tablink" onclick="openPage('Contact', this, '#CD7F32')">Contact</button>
-    <button class="tablink" onclick="openPage('About', this, '#A52A2A')">About</button>
 
-    <div id="Home" class="tabcontent">
+    <button class="tablink" onclick="openPage('Add/Delete Admin', this, '#A52A2A')">Home</button>
+    <button class="tablink" onclick="openPage('New Product', this, 'E1C16E')" id="defaultOpen">News</button>
+    <button class="tablink" onclick="openPage('User Info', this, '#CD7F32')">Contact</button>
+
+    <div id="Add/Delete Admin" class="tabcontent">
     <h3>Home</h3>
-    <p>Home is where the heart is..</p>
+    <p>Add a new member to our Fit 'n flavors team!</p>
     </div>
 
-    <div id="News" class="tabcontent">
+    <div id="New Product" class="tabcontent">
     <h3>News</h3>
-    <p>Some news this fine day!</p> 
+    <p>Add a product to the Fit 'n flavors family!</p> 
     </div>
 
-    <div id="Contact" class="tabcontent">
+    <div id="User Info" class="tabcontent">
     <h3>Contact</h3>
-    <p>Get in touch, or swing by for a cup of coffee.</p>
-    </div>
-
-    <div id="About" class="tabcontent">
-    <h3>About</h3>
-    <p>Who we are and what we do.</p>
+    <p>Get info about all our Fit 'n flavors' family members.</p>
     </div>
 
     <script>
     function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;
+
+    // This 
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
