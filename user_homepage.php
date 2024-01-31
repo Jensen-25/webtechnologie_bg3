@@ -21,6 +21,70 @@ session_start();
             
         <?php include 'Navbar_folder/Navbar_link.php'; ?>
 
+         <!-- Cookie Popup -->
+         <style> 
+        /* Cookie Popup Styles */
+        #cookie-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            background-color: #ADD8E6;
+            color: #fff;
+            border-radius: 8px;
+            z-index: 10000;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #cookie-popup p {
+            margin: 0;
+        }
+
+        #cookie-popup button {
+            background-color: #5cb85c;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #cookie-popup button:hover {
+            background-color: #773cae;
+        }
+        </style>
+
+        <div id="cookie-popup">
+                    <p>This website uses cookies to ensure you get the best experience on our website.</p>
+                    <button onclick="acceptCookies()">Got It!</button>
+                </div>
+
+        <script>
+        // Check if the user has accepted cookies
+        function checkCookies() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Show the cookie popup if not accepted
+                document.getElementById('cookie-popup').style.display = 'block';
+            }
+        }
+
+        // Function to set cookies as accepted
+        function acceptCookies() {
+            // Set a localStorage item to remember the user's choice
+            localStorage.setItem('cookiesAccepted', 'true');
+            
+            // Hide the cookie popup
+            document.getElementById('cookie-popup').style.display = 'none';
+        }
+
+        // Run the checkCookies function when the page loads
+        window.onload = checkCookies;
+        </script>
+
+        
+
         <style>
             .button {
             border: none;
@@ -72,71 +136,13 @@ session_start();
 
 
     <body>
-        <!-- Cookie Popup -->
-        <style> 
-        /* Cookie Popup Styles */
-        #cookie-popup {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 300px;
-            background-color: #ADD8E6;
-            color: #fff;
-            border-radius: 8px;
-            z-index: 10000;
-            color: white;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-        #cookie-popup p {
-            margin: 0;
-        }
-
-        #cookie-popup button {
-            background-color: #5cb85c;
-            color: #fff;
-            padding: 8px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        #cookie-popup button:hover {
-            background-color: #773cae;
-        }
-        </style>
+       
     
     <body>
         <h1> Welcome to Fit 'n Flavors! </h1>
         <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
 
-        <div id="cookie-popup">
-            <p>This website uses cookies to ensure you get the best experience on our website.</p>
-            <button onclick="acceptCookies()">Got It!</button>
-        </div>
 
-<script>
-// Check if the user has accepted cookies
-function checkCookies() {
-    if (!localStorage.getItem('cookiesAccepted')) {
-        // Show the cookie popup if not accepted
-        document.getElementById('cookie-popup').style.display = 'block';
-    }
-}
-
-// Function to set cookies as accepted
-function acceptCookies() {
-    // Set a localStorage item to remember the user's choice
-    localStorage.setItem('cookiesAccepted', 'true');
-    
-    // Hide the cookie popup
-    document.getElementById('cookie-popup').style.display = 'none';
-}
-
-// Run the checkCookies function when the page loads
-window.onload = checkCookies;
-</script>
         <!-- Slideshow container, based on slideshow tutorial from W3Schools https://www.w3schools.com/howto/default.asp -->
         <div class="slideshow-container">
 
@@ -200,7 +206,7 @@ window.onload = checkCookies;
         </script>
 
         <div class="description">
-            <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones. </p>
+            <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones. 
             <p>Indulge in a curated selection of top-notch protein brands that cater to your fitness goals and tantalize your taste buds with a symphony of flavors. From the bold richness of chocolate to the refreshing zest of fruit-inspired blends, we've got it all.</p>
             <p>Shop all your favorite protein brands in one place and elevate your fitness journey with devine flavors!" </p>
             </div>
