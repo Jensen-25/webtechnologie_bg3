@@ -102,6 +102,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                                         <td><?php echo $row["LastName"]; ?></td>
                                         <td><?php echo $row["UserName"]; ?></td>
                                         <td><?php echo $row["IsAdmin"]; ?></td>
+                                        <td><input type="radio" name="selected_user" value="<?php echo $row['UserID']; ?>"></td>
                                     </tr>
                                 <?php
                                     }
