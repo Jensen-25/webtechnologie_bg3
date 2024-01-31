@@ -26,8 +26,15 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 </head>
 
 <body>
-<a href="../Admin_folder/Add_admin.php"> Fit 'n Flavors Admins </a>
-<a href="Admin_folder/Add_products.php"> Fit 'n Flavors Products </a>
+<div class="admin-panel">
+    <h1>Welcome to the Fit 'n Flavors Admin Panel</h1>
+    
+    <div class="admin-links">
+        <a href="../Admin_folder/Add_admin.php">Manage Admins</a>
+        <a href="../Admin_folder/Add_products.php">Manage Products</a>
+        <!-- Add more links as needed -->
+    </div>
+</div>
 
 <?php include '../Navbar_folder/Footer.php'; ?>
 </body>
