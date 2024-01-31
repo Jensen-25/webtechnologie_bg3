@@ -7,6 +7,9 @@
             <!-- Navigatie bar -->
             <script src="../FAQ/Navbar.js" defer></script>
 
+            <!-- reCAPTCHA -->
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
             <!-- Link naar de CSS sheet -->
             <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
@@ -216,6 +219,11 @@
                         <button type="submit" onclick="validateAndNext(3, ['username', 'password', 'password_2'], ['text', 'password', 'password'])" name="submit">Submit</button>
                         </div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="g-recaptcha" data-sitekey="6LfkU2IpAAAAAM5IlcOk8bLK7YThQQfL4cNLjzqN"></div>
+                    </div>
                     
                     <!-- Circles indicating form steps -->
                     <div style="text-align:center;margin-top:50px;">
@@ -223,7 +231,9 @@
                         <div class="circle" id="circle2"></div>
                         <!-- <div class="circle" id="circle3"></div> -->
                         <div class="circle" id="circle3"></div>
-                    </div>   
+                    </div>
+
+            
             </form>
         </div>
         <!-- Link naar de terms and services -->
