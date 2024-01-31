@@ -46,7 +46,7 @@
             font-size: 150%;
         }
 
-    h1 {
+    p {
     
 
     }
@@ -56,7 +56,7 @@
  
  <body>
 
-<h1><b> The product has been added to your shoppingcart! <b></h>
+<p><b> The product has been added to your shoppingcart! <b></p>
 
 <?php 
 
