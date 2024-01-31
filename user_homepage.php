@@ -16,19 +16,7 @@ session_start();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title> Homepage User </title>
             
-        <!-- Navigatie bar -->
-        <?php
-            if (isset($_SESSION['admin'])){
-                ?>
-                <script src="../Navbar_folder/Navbar_loggedin.js" defer></script>
-        <?php } elseif(isset($_SESSION['user'])){
-                ?>
-                <script src="../Navbar_folder/Navbar_admin.js" defer></script>
-        <?php } else {
-                ?>
-                <script src="../Navbar_folder/navbar.js" defer></script>
-        <?php  }
-    ?>
+        <?php include 'Layout_and_header.php'; ?>
     </head>
 
     <body>
