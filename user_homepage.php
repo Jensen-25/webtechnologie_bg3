@@ -3,6 +3,11 @@
 include '/var/www/connections/connections.php';
 
 session_start();
+
+// check whether cookies are already accepted in the session of the user 
+if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== true) {
+    $_SESSION['cookiesAccepted'] = true;
+}
 ?>
 
 
