@@ -5,7 +5,6 @@ include '/var/www/connections/connections.php';
 session_start();
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,206 +25,371 @@ session_start();
                 <script src="../Navbar_folder/navbar.js" defer></script>
         <?php  }
     ?>
-    </head>
+              <style>
+            .content {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            display: flex;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
+            }
 
-    <body>
-      <hr>
-          <form action="add_user.php" method="post" id="registrationForm">
+            .login-box {
+            width: 300px;
+            padding: 20px;
+            background: #cab89d8c;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #C4AE8C;
+            border-radius: 8px;
+            margin-top: 6%;
+            margin-bottom: 8%;
+            position: relative;
+            align-items: center;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            flex-direction: column;
+            margin-bottom: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input[type="text"]:focus,
+            input[type="password"]:focus {
+            border-color: #04AA6D;
+            background-color: #f8f8f8;
+            }
+
+            input[type="submit"] {
+            width: 100%;
+            }
+
+            .tab {
+                margin-top: 2%;
+                margin-bottom: 2%;
+            }
+
+            .registerbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            opacity: 0.9;
+            transition: 0.3s;
+            }
+
+            .registerbtn:hover {
+            opacity: 1;
+            }
+
+            hr {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            }
+
+            #regForm {
+            background-color: #ffffff;
+            margin: 100px auto;
+            font-family: Raleway;
+            padding: 40px;
+            width: 70%;
+            min-width: 300px;
+            }
+
+            input {
+            padding: 10px;
+            width: 5%;
+            font-size: 12px;
+            font-family: Raleway;
+            border: 1px solid #aaaaaa;
+            }
+
+            /* Mark input boxes that gets an error on validation: */
+            input.invalid {
+            background-color: #ffdddd;
+            } 
+
+            button {
+            background-color: #04AA6D;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer;
+            } 
+
+            button:hover {
+            opacity: 0.8;
+            } 
+
+            /* Make circles that indicate the steps of the form: */
+            .circle {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;  
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+            }
+
+            .active {
+            opacity: 1;
+            }
+
+            /* Mark the steps that are finished and valid: */
+            .finish {
+            background-color: #04AA6D;
+            }
+
+            .filled {
+            background-color: #04AA6D;
+            }
+            </style>
+        </head>
+
+        <body>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Invoer van de registratiegegevens -->
+            <form class="login-box" action="add_user.php" method="post" id="registrationForm">
+
+                    <h1> REGISTER </h1>
+                    <!-- Step 1: Name Section -->
+                    <div class="tab" id="step1"> Name:
+                        <label for="firstname">Firstname</label> <br>
+                        <input type="text" name="firstname" id="firstname" required> <br>
             
-            <div class="login-box">
+                        <label for="lastname">Lastname</label> <br>
+                        <input type="text" name="lastname" id="lastname" required> <br>
 
-                <h1> REGISTER </h1>
-                <!-- Step 1: Name Section -->
-                <div class="tab" id="step1"> Name:
-                    <label for="firstname">Firstname</label> <br>
-                    <input type="text" name="firstname" id="firstname" required> <br>
-        
-                    <label for="lastname">Lastname</label> <br>
-                    <input type="text" name="lastname" id="lastname" required> <br>
-
-                    <div style="float:right">
-                      <button type="button" onclick="validateAndNext(1, ['firstname', 'lastname'], ['text', 'text'])">Next</button>
-                    </div>  
-                </div>
-                
-                <!-- Step 2: Contact Section -->
-                <div class="tab" id="step2"> Contact:
-                    <label for="email">Email </label> <br>
-                    <input type="text" name="email" id="email" required> <br>
-        
-                    <label for="phonenumber">Phonenumber</label> <br>
-                    <input type="text" name="phonenumber" id="phonenumber" required> <br>  
-
-                    <div style="float:right">
-                      <button type="button" onclick="prevStep(2)">Previous</button>
-                      <button type="button" onclick="validateAndNext(2, ['email', 'phonenumber'], ['email', 'text'])">Next</button>
+                        <div style="float:right">
+                        <button type="button" onclick="validateAndNext(1, ['firstname', 'lastname'], ['text', 'text'])">Next</button>
+                        </div>  
                     </div>
-                </div>
+                    
+                    <!-- Step 2: Contact Section -->
+                    <div class="tab" id="step2"> Contact:
+                        <label for="email">Email </label> <br>
+                        <input type="text" name="email" id="email" required> <br>
             
-                <!-- Step 3: Address Section 
-                <div class="tab" id="step3"> Adress:
-                    <label for="postalcode">Postalcode</label> <br>
-                    <input type="text" name="postalcode" id="postalcode" required> <br>
-        
-                    <label for="housenumber">Housenumber</label> <br>
-                    <input type="text" name="housenumber" id="housenumber" required> <br> 
+                        <label for="phonenumber">Phonenumber</label> <br>
+                        <input type="text" name="phonenumber" id="phonenumber" required> <br>  
 
-                    <div style="float:right">
-                      <button type="button" onclick="prevStep(3)">Previous</button>
-                      <button type="button" onclick="validateAndNext(3, ['postalcode', 'housenumber'], ['text', 'text'])">Next</button>
+                        <div style="float:right">
+                        <button type="button" onclick="prevStep(2)">Previous</button>
+                        <button type="button" onclick="validateAndNext(2, ['email', 'phonenumber'], ['email', 'text'])">Next</button>
+                        </div>
                     </div>
-                </div>
-                -->
-                <!-- Step 4: Account Info Section -->
-                <div class="tab" id="step3"> Account info:
-                    <label for="username">Username</label> <br>
-                    <input type="text" name="username" id="username" required> <br>
-        
-                    <label for="password">Password</label> <br>
-                    <input type="password" name="password" id="password" required> <br>
-        
-                    <label for="password_2">Repeat Password</label> <br>
-                    <input type="password" name="password_2" id="password_2" required> <br>
-
-                    <div style="float:right">
-                      <button type="button" onclick="prevStep(3)">Previous</button>
-                      <button type="submit" onclick="validateAndNext(3, ['username', 'password', 'password_2'], ['text', 'password', 'password'])" name="submit">Submit</button>
-                    </div>
-                </div>
                 
-                <!-- Circles indicating form steps -->
-                <div style="text-align:center;margin-top:50px;">
-                    <div class="circle" id="circle1"></div>
-                    <div class="circle" id="circle2"></div>
-                    <!-- <div class="circle" id="circle3"></div> -->
-                    <div class="circle" id="circle3"></div>
-                </div>  
-            </div>  
-        </form>
+                    <!-- Step 3: Address Section 
+                    <div class="tab" id="step3"> Adress:
+                        <label for="postalcode">Postalcode</label> <br>
+                        <input type="text" name="postalcode" id="postalcode" required> <br>
+            
+                        <label for="housenumber">Housenumber</label> <br>
+                        <input type="text" name="housenumber" id="housenumber" required> <br> 
+
+                        <div style="float:right">
+                        <button type="button" onclick="prevStep(3)">Previous</button>
+                        <button type="button" onclick="validateAndNext(3, ['postalcode', 'housenumber'], ['text', 'text'])">Next</button>
+                        </div>
+                    </div>
+                    -->
+                    <!-- Step 4: Account Info Section -->
+                    <div class="tab" id="step3"> Account info:
+                        <label for="username">Username</label> <br>
+                        <input type="text" name="username" id="username" required> <br>
+            
+                        <label for="password">Password</label> <br>
+                        <input type="password" name="password" id="password" required> <br>
+            
+                        <label for="password_2">Repeat Password</label> <br>
+                        <input type="password" name="password_2" id="password_2" required> <br>
+
+                        <div style="float:right">
+                        <button type="button" onclick="prevStep(3)">Previous</button>
+                        <button type="submit" onclick="validateAndNext(3, ['username', 'password', 'password_2'], ['text', 'password', 'password'])" name="submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Circles indicating form steps -->
+                    <div style="text-align:center;margin-top:50px;">
+                        <div class="circle" id="circle1"></div>
+                        <div class="circle" id="circle2"></div>
+                        <!-- <div class="circle" id="circle3"></div> -->
+                        <div class="circle" id="circle3"></div>
+                    </div>   
+            </form>
+        </div>
         <!-- Link naar de terms and services -->
-        
+
+        <script>
+
+            var currentStep = 1
+    
+            // displaying the current tab correctly in a black with the Progress circles
+            function showTab(step) {
+                var tabs = document.querySelectorAll('.tab');
+                tabs.forEach(function(tab) {
+                    tab.style.display = 'none';
+                });
+                document.getElementById('step' + step).style.display = 'block';
+                currentStep = step;
+                updateProgressIndicator();
+            }
+    
+            // Moving to the next tab when clicking the button
+            function nextStep(currentStep) {
+                showTab(currentStep + 1);
+            }
+    
+            // Moving to the previous tab when clicking the button
+            function prevStep(currentStep) {
+                showTab(currentStep - 1);
+            }
+    
+            // Validate the input and raising an error if the input is wrong, then moving to the next tab
+            function validateAndNext(currentStep, inputIds, inputTypes) {
+                var isValid = true;
+    
+                // Looping over all the inputs and validating each one
+                for (var i = 0; i < inputIds.length; i++) {
+                    var inputId = inputIds[i];
+                    var inputType = inputTypes[i];
+                    var inputValue = document.getElementById(inputId).value;
+                    var password1 = document.getElementById("password").value;
+                    var password2 = document.getElementById("password_2").value;
+    
+                    // Checking if a box is not empty or an email is not valid or a password is not valid
+                    if (inputValue.trim() === '' || (inputType === 'email' && !validateEmail(inputValue)) || 
+                    (inputType === 'password' && !validatePassword(inputValue))) {
+                        isValid = false;
+                        alert('Please enter a valid ' + inputId + '.');
+                        break;
+                    }
+    
+                    //   Alert user if the password and repeat password do not match
+                    if (!ValidateMatchingPasswords(password1, password2)) {
+                        isValid = false;
+                        alert('Your passwords do not match');
+                        break;
+                    }
+                }
+    
+                // Submitting the form or moving to the next tab
+                if (isValid) {
+                    if (currentStep === 3) {
+                        // If it's the last step, submit the form
+                        document.getElementById('registrationForm').submit();
+                    } else {
+                        // Otherwise, proceed to the next step
+                        nextStep(currentStep);
+                    }
+                }
+            }
+    
+            // Simple email validation using a regular expression
+            function validateEmail(email) {
+                // Deze emailRegex is van het internet gehaald op w3schools.com
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+    
+            function validatePassword(password) {
+                // Minimum length of 8 characters
+                if (password.length < 8) {
+                    return false;
+                }
+    
+                // Should contain at least one uppercase letter
+                if (!/[A-Z]/.test(password)) {
+                    return false;
+                }
+    
+                // Should contain at least one lowercase letter
+                if (!/[a-z]/.test(password)) {
+                    return false;
+                }
+    
+                // Should contain at least one digit
+                if (!/\d/.test(password)) {
+                    return false;
+                }
+    
+                // Should contain at least one special character (you can customize this set)
+                if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
+                    return false;
+                }
+    
+                // All criteria met, so the password is valid
+                return true;
+            }
+    
+            // Check if the password and repeat password are the same
+            function ValidateMatchingPasswords(password1, password2) {
+                return password1 === password2;
+            }
+    
+            // Updating the circles underneath the form to show the progress
+            function updateProgressIndicator() {
+                var circles = document.querySelectorAll('.circle');
+                circles.forEach(function(circle, index) {
+                    if (index < currentStep) {
+                        circle.classList.add('filled');
+                    } else {
+                        circle.classList.remove('filled');
+                    }
+                });
+            }
+    
+            // Start with the first tab
+            showTab(1);
+            </script>
+
+        <!-- Footer -->
+        <div class="footer"> 
+            <div class="row">
+            <div class="column">
+                <h3 class="footer">About Fit 'n Flavors</h3>
+                <p class="footer"> <a href="../About_us_folder/About_us.html">About us</a></p>
+                <p class="footer"> <a href="../About_us_folder/Terms_and_conditions.html">Terms & Conditions</a></p>
+            </div>
+
+            <div class="column">
+                <h3 class="footer">Costumerservice</h3>
+                <p class="footer"><a href="../FAQ/FAQ.html">FAQ</a></p>
+                <p class="footer"><a href="../FAQ/Delivery.html">Delivery information</a></p>
+                <p class="footer"><a href="../FAQ/Returns.html">Returns and refund policy</a></p>
+                <p class="footer"><a href="../FAQ/Contact.html">Contact</a></p>
+            </div>
+            
+            <div class="column">
+                <h3 class="footer">Follow us!</h3>
+                <p class="footer"><a class="footer" href="https://www.instagram.com/fitnflavors_nl/?igsh=a2Fwam5kNXJhbXFp&utm_source=qr" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
+                    <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
+                </p>
+            </div>
+            </div>
+        </div>
+
+
     </body>
-</html>
-
-<script>
-
-  var currentStep = 1
-
-  // displaying the current tab correctly in a black with the Progress circles
-  function showTab(step) {
-      var tabs = document.querySelectorAll('.tab');
-      tabs.forEach(function(tab) {
-          tab.style.display = 'none';
-      });
-      document.getElementById('step' + step).style.display = 'block';
-      currentStep = step;
-      updateProgressIndicator();
-  }
-
-  // Moving to the next tab when clicking the button
-  function nextStep(currentStep) {
-      showTab(currentStep + 1);
-  }
-
-  // Moving to the previous tab when clicking the button
-  function prevStep(currentStep) {
-      showTab(currentStep - 1);
-  }
-
-  // Validate the input and raising an error if the input is wrong, then moving to the next tab
-  function validateAndNext(currentStep, inputIds, inputTypes) {
-      var isValid = true;
-
-      // Looping over all the inputs and validating each one
-      for (var i = 0; i < inputIds.length; i++) {
-          var inputId = inputIds[i];
-          var inputType = inputTypes[i];
-          var inputValue = document.getElementById(inputId).value;
-          var password1 = document.getElementById("password").value;
-          var password2 = document.getElementById("password_2").value;
-
-          // Checking if a box is not empty or an email is not valid or a password is not valid
-          if (inputValue.trim() === '' || (inputType === 'email' && !validateEmail(inputValue)) || 
-          (inputType === 'password' && !validatePassword(inputValue))) {
-              isValid = false;
-              alert('Please enter a valid ' + inputId + '.');
-              break;
-          }
-
-        //   Alert user if the password and repeat password do not match
-          if (!ValidateMatchingPasswords(password1, password2)) {
-            isValid = false;
-            alert('Your passwords do not match');
-            break;
-          }
-      }
-
-      // Submitting the form or moving to the next tab
-      if (isValid) {
-          if (currentStep === 3) {
-              // If it's the last step, submit the form
-              document.getElementById('registrationForm').submit();
-          } else {
-              // Otherwise, proceed to the next step
-              nextStep(currentStep);
-          }
-      }
-  }
-
-  // Simple email validation using a regular expression
-  function validateEmail(email) {
-      // Deze emailRegex is van het internet gehaald op w3schools.com
-      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-  }
-
-  function validatePassword(password) {
-    // Minimum length of 8 characters
-    if (password.length < 8) {
-        return false;
-    }
-
-    // Should contain at least one uppercase letter
-    if (!/[A-Z]/.test(password)) {
-        return false;
-    }
-
-    // Should contain at least one lowercase letter
-    if (!/[a-z]/.test(password)) {
-        return false;
-    }
-
-    // Should contain at least one digit
-    if (!/\d/.test(password)) {
-        return false;
-    }
-
-    // Should contain at least one special character (you can customize this set)
-    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
-        return false;
-    }
-
-    // All criteria met, so the password is valid
-    return true;
-}
-
-// Check if the password and repeat password are the same
-function ValidateMatchingPasswords(password1, password2) {
-    return password1 === password2;
-  }
-
-  // Updating the circles underneath the form to show the progress
-  function updateProgressIndicator() {
-      var circles = document.querySelectorAll('.circle');
-      circles.forEach(function(circle, index) {
-          if (index < currentStep) {
-              circle.classList.add('filled');
-          } else {
-              circle.classList.remove('filled');
-          }
-      });
-  }
-
-  // Start with the first tab
-  showTab(1);
-</script>
+ </html>
