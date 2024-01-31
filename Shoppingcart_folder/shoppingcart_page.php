@@ -46,7 +46,7 @@ $connection = openConnection();
         }
 
         #CheckoutButton {
-            margin-left: 50%;
+            margin-left: 30%;
             width: 500px;
             height: 50px;
             color: white;
