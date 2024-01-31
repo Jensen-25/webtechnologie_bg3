@@ -200,7 +200,9 @@ window.onload = checkCookies;
         </script>
 
         <div class="description">
-            <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones. Indulge in a curated selection of top-notch protein brands that cater to your fitness goals and tantalize your taste buds with a symphony of flavors. From the bold richness of chocolate to the refreshing zest of fruit-inspired blends, we've got it all. Shop all your favorite protein brands in one place and elevate your fitness journey with devine flavors!" </p>
+            <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones. </p>
+            <p>Indulge in a curated selection of top-notch protein brands that cater to your fitness goals and tantalize your taste buds with a symphony of flavors. From the bold richness of chocolate to the refreshing zest of fruit-inspired blends, we've got it all.</p>
+            <p>Shop all your favorite protein brands in one place and elevate your fitness journey with devine flavors!" </p>
             </div>
 
             <!-- <button class="button button1">Start shopping</button> -->
