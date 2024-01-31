@@ -8,7 +8,7 @@ function createNavbar() {
       { text: 'Home', link: '../index.html' },
       { text: 'Products', link: '../Products_folder/main_products_page.html' },
       { text: 'Login', link: '../Login_folder/Login_screen.php' },
-      { text: 'Registration', link: '../Login_folder/registratiescherm.php' },
+      { text: 'Register', link: '../Login_folder/registratiescherm.php' },
       { text: 'Admin', link: '../Admin_folder/Admin_settings.php' },
       { text: 'Shopping Cart', link: '../Shoppingcart_folder/shoppingcart_page.html' },
     ];
