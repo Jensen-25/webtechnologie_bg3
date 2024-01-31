@@ -15,6 +15,8 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 
     // execute the query
     $result = mysqli_query($connection, $user_data);
+
+    
 ?>
 
 <!DOCTYPE html>
