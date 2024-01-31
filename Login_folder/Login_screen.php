@@ -128,7 +128,7 @@ session_start();
             </style>
             
         <!-- Navigatie bar -->
-        <?php include 'Navbar_folder/Navbar_link.php'; ?>
+        <?php include '../Navbar_folder/Navbar_link.php'; ?>
     </head>
 
        <body>

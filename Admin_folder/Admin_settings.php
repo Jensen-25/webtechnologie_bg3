@@ -29,7 +29,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             
         <!-- Navigatie bar -->
-        <?php include 'Navbar_folder/Navbar_link.php'; ?>
+        <?php include '../Navbar_folder/Navbar_link.php'; ?>
     <style>
         .table {
             border-collapse: collapse;
