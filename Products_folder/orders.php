@@ -56,7 +56,7 @@
  
  <body>
 
-<p><b> The product has been added to your shoppingcart! <b></p>
+<h1><b> The product has been added to your shoppingcart! <b></h1>
 
 <?php 
 
@@ -74,7 +74,7 @@ $connection = openConnection();
 
         if (isset($_POST['submit'])) {
             $OrderID = rand();
-            
+
             // Add product to ordered products database
             $insert_order_query = "INSERT INTO OrderedProducts(OrderID) VALUES ($OrderID)" ;
             
