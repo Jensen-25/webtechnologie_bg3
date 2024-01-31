@@ -48,10 +48,10 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         height: 100%;
         }
 
-        #Home {background-color: red;}
-        #News {background-color: green;}
-        #Contact {background-color: blue;}
-        #About {background-color: orange;}
+        #Home {background-color: #EADDCA;}
+        #News {background-color: #E1C16E;}
+        #Contact {background-color: #CD7F32;}
+        #About {background-color: #A52A2A;}
 </style>
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="../Homepage_stylesheet.css">
@@ -66,10 +66,10 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 </head>
 
 <body>
-    <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
-    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
-    <button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
-    <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+    <button class="tablink" onclick="openPage('Home', this, '#A52A2A')">Home</button>
+    <button class="tablink" onclick="openPage('News', this, 'E1C16E')" id="defaultOpen">News</button>
+    <button class="tablink" onclick="openPage('Contact', this, '#CD7F32')">Contact</button>
+    <button class="tablink" onclick="openPage('About', this, '#A52A2A')">About</button>
 
     <div id="Home" class="tabcontent">
     <h3>Home</h3>
