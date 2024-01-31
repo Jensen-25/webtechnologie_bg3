@@ -19,8 +19,8 @@
             
             <div class="column">
                 <h3 class="footer">Follow us!</h3>
-                <p class="footer"><a class="footer" href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
+                <p class="footer"><a class="footer" href="https://www.instagram.com/fitnflavors_nl?igsh=a2Fwam5kNXJhbXFp&utm_source=qr" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                    <a class="footer" href="https://www.facebook.com/profile.php?id=61556285213026" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
                     <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
                 </p>
             </div>
