@@ -9,6 +9,9 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="Homepage_stylesheet.css">
 
@@ -17,49 +20,101 @@ session_start();
         <title> Homepage User </title>
             
         <?php include 'Navbar_folder/Navbar_link.php'; ?>
+
+        <style>
+            .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            /* margin: 4px 2px; */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            }
+
+            .button1 {
+            background-color: #C4AE8C; 
+            color: black; 
+            border: 2px solid #C4AE8C;
+            align-self: center;
+            }
+
+            .button1:hover {
+            background-color: #D9C7AA;
+            color: white;
+            }
+
+            .button-block {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            justify-content: center;
+            display: flex;
+            }
+            
+            .description {
+            margin-top: 4%;
+            margin-bottom: 4%;
+            margin-left: 25%;
+            margin-right: 25%;
+            }
+            
+            .description p {
+            color: black;
+            font-size: 110%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            }
+        </style>
     </head>
 
+
     <body>
-
-                    <!-- Cookie Popup -->
+        <!-- Cookie Popup -->
         <style> 
-/* Cookie Popup Styles */
-#cookie-popup {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 300px;
-    background-color: #ADD8E6;
-    color: #fff;
-    border-radius: 8px;
-    z-index: 10000;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+        /* Cookie Popup Styles */
+        #cookie-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            background-color: #ADD8E6;
+            color: #fff;
+            border-radius: 8px;
+            z-index: 10000;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
 
-#cookie-popup p {
-    margin: 0;
-}
+        #cookie-popup p {
+            margin: 0;
+        }
 
-#cookie-popup button {
-    background-color: #5cb85c;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-}
+        #cookie-popup button {
+            background-color: #5cb85c;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
 
-#cookie-popup button:hover {
-    background-color: #773cae;
-}
-</style>
+        #cookie-popup button:hover {
+            background-color: #773cae;
+        }
+        </style>
+    
+    <body>
+        <h1> Welcome to Fit 'n Flavors! </h1>
+        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
 
-<div id="cookie-popup">
-    <p>This website uses cookies to ensure you get the best experience on our website.</p>
-    <button onclick="acceptCookies()">Got It!</button>
-</div>
+        <div id="cookie-popup">
+            <p>This website uses cookies to ensure you get the best experience on our website.</p>
+            <button onclick="acceptCookies()">Got It!</button>
+        </div>
 
 <script>
 // Check if the user has accepted cookies
@@ -144,10 +199,14 @@ window.onload = checkCookies;
         }
         </script>
 
+        <div class="description">
+            <p>"At Fit 'n Flavors, we believe in simplifying your shopping experience, so you can focus on what matters most: achieving your fitness milestones. Indulge in a curated selection of top-notch protein brands that cater to your fitness goals and tantalize your taste buds with a symphony of flavors. From the bold richness of chocolate to the refreshing zest of fruit-inspired blends, we've got it all. Shop all your favorite protein brands in one place and elevate your fitness journey with devine flavors!" </p>
+            </div>
 
-        <h1> Welcome to Fit 'n Flavors! </h1>
-        <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
-
+            <!-- <button class="button button1">Start shopping</button> -->
+            <div class="button-block">
+            <a class="button button1" href="Products_folder/main_products_page.php">Start shopping</a>
+        </div>
         <!-- Footer -->
         <?php include 'Navbar_folder/Footer.php'; ?>
         
