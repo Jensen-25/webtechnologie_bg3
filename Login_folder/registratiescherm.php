@@ -31,14 +31,14 @@ session_start();
             }
 
             .login-box {
-            width: 300px;
+            width: 350px;
             padding: 20px;
             background: #cab89d8c;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 1px solid #C4AE8C;
             border-radius: 8px;
             margin-top: 6%;
-            margin-bottom: 8%;
+            margin-bottom: 0.5%;
             position: relative;
             align-items: center;
             }
@@ -135,12 +135,17 @@ session_start();
             .circle {
             height: 15px;
             width: 15px;
-            margin: 0 2px;
+            /* margin: 0 2px; */
             background-color: #bbbbbb;
             border: none;  
             border-radius: 50%;
             display: inline-block;
             opacity: 0.5;
+            }
+
+            .circles {
+            margin-top: 0.5%;
+            margin-bottom: 8%;
             }
 
             .active {
@@ -232,7 +237,7 @@ session_start();
                     </div>
                     
                     <!-- Circles indicating form steps -->
-                    <div style="text-align:center;margin-top:50px;">
+                    <div class="circles" style="text-align:center;margin-top:50px;">
                         <div class="circle" id="circle1"></div>
                         <div class="circle" id="circle2"></div>
                         <!-- <div class="circle" id="circle3"></div> -->

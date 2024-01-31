@@ -1,6 +1,7 @@
 <?php
 include '/var/www/connections/connections.php';
 session_start();
+$connection = openConnection();
 ?>
 
 <!DOCTYPE html>
@@ -86,15 +87,6 @@ session_start();
  <body>
 <div class="container">
 <?php 
-
-include '/var/www/connections/connections.php';
-
-// Initialize the session
-session_start();
-
-$connection = openConnection();
-
-
     // Check if the product ID is provided in the URL
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
