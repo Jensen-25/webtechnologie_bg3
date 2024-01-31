@@ -124,7 +124,7 @@ closeConnection($connection);
 <script>
     var productsbtn = document.getElementById('ProductsButton');
     productsbtn.addEventListener('click', function () {
-        window.location.href = `main_products_page.html`;
+        window.location.href = `main_products_page.php`;
     });
 </script>
 
