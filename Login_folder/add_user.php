@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "Please submit registration form.";
     }
+}
 
 // Functie om te controleren of een gebruiker al in de database bestaat op basis van het e-mailadres
 function userExists($connection, $email) {
