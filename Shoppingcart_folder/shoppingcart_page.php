@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order page</title>
 
     <!-- Link naar de CSS sheet -->
-    <link rel="stylesheet" href="/Homepage_stylesheet.css">
-
-    <!-- Navigatie bar -->
-    <script src="../FAQ/Navbar.js" defer></script>
+    <link rel="stylesheet" href="Homepage_stylesheet.css">
 
     <!-- Link voor icoontjes footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title> Shoppingcart </title>
+        
+    <!-- Navigatie bar -->
+    <script src="../FAQ/Navbar.js" defer></script>
+
+     
 
     <style>
-    body {
+        body {
             font-family: Arial, sans-serif;
         }
 
@@ -35,23 +38,10 @@
         th {
             background-color: #f2f2f2;
         }
-
-        #ShoppingcartButton {
-            margin-left: 50%;
-            width: 500px;
-            height: 50px;
-            color: white;
-            background-color: #C4AE8C;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 150%;
-        }
     </style>
- </head>
- 
- 
- <body>
 
-<h> The product has been added to your shoppingcart! </h>
+<body>
+
 
 <?php 
 
@@ -62,69 +52,57 @@ session_start();
 
 $connection = openConnection();
 
-
-    // Check if the product ID is provided in the URL
+    // Check if the Order ID is provided in the URL
     if (isset($_GET['id'])){
-        $productID = (int)$_GET['id'];
+      $OrderID = (int)$_GET['id'];
 
+      // extract table OrderedProducts from database
+      $orderedproducts_data = "SELECT * FROM OrderedProducts WHERE OrderID = $OrderID" ;
 
-        // Add product to ordered products database
-        $ordered_product_data = "INSERT INTO OrderedProducts (ProductID, ProductPrice)
-        SELECT ProductID, ProductPrice FROM Products
-        WHERE ProductID='$productID'";
+      // execute the query
+      $result = mysqli_query($connection, $orderedproducts_data);
 
-        // extract order id from ordered products database
-        $OrderID = "SELECT * FROM OrderedProducts WHERE ProductID = $productID";
-
-        // extract table products from database
-        $product_data = "SELECT * FROM Products WHERE ProductID = $productID";
-
-        // execute the query
-        $result = mysqli_query($connection, $product_data);
-
-        if ($result->num_rows == 1 ){
-            // Output data of each row
-            echo "<table>";
-            $row = $result->fetch_assoc();
-            echo "<tr>
-                <td>" . $row["ProductName"] . "</td>
-                <td>" . $row["ProductPrice"] . "</td>
-            </tr>";
-            echo "</table>" ;
-        }
-        else {
-            echo "Product not found." ;
-        }
-    } else {
-        echo "Product ID not provided in the URL" ;
+      if ($result->num_rows > 0){
+          // Output data of each row
+          while ($row = $result->fetch_assoc()) {
+              echo "<table>";
+              echo "<tr>
+                  <td>" . $row["ProductID"] . "</td>
+                  <td>" . $row["ProductAmount"] . "</td>
+                  <td>" . $row["ProductPrice"] . "</td>
+                </tr>";
+          }
+      }
     }
-
-    
-
 closeConnection($connection);
 
 ?>
 
-<!-- Redirect to shopping cart -->
 
-<button id="ShoppingcartButton">Go to shoppingcart</button>
+  <!-- <script>
+    // Test array of product data
+    const products = [
+        { OrderID: 1, ProductID: 1, ProductAmount: 1, Subtotal: 1, ProductID: 1},
+        { OrderID: 1, ProductID: 3, ProductAmount: 2, Subtotal: 1, ProductID: 2},
+        { OrderID: 1, ProductID: 5, ProductAmount: 3, Subtotal: 1, ProductID: 2},
+        { OrderID: 1, ProductID: 7, ProductAmount: 1, Subtotal:1, roductID: 2},
+        { OrderID: 1, ProductID: 9, ProductAmount: 1, Subtotal: 1, ProductID: 2},
+        { OrderID: 1, ProductID: 10, ProductAmount: 1, Subtotal:1 ,ProductID: 2}
+    ];
+
+  </script> -->
+
+
+<!-- Hierin moet een link naar de payment page als iemand op betalen drukt -->
+
+<button id="CheckoutButton">Go to payment</button>
 
 <script>
-    var btn = document.getElementById('ShoppingcartButton');
+    var btn = document.getElementById('CheckoutButton');
     btn.addEventListener('click', function () {
         const OrderId = <?php echo $OrderID?>
-        // Redirect to the shoppingcart page with the product ID
-        window.location.href = `shoppingcart_page.php?id=${OrderId}`;
-    });
-</script>
-
-<!-- Redirect to Products -->
-<button id="ProductsButton">Go to products</button>
-
-<script>
-    var btn = document.getElementById('ProductsButton');
-    btn.addEventListener('click', function () {
-        window.location.href = `main_products_page.html`;
+        // Redirect to the payment page with the Order ID
+        window.location.href = `payment_page.html?id=${OrderId}`;
     });
 </script>
 
@@ -154,12 +132,6 @@ closeConnection($connection);
             </div>
             </div>
         </div>
- 
+</body>
 
- 
- 
- </body>
- </html>
- 
- 
- 
+</html>
