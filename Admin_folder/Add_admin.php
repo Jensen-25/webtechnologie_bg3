@@ -133,6 +133,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
                             }
                         }
                     }
+        closeConnection($connection);
     ?>
 
         <!-- Footer -->
