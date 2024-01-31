@@ -14,7 +14,7 @@ session_start();
         <title> Homepage User </title>
             
         <!-- Navigatie bar -->
-        <?php include '../Navbar_folder/Navbar_link.php'; ?>
+        <?php include 'Navbar_folder/Navbar_link.php'; ?>
         <style>
             .content h1 {
             text-align: center;
