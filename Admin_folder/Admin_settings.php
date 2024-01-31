@@ -8,7 +8,7 @@ $connection = openConnection();
 if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     header("location: ../user_homepage.php/");
     exit;
-} else{
+} 
 
 ?>
 
@@ -30,4 +30,3 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 <a href="Admin_folder/Add_products.php"> Fit 'n Flavors Products </a>
 
 </body>
-<?php } ?>
