@@ -10,13 +10,6 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     exit;
 } else{
 
-    // extract table users from database
-    $user_data = "SELECT * FROM Users";
-
-    // execute the query
-    $result = mysqli_query($connection, $user_data);
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -30,108 +23,54 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
             
         <!-- Navigatie bar -->
         <?php include '../Navbar_folder/Navbar_link.php'; ?>
-    <style>
-        .table {
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.9em;
-            font-family: sans-serif;
-            min-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .table thead tr {
-            background-color: #009879;
-            color: #ffffff;
-            text-align: left;
-        }
-
-        .table th,
-        .table td {
-            padding: 12px 15px;
-        }
-
-        .table tbody tr {
-            border-bottom: 1px solid #dddddd;
-        }
-
-        .table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
-        }
-
-        .table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
-        }
-
-        .table tbody tr.active-row {
-            font-weight: bold;
-            color: #009879;
-        }
-    </style>
 </head>
-
 <body>
-    <table class="table">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>User Name</th>
-                    <th>Admin</th>
-                        <?php 
-                            if ($result->num_rows > 0){
-                                // Output data of each row
-                                while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $row["FirstName"]; ?></td>
-                                        <td><?php echo $row["LastName"]; ?></td>
-                                        <td><?php echo $row["UserName"]; ?></td>
-                                        <td><?php echo $row["IsAdmin"]; ?></td>
-                                    </tr>
-                                <?php
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='4'>No records found</td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    <?php
-                    }
-                
-                    closeConnection($connection);
-                    ?>
+    <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+    <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
+    <button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
+    <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
 
-        <!-- Footer -->
-        <div class="footer"> 
-            <div class="row">
-            <div class="column">
-                <h3 class="footer">About Fit 'n Flavors</h3>
-                <p class="footer"> <a href="../About_us_folder/About_us.html">About us</a></p>
-                <p class="footer"> <a href="../About_us_folder/Terms_and_conditions.html">Terms & Conditions</a></p>
-            </div>
+    <div id="Home" class="tabcontent">
+    <h3>Home</h3>
+    <p>Home is where the heart is..</p>
+    </div>
 
-            <div class="column">
-                <h3 class="footer">Costumerservice</h3>
-                <p class="footer"><a href="../FAQ/FAQ.html">FAQ</a></p>
-                <p class="footer"><a href="../FAQ/Delivery.html">Delivery information</a></p>
-                <p class="footer"><a href="../FAQ/Returns.html">Returns and refund policy</a></p>
-                <p class="footer"><a href="../FAQ/Contact.html">Contact</a></p>
-            </div>
-            
-            <div class="column">
-                <h3 class="footer">Follow us!</h3>
-                <p class="footer"><a class="footer" href="http://www.instagram.com/" ><i class="fa fa-instagram" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.facebook.com" ><i class="fa fa-facebook" style="font-size:24px"></i></a>
-                    <a class="footer" href="https://www.linkedin.com" ><i class="fa fa-linkedin" style="font-size:24px"></i></a>
-                </p>
-            </div>
-            </div>
-        </div>
+    <div id="News" class="tabcontent">
+    <h3>News</h3>
+    <p>Some news this fine day!</p> 
+    <?php include 'Admin_folder/Add_admin.php'; ?>
+    </div>
+
+    <div id="Contact" class="tabcontent">
+    <h3>Contact</h3>
+    <p>Get in touch, or swing by for a cup of coffee.</p>
+    </div>
+
+    <div id="About" class="tabcontent">
+    <h3>About</h3>
+    <p>Who we are and what we do.</p>
+    </div>
+
+    <script>
+    function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
+
 </body>
 
 </html>
-
-
-
+<?php }  ?>
