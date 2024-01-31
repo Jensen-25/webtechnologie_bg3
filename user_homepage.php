@@ -149,7 +149,7 @@ window.onload = checkCookies;
         <h2> Your ultimate destination for a healthy and flavorful lifestyle</h2>
 
         <!-- Footer -->
-        <?php include '../Navbar_folder/Footer.php'; ?>
+        <?php include 'Navbar_folder/Footer.php'; ?>
         
     </body>
 </html>
