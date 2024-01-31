@@ -11,6 +11,9 @@ session_start();
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
+        <!-- reCAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
         <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title> Homepage User </title>
@@ -219,6 +222,13 @@ session_start();
                         <button type="button" onclick="prevStep(3)">Previous</button>
                         <button type="submit" onclick="validateAndNext(3, ['username', 'password', 'password_2'], ['text', 'password', 'password'])" name="submit">Submit</button>
                         </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="g-recaptcha" data-sitekey="6LfkU2IpAAAAAM5IlcOk8bLK7YThQQfL4cNLjzqN"></div>
+                        </div>
+
                     </div>
                     
                     <!-- Circles indicating form steps -->
@@ -227,7 +237,8 @@ session_start();
                         <div class="circle" id="circle2"></div>
                         <!-- <div class="circle" id="circle3"></div> -->
                         <div class="circle" id="circle3"></div>
-                    </div>   
+                    </div>
+                       
             </form>
         </div>
         <!-- Link naar de terms and services -->
