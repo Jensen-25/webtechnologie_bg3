@@ -6,10 +6,10 @@
     <title>Order page</title>
 
     <!-- Link naar de CSS sheet -->
-    <link rel="stylesheet" href="/Homepage_stylesheet.css">
+    <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
     <!-- Navigatie bar -->
-    <script src="../FAQ/Navbar.js" defer></script>
+    <script src="../Navbar_folder/navbar.js" defer></script>
 
     <!-- Link voor icoontjes footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,13 +45,18 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
         }
+
+    h1 {
+    
+
+    }
     </style>
  </head>
  
  
  <body>
 
-<h> The product has been added to your shoppingcart! </h>
+<h1><b> The product has been added to your shoppingcart! <b></h>
 
 <?php 
 
