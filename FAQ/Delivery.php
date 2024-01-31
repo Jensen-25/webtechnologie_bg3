@@ -1,28 +1,42 @@
+<?php
+include '/var/www/connections/connections.php';
+session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title> Contact </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <!-- Link naar de CSS sheet -->
-        <link rel="stylesheet" href="../Homepage_stylesheet.css">
+        <link rel="stylesheet" href="Homepage_stylesheet.css">
 
-        <!-- Navigatie bar -->
-        <script src="Navbar.js" defer></script>
-
-        <!-- Link voor icoontjes footer-->
+        <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> Homepage User </title>
+            
+        <!-- Navigatie bar -->
+        <?php
+            if (isset($_SESSION['admin']) || isset($_SESSION['user'])) {
+                ?>
+                <script src="../Navbar_folder/Navbar_loggedin.js" defer></script>
+        <?php } else {
+                ?>
+                <script src="../Navbar_folder/navbar.js" defer></script>
+        <?php  }
+        ?>  
 
-        <style>        
+        <style>
             .content {
-            margin-top: 5%;
-            margin-bottom: 8%;
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 5%;
+            margin-left:15%;
+            margin-right:15%;
+            background-color:#fffff0; 
             }
 
             .content h1 {
-            text-align: left;
-            margin-left: 5%;
-            margin-top: 5%;
+            text-align: centre;
+            margin-bottom: 6%;
             color: black;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 300%;
@@ -30,45 +44,44 @@
             }
             
             .content h2 {
-            text-align: left;
-            margin-left: 5%;
-            margin-top: 2.5%;
+            text-align: center;
+            margin-top: 4%;
             color: black;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 150%;
+            font-size: 200%;
             align-self:stretch;
             }
             
             .content p{
-            margin-left: 5%;
+            text-align: center;
             margin-top: 1%;
             color: black;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 100%;
             align-self:stretch;
             }
-        </style>        
-
+            </style>
     </head>
 
     <body>
-        <!-- Content -->
+        
+        <!-- content -->
         <div class="content">
-        <h1>Contact</h1><br>
+        <h1>Delivery</h1>
+            <h2>Delivery information</h2>
+            <p>Fit 'n Flavors ships to the Netherlands only.<br><br>
+            Orders placed on business days before 23:59 will be shipped the same day and are expected to be delivered the next business day. <br><br>
+            Weekend orders can be anticipated to arrive on the following Tuesday.
+            </p>
+        </div>
 
-        <h2>Opening hours Customer Service:</h2>
-        <p>Monday - Friday: 9 a.m. - 5 p.m.</p>
-
-        <h2>Email:</h2>
-        <p>customerservice@fitflavors.nl</p>
-
-        <h2>Phone:</h2>
-        <p>NL: +316 12 34 56 78</p>
-
-        <h2>Address:</h2>
-        <p>Science Park 904</p>
-        <p>1098 XH</p> 
-        <p>Amsterdam</p>
+        <div class="content">
+            <h2>Shipping rates</h2>
+            <p>Fit ‘n Flavors offers FREE shipping on all orders without returns.<br><br>
+            In case of a return, the shipping costs are €4,95 and will be deducted from the amount of your refund.
+            </p>
+            <br>
+            <br>
         </div>
 
         <!-- Footer -->
@@ -97,5 +110,6 @@
             </div>
             </div>
         </div>
+
     </body>
 </html>

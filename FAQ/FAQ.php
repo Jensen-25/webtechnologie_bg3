@@ -1,18 +1,28 @@
-<<!DOCTYPE html>
-<html lang="en">
+<?php
+include '/var/www/connections/connections.php';
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
     <head>
-        <title> FAQ </title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- Link naar de CSS sheet -->
-        <link rel="stylesheet" href="../Homepage_stylesheet.css">
+        <link rel="stylesheet" href="Homepage_stylesheet.css">
 
-        <!-- Navigatie bar -->
-        <script src="Navbar.js" defer></script>
-
-        <!-- Link voor icoontjes footer-->
+        <!-- Link for icons in footer, using 'Font Awesome 4' through W3Schools https://www.w3schools.com/icons/ -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> Homepage User </title>
+            
+        <!-- Navigatie bar -->
+        <?php
+            if (isset($_SESSION['admin']) || isset($_SESSION['user'])) {
+                ?>
+                <script src="../Navbar_folder/Navbar_loggedin.js" defer></script>
+        <?php } else {
+                ?>
+                <script src="../Navbar_folder/navbar.js" defer></script>
+        <?php  }
+        ?>  
 
         <style>
             /* Change the link color to black*/
