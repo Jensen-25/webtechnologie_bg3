@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Link naar de CSS sheet -->
-    <link rel="stylesheet" href="Homepage_stylesheet.css">
+    <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
     <!-- Link voor icoontjes footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -102,7 +102,7 @@ closeConnection($connection);
     btn.addEventListener('click', function () {
         const OrderId = <?php echo $OrderID?>
         // Redirect to the payment page with the Order ID
-        window.location.href = `payment_page.html?id=${OrderId}`;
+        window.location.href = `payment_page.php?id=${OrderId}`;
     });
 </script>
 
