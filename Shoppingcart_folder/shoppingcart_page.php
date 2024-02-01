@@ -89,6 +89,7 @@ include '../cookie.php';
         margin-bottom: 5%;
         justify-content: center;
         display: flex;
+        }
     </style>
 
 <body>
@@ -96,8 +97,15 @@ include '../cookie.php';
 <h1><b>Shoppingcart</b></h1>
 <p>Your items:</p>
 
-<?php 
 
+<?php 
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Product Image</th>";
+        echo "<th>Product Name</th>";
+        echo "<th>Price</th>";
+        echo "<th>Quantity</th>";
+        echo "</tr>";
 
 // Check if the shopping cart and product quantities arrays are set in the session
 if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
@@ -113,39 +121,24 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
 
-            // Display product details and quantity
-            echo "<div>";
-            echo "<img src='" . $row["ProductImage"] . "' alt='Product Image' style='max-width: 100%;'>";
-            echo "<div><strong>Product Name:</strong> " . $row["ProductName"] . "</div>";
-            echo "<div><strong>Price:</strong> " . $row["ProductPrice"] . "</div>";
-            echo "<div><strong>Quantity:</strong> " . $_SESSION['product_quantities'][$productId] . "</div>";
-            // Add more details if needed
-
-            echo "</div>";
+                 // Display product details and quantity in table rows
+                 echo "<tr>";
+                 echo "<td><img src='" . $row["ProductImage"] . "' alt='Product Image' style='max-width: 100%;'></td>";
+                 echo "<td>" . $row["ProductName"] . "</td>";
+                 echo "<td>" . $row["ProductPrice"] . "</td>";
+                 echo "<td>" . $_SESSION['product_quantities'][$productId] . "</td>";
+                 // Add more table data if needed
+                 echo "</tr>";
         }
     }
+    echo "</table>";
 } else {
     echo "<p>Your shopping cart is empty.</p>";
 }
 ?>
 
 
-  <!-- <script>
-    // Test array of product data
-    const products = [
-        { OrderID: 1, ProductID: 1, ProductAmount: 1, Subtotal: 1, ProductID: 1},
-        { OrderID: 1, ProductID: 3, ProductAmount: 2, Subtotal: 1, ProductID: 2},
-        { OrderID: 1, ProductID: 5, ProductAmount: 3, Subtotal: 1, ProductID: 2},
-        { OrderID: 1, ProductID: 7, ProductAmount: 1, Subtotal:1, roductID: 2},
-        { OrderID: 1, ProductID: 9, ProductAmount: 1, Subtotal: 1, ProductID: 2},
-        { OrderID: 1, ProductID: 10, ProductAmount: 1, Subtotal:1 ,ProductID: 2}
-    ];
-
-  </script> -->
-
-
-<!-- Hierin moet een link naar de payment page als iemand op betalen drukt -->
-
+<!-- Link to payement page-->
 <div class="button-block"><a class="button button1" id="CheckoutButton" href="payment_page.php">Proceed to pay</a></div>
 
 
