@@ -146,10 +146,9 @@ session_start();
                     value="<?php if (isset($_COOKIE["user"])){echo $_COOKIE["user"];}?>"/> <br>
 
                     <label class="login-text" for="password"><b>Password</b></label> <br>
-                    <input type="password" name="password" id="password" autofocus placeholder="Enter password"required
-                    value="<?php if (isset($_COOKIE["pass"])){echo $_COOKIE["pass"];}?>"/> <br>
+                    <input type="password" name="password" id="password" autofocus placeholder="Enter password"required> <br>
 
-                    <input type="checkbox" name="remember"<?php if (isset($_COOKIE["user"]) && isset($_COOKIE["pass"])){ echo "checked";}?>> Remember me <br><br>
+                    <input type="checkbox" name="remember"<?php if (isset($_COOKIE["user"])){ echo "checked";}?>> Remember username <br><br>
 
                     <button type="submit" name="submit" class="registerbtn" onclick="submitForm()"> Login </button>
                 </form>

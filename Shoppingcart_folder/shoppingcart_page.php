@@ -8,7 +8,7 @@ $connection = openConnection();
 include '../cookie.php';
 
 // Redirect to homepage if not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) || !isset($_SESSION['admin'])) {
     echo "<script>
     alert('Please log in to proceed.');
     window.location.href = '../Login_folder/Login_screen.php';
