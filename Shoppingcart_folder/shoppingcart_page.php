@@ -152,7 +152,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
 
 
 <!-- Continue shopping -->
-<div class="button-block"><a class="button button2" id="CheckoutButton2" 
+<div class="button-block"><a class="button button1" id="CheckoutButton2" 
 href="../Products_folder/main_products_page.php">Add more products</a></div>
 
 <!-- Link to payement page-->
