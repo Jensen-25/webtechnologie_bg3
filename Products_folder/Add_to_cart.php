@@ -78,12 +78,7 @@ $connection = openConnection();
 
 <?php 
     // Check if the product ID is provided in the URL
-    if (isset($_GET['id'])){
-        $productID = (int)$_GET['id'];
-
-        if (isset($_POST['add'])) {
-            $OrderID = rand();
-
+    if (isset($_POST['add'])) {
 
     // Check if the product ID is valid
     if ($productId > 0) {
@@ -110,9 +105,4 @@ $connection = openConnection();
     }else {
         echo "Invalid product ID.";
     }
-} else {
-    echo "Product ID not provided in the request.";
-    }   
-
-
 ?>

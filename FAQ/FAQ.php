@@ -132,7 +132,7 @@ session_start();
         <div class="content">
             <h1> Frequently Asked Questions </h1>
                 <p class="intro">Cannot find the answer to your question below? Please get in contact with our 
-                <a href="Contact.html" title="Contact" class="contact-button"> Customer Service</a> team and they will be happy to help. </p>
+                <a href="Contact.php" title="Contact" class="contact-button"> Customer Service</a> team and they will be happy to help. </p>
 
             <h3>Ordering</h3>
                 <button class="accordion">The item I want to order is out of stock. Why is it on the website?</button>
@@ -165,7 +165,7 @@ session_start();
 
                 <button class="accordion">Do I need an account to order?</button>
                 <div class="panel">
-                <p>Yes, you will need an account to order. You can register on our <a href="Registratiescherm.html" title="Registration">registration page</a>.</p>
+                <p>Yes, you will need an account to order. You can register on our <a href="Registratiescherm.php" title="Registration">registration page</a>.</p>
                 </div>
 
                 <button class="accordion">I have received the wrong item. What should I do?</button>
@@ -197,7 +197,7 @@ session_start();
                 <button class="accordion">I would like to raise a complaint about the quality of a product.</button>
                 <div class="panel">
                 <p>We take all complaints seriously and are committed to protecting our valued customers.</p>
-                <p>If you have a concern regarding the quality of any of our products then please get in contact with our <a href="Contact.html" title="Contact">Customer Service</a> team.</p>
+                <p>If you have a concern regarding the quality of any of our products then please get in contact with our <a href="Contact.php" title="Contact">Customer Service</a> team.</p>
                 <p>It would really speed our investigation up if you could find the information below before contacting us.
                 <ol>
                     <li>Order Number</li>
@@ -213,7 +213,7 @@ session_start();
             <h3>Delivery</h3>
                 <button class="accordion">What delivery options do you offer?</button>
                 <div class="panel">
-                <p>All our delivery options can be found on our <a href="Delivery.html" title="Delivery Information">Delivery Information</a> page.</p>
+                <p>All our delivery options can be found on our <a href="Delivery.php" title="Delivery Information">Delivery Information</a> page.</p>
                 </div>
 
                 <button class="accordion">What happens if I am not at home to accept my delivery?</button>
@@ -235,8 +235,8 @@ session_start();
             <h3>Returns and refunds</h3>
                 <button class="accordion">What is your return policy?</button>
                 <div class="panel">
-                <p>Please refer to our <a href="Returns.html" title="Returns and refunds">Return Policy</a> page for more information about our return policy.</p>
-                <p>If this does not answer your question then our <a href="Contact.html" title="Contact">Customer Service</a> team is ready to help you.</p>
+                <p>Please refer to our <a href="Returns.php" title="Returns and refunds">Return Policy</a> page for more information about our return policy.</p>
+                <p>If this does not answer your question then our <a href="Contact.php" title="Contact">Customer Service</a> team is ready to help you.</p>
                 </div>
 
                 <button class="accordion">How do I return an item?</button>
@@ -247,13 +247,13 @@ session_start();
                         <li><p>Deliver your return shipment to a PostNL or DHL point</p></li>
                         <li><p>Please keep your proof of shipment until your return has been processed by us.</p></li>
                     </ol>
-                <p>Please refer to our <a href="Returns.html" title="Returns and refunds">Return Policy</a> page for more information about our return policy.</p>
+                <p>Please refer to our <a href="Returns.php" title="Returns and refunds">Return Policy</a> page for more information about our return policy.</p>
                 </div>
 
                 <button class="accordion">Can I return a product if I no longer want it?</button>
                 <div class="panel">
                 <p>We want all of our customers to enjoy their products, so if you are not happy with your order you can send it back to us within 14 days.<br><br>
-                Please take a look at our <a href="Returns.html" title="Returns and refunds">Return Policy</a> for further instructions.</p>
+                Please take a look at our <a href="Returns.php" title="Returns and refunds">Return Policy</a> for further instructions.</p>
                 </div>
 
                 <button class="accordion">What happens once my item is returned?</button>

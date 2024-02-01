@@ -134,12 +134,11 @@ closeConnection($connection);
 <script>
     var btn = document.getElementById('ShoppingcartButton');
     btn.addEventListener('click', function () {
-        const productId = <?php echo $productID?>
-        // Redirect to the shoppingcart page with the product ID
-        window.location.href = `orders.php?id=${productId}`;
+        const productId = <?php echo $productID ?>;
+        // Redirect to the shopping cart page with the product ID
+        window.location.href = `../Shoppingcart_folder/shoppingcart_page.php`;
     });
 </script>
-
         <!-- Footer -->
         <div class="footer"> 
         <?php include '../Navbar_folder/Footer.php'; ?>
