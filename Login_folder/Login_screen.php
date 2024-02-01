@@ -175,7 +175,7 @@ session_start();
                         if (data.success) {
                             window.location.href = '/index.html'; // Redirect to dashboard on success
                         } else {
-                            document.getElementById('errorMessage').innerText = 'Invalid credentials';
+                            alert ('Invalid credentials');
                         }
                     })
                     .catch(error => {
