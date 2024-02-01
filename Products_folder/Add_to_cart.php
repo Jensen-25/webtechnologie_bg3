@@ -81,10 +81,6 @@ $connection = openConnection();
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
-        if (isset($_POST['add'])) {
-            $OrderID = rand();
-
-
     // Check if the product ID is valid
     if ($productId > 0) {
         // Initialize the shopping cart array/ amount array in the session if not already set
@@ -110,9 +106,4 @@ $connection = openConnection();
     }else {
         echo "Invalid product ID.";
     }
-} else {
-    echo "Product ID not provided in the request.";
-    }   
-
-
 ?>
