@@ -102,7 +102,7 @@ session_start();
 
                             // Create the product price for the grid
                             const priceElement = document.createElement('p');
-                            priceElement.textContent = `Price: $${product.ProductPrice}`;
+                            priceElement.textContent = `Price: €${product.ProductPrice}`;
 
                             // Add all the elements to the figure and figure to the grid
                             figCaption.appendChild(headingElement);

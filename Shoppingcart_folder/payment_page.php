@@ -117,8 +117,14 @@
             include '/var/www/connections/connections.php';
             $connection = openConnection();
 
-            // Get UserID from User currently logged in --> Hier struggle ik nog mee
-            // $_SESSION['UserID'] = 
+            // Get UserName from current session and then use that to get the userID (IDK of dit nu werkt)
+            if(isset($_SESSION['admin'])){
+                $UserName = $_SESSION['admin'];
+            } elseif(isset($_SESSION['user'])){
+                $UserName = $_SESSION['user'];
+            }
+
+            $UserID = $UserName['UserID'];
 
             if (isset($_POST['Proceed'])) {
                 // Sanitize en get data from form
