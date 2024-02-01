@@ -81,7 +81,7 @@ $connection = openConnection();
     if (isset($_GET['id'])){
         $productID = (int)$_GET['id'];
 
-        if (isset($_POST['add'])) {
+
             $OrderID = rand();
 
             // Add product to ordered products database
