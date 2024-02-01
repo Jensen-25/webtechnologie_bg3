@@ -111,7 +111,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
 
 <!-- Hierin moet een link naar de payment page als iemand op betalen drukt -->
 
-<button id="CheckoutButton">Go to payment</button>
+<button id="CheckoutButton">Proceed to pay</button>
 
 <script>
     var btn = document.getElementById('CheckoutButton');
