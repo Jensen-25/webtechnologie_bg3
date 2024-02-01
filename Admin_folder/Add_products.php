@@ -8,7 +8,7 @@ $connection = openConnection();
     $product_data = "SELECT * FROM Products";
 
     // execute the query
-    $result = mysqli_query($connection, $user_data);
+    $result = mysqli_query($connection, $product_data);
 
 ?>
 
