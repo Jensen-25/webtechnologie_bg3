@@ -2,6 +2,9 @@
 include '/var/www/connections/connections.php';
 $connection = openConnection();
 
+// Initialisatie van de foutmeldingsvariabele
+$error_message = "";
+
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Check if reCAPTCHA-response is set
@@ -22,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             handleUserRegistration();
         } else {
             // Verification failed, display an error message or redirect to registration page
-            die("Error: reCAPTCHA verification failed. Please try again.");
+            alert("Error: reCAPTCHA verification failed. Please try again.");
         }
     } else {
         // reCAPTCHA-response is not set, display an error message or redirect to registration page
-        die("Error: Please submit the registration form.");
+        alert("Error: Please submit the registration form.");
     }
 }
 
