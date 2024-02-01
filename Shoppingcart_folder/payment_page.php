@@ -126,6 +126,7 @@ include '../cookie.php';
             <script>
                 var productsbtn = document.getElementById('Proceed');
                 productsbtn.addEventListener('click', function () {
+                    alert("Thanks for ordering at Fit 'n Flavors! Enjoy your proteins!")
                     window.location.href = `../user_homepage.php`;
                 });
             </script>
