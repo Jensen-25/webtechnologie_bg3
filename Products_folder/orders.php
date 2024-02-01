@@ -117,7 +117,7 @@ $connection = openConnection();
     else {
         echo "Product ID not provided in the URL" ;
     }
-}
+
 
 
 
