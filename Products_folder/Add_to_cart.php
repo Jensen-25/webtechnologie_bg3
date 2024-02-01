@@ -165,5 +165,9 @@ include '../cookie.php';
     <a class="button button1" href="../Products_folder/main_products_page.php">Continue shopping</a>
     <a class="button button2" href="../Shoppingcart_folder/shoppingcart_page.php">Shopping cart</a>
 
+
+    <!-- Footer -->
+    <?php include '../Navbar_folder/Footer.php'; ?>
+
 </body>
 </html>

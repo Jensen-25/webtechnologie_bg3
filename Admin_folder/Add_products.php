@@ -133,6 +133,9 @@ $connection = openConnection();
 
                 closeConnection($connection);
                 ?>
+                
+    <!-- Footer -->
+    <?php include '../Navbar_folder/Footer.php'; ?>
 
 </body>
 </html>
