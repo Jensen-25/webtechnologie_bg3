@@ -3,6 +3,18 @@
 include '/var/www/connections/connections.php';
 
 session_start();
+// Check for the error parameter
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+
+    // Display the appropriate error message
+    switch ($error) {
+        case 'recaptcha':
+            echo "<p>Error: ReCAPTCHA verification failed. Please try again.</p>";
+            break;
+        // Add more cases if needed for other errors
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -233,6 +245,7 @@ session_start();
                         <br>
                         <br>
                         <div class="g-recaptcha" data-sitekey="6LfkU2IpAAAAAM5IlcOk8bLK7YThQQfL4cNLjzqN" name="g-recaptcha-response"></div>
+
                         </div>
 
                     </div>
