@@ -113,6 +113,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     echo "<h2>Shopping Cart:</h2>";
 
     $totalPrice = 0;
+    $totalQuantities = 0;
     // Loop through each product in the shopping cart
     foreach ($_SESSION['shopping_cart'] as $productId) {
         // Retrieve product details from the database
@@ -137,9 +138,10 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     }
 
     echo "<tr>";
-    echo "<td>Your Name: " . $_SESSION["UserName"] . "</td>";
+    echo "<td>Thanks for ordering " . $_SESSION["user"] . "!" . "</td>";
+    echo "<td>Order Date: " . date("Y-m-d") . "</td>";
     echo "<td>Total Price: $" . $totalPrice . "</td>"; 
-    echo "<td>Total Quantity:" . $totalQuantities . "</td>";
+    echo "<td>Total Quantity: " . $totalQuantities . "</td>";
     echo "</tr>";
 
     echo "</table>";
