@@ -73,31 +73,6 @@ include '../cookie.php';
                     margin-top: 1%;
                     margin-bottom: 12%;
                     }
-
-                    .cart-details {
-                    position: fixed;
-                    top: 0;
-                    right: 0;
-                    padding: 10px;
-                    background-color: #fff;
-                    border: 1px solid #ddd;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    max-width: 300px;
-                }
-
-                .cart-details h2 {
-                    margin-bottom: 10px;
-                }
-
-                .cart-details ul {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-                }
-
-                .cart-details li {
-                    margin-bottom: 10px;
-                }
                 </style>
         </head>
 
@@ -112,12 +87,10 @@ include '../cookie.php';
                 <h3> Name </h3>
                 <div class="box">
                 <label class="payment-text" for="FirstName">First name</label> <br>
-                <input type="text" name ="FirstName" id="FirstName" 
-                value ="<?php echo isset($_SESSION['user']) ? $_SESSION['user']['FirstName'] : ''; ?>" required/> <br>
+                <input type="text" name ="FirstName" id="FirstName" autofocus placeholder="Enter first name" required/> <br>
         
                 <label class="payment-text" for="LastName">Last name</label> <br>
-                <input type="text" name="LastName" id="LastName" 
-                value="<?php echo isset($_SESSION['user']) ? $_SESSION['user']['LastName'] : ''; ?>"required/> <br>
+                <input type="text" name="LastName" id="LastName" autofocus placeholder="Enter last name"required/> <br>
                 </div>
 
                 <!-- Filling in DeliveryAdress: Postalcode, Streetname, Housenumber -->
@@ -149,39 +122,6 @@ include '../cookie.php';
                 
             </form>
             </div>
-            <!-- Shopping Cart Details -->
-                <div class="cart-details">
-                    <h2>Shopping Cart</h2>
-                    <ul>
-                        <?php
-                        // Check if the shopping cart and product quantities arrays are set in the session
-                        if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
-                            // Connect to the database and retrieve product details based on the product IDs in the shopping cart
-
-                            // Loop through each product in the shopping cart
-                            foreach ($_SESSION['shopping_cart'] as $productId) {
-                                // Retrieve product details from the database
-                                $product_data = "SELECT * FROM Products WHERE ProductID = $productId";
-                                $result = mysqli_query($connection, $product_data);
-
-                                if ($result->num_rows == 1) {
-                                    $row = $result->fetch_assoc();
-
-                                    // Display product details and quantity
-                                    echo "<li>";
-                                    echo "<strong>{$row['ProductName']}</strong>";
-                                    echo "<br>Quantity: {$_SESSION['product_quantities'][$productId]}";
-                                    echo "<br>Price: {$row['ProductPrice']}";
-                                    // Add more details if needed
-                                    echo "</li>";
-                                }
-                            }
-                        } else {
-                            echo "<li>Your shopping cart is empty.</li>";
-                        }
-                        ?>
-                    </ul>
-                </div>
 
             <script>
                 var productsbtn = document.getElementById('Proceed');
@@ -236,7 +176,6 @@ include '../cookie.php';
                     $ResultOrders = mysqli_query($connection, $OrdersQuery);
                 }
             }
-            
 
             // Sluit de databaseverbinding
             closeConnection($connection);

@@ -7,6 +7,14 @@ $connection = openConnection();
 // Cookie
 include '../cookie.php';
 
+// Redirect to homepage if not logged in
+if (!isset($_SESSION['user'])) {
+    echo "<script>
+    alert('Please log in to proceed.');
+    window.location.href = '../login_page.php';
+    </script>";
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
