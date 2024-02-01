@@ -58,17 +58,6 @@ if(isset($_POST['submit'])){
                  exit();
             }
             }
-            // Return Succes if succesfull
-            header('Content-Type: application/json');
-            echo json_encode(['success' => true]);
-            exit();
-        }         
-        else {
-            // Return a JSON response indicating unsuccessful login
-            header('Content-Type: application/json');
-            echo json_encode(['success' => false, 'message' => 'Invalid username or password']);
-            exit();
-        }
     }
 // Sluit de databaseverbinding
 closeConnection($connection);
