@@ -126,8 +126,12 @@ closeConnection($connection);
 ?>
 
 <!-- Add to shoppingcart button -->
+<form> 
+    <button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
+    <input type="hidden" name="productId" value="<?php echo $productID; ?>">
+</form>
 
-<button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
+
 
 </div>
 

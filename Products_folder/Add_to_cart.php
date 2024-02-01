@@ -79,6 +79,8 @@ $connection = openConnection();
 <?php 
     // Check if the product ID is provided in the URL
     if (isset($_POST['add'])) {
+    
+        $productId = (int)$_POST['productId'];
 
     // Check if the product ID is valid
     if ($productId > 0) {
