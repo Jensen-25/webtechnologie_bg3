@@ -12,7 +12,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 
 ?>
 
-<!DOCTYPE html>\
+<!DOCTYPE html>
 <html>
 <head>
         <!-- Link naar de CSS sheet -->
