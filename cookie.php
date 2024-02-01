@@ -48,30 +48,29 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
                     <button onclick="acceptCookies()">Got It!</button>
                 </div>
 
-        <script>
-        // Check if the user has accepted cookies
-        function checkCookies() {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                // Show the cookie popup if not accepted
-                document.getElementById('cookie-popup').style.display = 'block';
-            }
-        }
+                <script>
 
-        // Function to set cookies as accepted
-        function acceptCookies() {
-            // Set a localStorage item to remember the user's choice
-            localStorage.setItem('cookiesAccepted', 'true');
-            
-            // Hide the cookie popup
-            document.getElementById('cookie-popup').style.display = 'none';
-        }
+// Check if the user has accepted cookies
+function checkCookies() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+        // Display while not accepted
+        document.getElementById('cookie-popup').style.display = 'block';
+    } else {
+        // Don't display if agreed
+        document.getElementById('cookie-popup').style.display = 'none';
+    }
+}
 
-        // // Run the checkCookies function when the page loads
-        // window.onload = checkCookies;
+// Function to set cookies as accepted
+function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    // Hide the cookie popup
+    document.getElementById('cookie-popup').style.display = 'none';
+}
 
-        // Run the checkCookies function when the DOM content is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            checkCookies();
-        });
-        
+// Run the checkCookies function when the DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    checkCookies();
+});
+</script>
         </script>

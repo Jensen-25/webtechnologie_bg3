@@ -81,14 +81,14 @@ function handleUserRegistration() {
         // $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
         //         VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
         
-        // Prepared statement 
+        // Prepared statement to prevent from sql injections
         $stmt = $connection->prepare("INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin) VALUES (?, ?, ?, ?, ?, ?, '0')");
         $stmt->bind_param("ssssss", $firstname, $lastname, $email, $phonenumber, $username, $hashed_password);
         $result = $stmt->execute();
         $stmt->close();
 
         // Execute the query
-        // $result = mysqli_query($connection, $sql);
+        
 
         if ($result) {
             echo "Registration successful!";
