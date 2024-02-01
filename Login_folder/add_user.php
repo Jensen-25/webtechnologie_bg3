@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             handleUserRegistration();
         } else {
             // Verification failed, display an error message or redirect to registration page
-            alert("Error: reCAPTCHA verification failed. Please try again.");
+            die("Error: reCAPTCHA verification failed. Please try again.");
         }
     } else {
         // reCAPTCHA-response is not set, display an error message or redirect to registration page
-        alert("Error: Please submit the registration form.");
+        die("Error: Please submit the registration form.");
     }
 }
 
@@ -64,8 +64,8 @@ function handleUserRegistration() {
         // Check if required info has been provided
         if (empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber) ||
         empty($username) || empty($password) || empty($password_2)) {
-        die("Error: All fields are required.");
-        }
+            die("Error: All fields are required.");
+            }
 
         // Check if the passwords match
         if ($password !== $password_2) {
