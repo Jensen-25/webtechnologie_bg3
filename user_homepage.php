@@ -10,6 +10,9 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
 }
 ?>
 
+<!-- Cookie -->
+<?php include '../cookie.php'; ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -73,7 +76,7 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             
         <?php include 'Navbar_folder/Navbar_link.php'; ?>
 
-         <!-- Cookie Popup -->
+         <!-- Cookie Popup
          <style> 
         /* Cookie Popup Styles */
         #cookie-popup {
@@ -140,7 +143,7 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             checkCookies();
         });
         
-        </script>
+        </script> -->
 
         
 
