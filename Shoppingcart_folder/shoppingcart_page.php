@@ -67,9 +67,6 @@ $connection = openConnection();
 // Check if the shopping cart and product quantities arrays are set in the session
 if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
     // Connect to the database and retrieve product details based on the product IDs in the shopping cart
-    include '/var/www/connections/connections.php';
-    $connection = openConnection();
-
     echo "<h2>Shopping Cart:</h2>";
 
     // Loop through each product in the shopping cart
