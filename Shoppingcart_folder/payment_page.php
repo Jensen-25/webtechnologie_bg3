@@ -73,6 +73,31 @@ include '../cookie.php';
                     margin-top: 1%;
                     margin-bottom: 12%;
                     }
+
+                    .cart-details {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    padding: 10px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    max-width: 300px;
+                }
+
+                .cart-details h2 {
+                    margin-bottom: 10px;
+                }
+
+                .cart-details ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .cart-details li {
+                    margin-bottom: 10px;
+                }
                 </style>
         </head>
 
