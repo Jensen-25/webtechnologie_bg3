@@ -137,10 +137,20 @@ include '../cookie.php';
             if (!in_array($productId, $_SESSION['shopping_cart'])) {
                 $_SESSION['shopping_cart'][] = $productId;
                 $_SESSION['product_quantities'][$productId] = 1;
+
+                // Stock decreases
+                $updateStockQuery = "UPDATE Products SET ProductStock = ProductStock - 1 WHERE ProductID = $productId";
+                mysqli_query($connection, $updateStockQuery);
+                
                 echo "Product added to the shopping cart successfully!";
             } 
             elseif (in_array($productId, $_SESSION['shopping_cart'])) {
             $_SESSION['product_quantities'][$productId]++;
+
+                // Stock decreases
+                $updateStockQuery = "UPDATE Products SET ProductStock = ProductStock - 1 WHERE ProductID = $productId";
+                mysqli_query($connection, $updateStockQuery);
+
             echo "Product quantity increased in the shopping cart!";
         } else {
             echo "Product is already in the shopping cart.";
