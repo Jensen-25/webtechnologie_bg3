@@ -18,20 +18,18 @@ if(isset($_POST['submit'])){
     $password = mysqli_real_escape_string($connection, $_POST['password']);
 
     // Get variables from the database
-    $login_query = "SELECT * FROM Users WHERE 
-    UserName = '$username'";
+    $login_query = "SELECT * FROM Users WHERE UserName = '$username'";
 
     // execute the query
     $result = mysqli_query($connection, $login_query);
 
     // Perform the correct login depending on the user data
     if ($result) {
-        $row = mysqli_fetch_assoc($result)
+        $row = mysqli_fetch_assoc($result);
 
         // Verify the users password
         if($row && password_verify($password, $row['Password'])) {
             session_regenerate_id(true);
-            echo "Login successful!";
             
             // is an admin
             if($row['IsAdmin'] == '1'){
