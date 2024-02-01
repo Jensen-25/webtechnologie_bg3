@@ -337,11 +337,11 @@ if (isset($_GET['error'])) {
             // Simple phonenumber validation
             function validatePhonenumber(phonenumber) {
             // Remove any spaces or dashes from the phone number
-            phoneNumber = phoneNumber.replace(/[\s\-]/g, '');
+            phonenumber = phonenumber.replace(/[\s\-]/g, '');
 
             // Check if the phone number is either 10 digits long or starts with '+' and is 11 digits long
-            if ((phoneNumber.length === 10 && /^\d+$/.test(phoneNumber)) ||
-                (phoneNumber.length === 11 && /^\+\d+$/.test(phoneNumber))) {
+            if ((phonenumber.length === 10 && /^\d+$/.test(phonenumber)) ||
+                (phonenumber.length === 11 && /^\+\d+$/.test(phonenumber))) {
                 return true;
             } else {
                 return false;
