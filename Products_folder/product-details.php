@@ -130,6 +130,7 @@ closeConnection($connection);
         <button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
         <input type="hidden" name="productId" value="<?php echo $productID; ?>">
     </form>
+</div>
 
     <script>
         var btn = document.getElementById('ShoppingcartButton');
