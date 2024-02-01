@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             // Verification failed, display an error message or redirect to registration page
             die("Error: reCAPTCHA verification failed. Please try again.");
+            header('location: registratiescherm.php');  
+            exit();
         }
     } else {
         // reCAPTCHA-response is not set, display an error message or redirect to registration page
