@@ -96,6 +96,13 @@ $connection = openConnection();
                                         <td><?php echo $row["ProductImage"]; ?></td>
                                         <td><?php echo $row["ProteinAmount"]; ?></td>
                                         <td><?php echo $row["ProductStock"]; ?></td>
+                                        <!-- Dropdown-menu to update stock -->
+                                        <td>
+                                            <select name="ChangeStock[<?php echo $row["ProductID"]; ?>]">
+                                                <option value="+1">+1</option>
+                                                <option value="-1">-1</option>
+                                            </select>
+                                        </td>
                                     </tr>
                                 <?php
                                     }
@@ -106,7 +113,25 @@ $connection = openConnection();
                                 ?>
                             </tbody>
                         </table>
-             
+                    <!-- Submission at the end of the page -->
+                    <input type="submit" name="UpdateStock" value="UpdateStock">
+                    </form>
                     <?php
-                    closeConnection($connection);
+                        if (isset($_POST['UpdateStock'])) {
+                            foreach ($_POST['ChangeStock'] as $productID => $change) {
+                                $update_product_stock = "UPDATE Products SET ProductStock = ProductStock + $change WHERE ProductID = $productID";
+                                $result = mysqli_query($connection, $update_product_stock);
+
+                            if ($result) {
+                                echo '<p class="success-message">Product ' . $productID . ' stock is now updated.</p>';
+                            } else {
+                                echo '<p class="error-message">Error updating product stock.</p>';
+                            }
+                        }
+                    }    
+
+                closeConnection($connection);
                 ?>
+
+</body>
+</html>
