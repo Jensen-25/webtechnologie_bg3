@@ -1,6 +1,8 @@
 <?php
 include '/var/www/connections/connections.php';
 session_start();
+
+include '../cookie.php';
 ?>
 
 <!DOCTYPE html>
