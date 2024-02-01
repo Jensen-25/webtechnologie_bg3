@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
     window.location.href = '../Login_folder/Login_screen.php';
     </script>";
     exit();
-}
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,6 +155,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     echo "</table>";
 } else {
     echo "<p>Your shopping cart is empty.</p>";
+}
 }
 ?>
 
