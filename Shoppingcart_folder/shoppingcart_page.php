@@ -138,7 +138,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     }
 
     echo "<tr>";
-    echo "<td>Thanks for ordering " . $_SESSION["user"] . "!" . "</td>";
+    echo "<td>Thanks for ordering ! " . "</td>";
     echo "<td>Order Date: " . date("Y-m-d") . "</td>";
     echo "<td>Total Price: $" . $totalPrice . "</td>"; 
     echo "<td>Total Quantity: " . $totalQuantities . "</td>";
@@ -150,6 +150,10 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
 }
 ?>
 
+
+<!-- Continue shopping -->
+<div class="button-block"><a class="button button2" id="CheckoutButton2" 
+href="../Products_folder/main_products_page.php">Add more products</a></div>
 
 <!-- Link to payement page-->
 <div class="button-block"><a class="button button1" id="CheckoutButton" href="payment_page.php">Proceed to pay</a></div>
