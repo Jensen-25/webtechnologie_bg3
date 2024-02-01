@@ -11,7 +11,7 @@ include '../cookie.php';
 if (!isset($_SESSION['user'])) {
     echo "<script>
     alert('Please log in to proceed.');
-    window.location.href = '../login_page.php';
+    window.location.href = '../Login_folder/Login_screen.php';
     </script>";
     exit();
 }
