@@ -20,7 +20,7 @@ if(isset($_SESSION['admin'])){
 // form has to be submitted before executation
 if(isset($_POST['submit'])){
     $username = mysqli_real_escape_string($connection, $_POST['username']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $password = $_POST['password'];
 
     // Get variables from the database
     $login_data = "SELECT * FROM Users WHERE 
@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
 
     // Check whether login went succesfully
      if ($result && $row = mysqli_fetch_assoc($result)) {
-         if($password, $row['Password']) {
+         if($password, $row['Password']){
              echo "Login successful!";
     
     //     if (password_verify($password, $row['Password'])) {
