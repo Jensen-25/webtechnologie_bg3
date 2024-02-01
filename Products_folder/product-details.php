@@ -126,7 +126,7 @@ closeConnection($connection);
 ?>
 
 <!-- Add to shoppingcart button -->
-<form> 
+<form method="post" action="Add_to_cart.php"> 
     <button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
     <input type="hidden" name="productId" value="<?php echo $productID; ?>">
 </form>
