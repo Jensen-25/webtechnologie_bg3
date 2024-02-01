@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
 
     // Get variables from the database
     $login_data = "SELECT * FROM Users WHERE 
-    UserName = '$username'"
+    UserName = '$username'";
     //  && Password = '$password' ";
 
     // execute the query
