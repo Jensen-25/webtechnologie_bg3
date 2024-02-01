@@ -137,9 +137,9 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     }
 
     echo "<tr>";
-    echo "<td colspan='3'><strong>Order Date:</strong> " . $orderDate . "</td>";
-    echo "<td colspan='2'><strong>Total Price:</strong> $" . $totalPrice . "</td>"; 
-    echo "<td colspan='2'><strong>Total Quantity:</strong> " . $totalQuantities . "</td>";
+    echo "<td>Your Name: " . $_SESSION["UserName"] . "</td>";
+    echo "<td>Total Price: $" . $totalPrice . "</td>"; 
+    echo "<td>Total Quantity:" . $totalQuantities . "</td>";
     echo "</tr>";
 
     echo "</table>";
