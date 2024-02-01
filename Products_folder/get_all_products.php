@@ -9,8 +9,11 @@ if ($conn->connect_error) {
     exit();
 }
 
-$sql = "SELECT * FROM Products";
-$result = mysqli_query($conn, $sql);
+// statement added to prevent from sql injection based on w3 schools
+$productinfo = "SELECT * FROM Products";
+$stmt = $conn->prepare($productinfo);
+$stmt->execute();
+$result = $stmt->get_result();
 
 // Check if the query was successful
 if (!$result) {
