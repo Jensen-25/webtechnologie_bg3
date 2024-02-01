@@ -31,14 +31,14 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($connection, $login_data);
 
     // Check whether login went succesfully
-    // if ($result) {
-    //     if($row = mysqli_fetch_assoc($result)) {
-    //         echo "Login successful!";
+     if ($result) {
+         if($row = mysqli_fetch_assoc($result)) {
+             echo "Login successful!";
     
-    if ($result && $row = mysqli_fetch_assoc($result)) {
-        if (password_verify($password, $row['Password'])) {
-            session_regenerate_id(true);
-            echo "Login succesfull!";
+    // if ($result && $row = mysqli_fetch_assoc($result)) {
+    //     if (password_verify($password, $row['Password'])) {
+    //         session_regenerate_id(true);
+    //         echo "Login succesfull!";
             
             // is an admin
             if($row['IsAdmin'] == '1'){
