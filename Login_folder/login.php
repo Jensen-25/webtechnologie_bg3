@@ -26,18 +26,11 @@ if(isset($_POST['submit'])){
     $login_data = "SELECT * FROM Users WHERE UserName = ?";
     //  && Password = '$password' ";
 
-    // prepare the connection
-    $stmt = $connection->prepare($login_data);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-
-    // execute the sql query for the info in the database
-    $result = $stmt->get_result();
-
     // execute the query
+    $result = mysqli_query($connection, $login_data);
 
     // Check whether login went succesfully
-     if ($result) {
+     if ($result && $row = mysqli_fetch_assoc($result)) {
              echo "Login successful!";
     
     //     if (password_verify($password, $row['Password'])) {
