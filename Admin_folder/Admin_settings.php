@@ -50,6 +50,14 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         color: white;
         }
 
+        .admin_panel {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        justify-content: center;
+        display: flex;
+        }
+
+
         .admin_links {
         margin-top: 5%;
         margin-bottom: 5%;
