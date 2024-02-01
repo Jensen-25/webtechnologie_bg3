@@ -48,30 +48,80 @@ include '../cookie.php';
             
                 <style>
                     .content{
-                    margin-top: 5%;
-                    margin-bottom: 5%;
+                    margin-top: 4%;
+                    margin-bottom: 4%;
                     display: flex;
                     align-self: center;
                     align-items: center;
                     justify-content: center;
 
                     }
-                    /* .payment-box {
+                    .payment-box {
+                    width: 350px;
+                    padding: 20px;
+                    background: #cab89d8c;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    border: 1px solid #C4AE8C;
+                    border-radius: 8px;
+                    position: relative;
+                    align-items: center;
+                    }
+
+                    .payment-text { 
+                    padding: 10px;
+                    width: 5%;
+                    margin-left: 0%;
 
                     }
 
-                    .payment-text {
-
-                    } */
+                    input[type="text"] {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    }
 
                     .content h3 {
                     margin-top: 6%;
-                    margin-bottom: 1%;
+                    margin-bottom: 2%;
+                    margin-left:3%;
+                    }
+
+                    .label {
+                    padding: 0%;
                     }
 
                     .box {
                     margin-top: 1%;
                     margin-bottom: 12%;
+                    padding: 2;
+                    }
+
+                    .proceedbtn {
+                    background-color: #04AA6D;
+                    color: white;
+                    padding: 14px 20px;
+                    margin-top: 10px;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                    border-radius: 4px;
+                    opacity: 0.9;
+                    transition: 0.3s;
+                    }
+
+                    .proceedbtn:hover {
+                    opacity: 1;
+                    }
+
+                    .label {
+                    margin-top: 1%;
                     }
                 </style>
         </head>
@@ -109,7 +159,7 @@ include '../cookie.php';
                 <!-- Filling in PaymentMethod: IDEAL, Paypal -->
                 <h3> Payment Method </h3>
                 <div class="box">
-                <label for="PaymentMethod">Choose payent method:</label>
+                <label for="PaymentMethod">Choose payment method:</label>
                 <select id="PaymentMethod" name="PaymentMethod">
                     <option value="IDEAL">IDEAL</option>
                     <option value="Paypal">Paypal</option>
@@ -118,7 +168,7 @@ include '../cookie.php';
                 </select> 
                 </div>
 
-                <button id="Proceed" type="Proceed" class="Proceedbtn"> Proceed </button>
+                <button id="Proceed" type="Proceed" class="proceedbtn"> Proceed </button>
                 
             </form>
             </div>
