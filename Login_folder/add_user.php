@@ -1,6 +1,4 @@
 <?php
-
-// Include het bestand met databaseconnectiefuncties
 include '/var/www/connections/connections.php';
 $connection = openConnection();
 
@@ -20,71 +18,79 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Check if verification has succeeded
         if ($recaptchaResult->success) {
-            echo "Verification succeeded!";
+            // Verification succeeded, proceed with user registration
+            handleUserRegistration();
         } else {
-            echo "Verification failed. Try again.";
+            // Verification failed, display an error message or redirect to registration page
+            die("Error: reCAPTCHA verification failed. Please try again.");
         }
     } else {
-        echo "Please submit registration form.";
+        // reCAPTCHA-response is not set, display an error message or redirect to registration page
+        die("Error: Please submit the registration form.");
     }
 }
 
-// Functie om te controleren of een gebruiker al in de database bestaat op basis van het e-mailadres
-function userExists($connection, $email) {
-    $email = mysqli_real_escape_string($connection, $email);
-    $sql = "SELECT * FROM Users WHERE Email = '$email'";
-    $result = mysqli_query($connection, $sql);
-    return mysqli_num_rows($result) > 0;
-}
+// Function to handle user registration
+function handleUserRegistration() {
+    global $connection;
 
-if (isset($_POST['submit'])) {
-    // Sanitize en haal gegevens op uit het formulier
-    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $phonenumber = mysqli_real_escape_string($connection, $_POST['phonenumber']);
-    $username = mysqli_real_escape_string($connection, $_POST['username']);
-    $password = $_POST['password'];
-    $password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
-
-    // Controleer of de wachtwoorden overeenkomen
-    if ($password !== $password_2) {
-        die("Error: Passwords do not match.");
+    // Function to check if a user already exists
+    function userExists($email) {
+        global $connection;
+        $email = mysqli_real_escape_string($connection, $email);
+        $sql = "SELECT * FROM Users WHERE Email = '$email'";
+        $result = mysqli_query($connection, $sql);
+        return mysqli_num_rows($result) > 0;
     }
 
-    // Controleer of vereiste velden niet leeg zijn
-    if (empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber) ||
+    if (isset($_POST['submit'])) {
+        // Sanitize and retrieve data from the form
+        $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+        $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+        $email = mysqli_real_escape_string($connection, $_POST['email']);
+        $phonenumber = mysqli_real_escape_string($connection, $_POST['phonenumber']);
+        $username = mysqli_real_escape_string($connection, $_POST['username']);
+        $password = $_POST['password'];
+        $password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
+
+        // Check if the user already exists
+        if (userExists($email)) {
+            die("Error: This user already exists in the database.");
+        }
+
+        // Check if required info has been provided
+        if (empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber) ||
         empty($username) || empty($password) || empty($password_2)) {
         die("Error: All fields are required.");
+        }
+
+        // Check if the passwords match
+        if ($password !== $password_2) {
+            die("Error: Passwords do not match.");
+        }
+
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // SQL query to insert data into the Users table
+        $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
+                VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
+
+        // Execute the query
+        $result = mysqli_query($connection, $sql);
+
+        if ($result) {
+            echo "Registration successful!";
+            
+            // Redirect to the user homepage
+            header('location: Login_screen.php');  
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($connection);
+        }
     }
-
-    // Controleer of de gebruiker al bestaat
-    if (userExists($connection, $email)) {
-        die("Error: This user already exists in the database.");
-    }
-    
-    // Hash het wachtwoord
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // SQL-query om gegevens in de Users-tabel in te voegen
-    $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
-            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
-
-    // Voer de query uit
-    $resultaat = mysqli_query($connection, $sql);
-
-    if ($resultaat) {
-        echo "Registration successful!";
-        
-        // Redirect to the user homepage
-        header('location:Login_screen.php');  
-        exit();
-    } else {
-        echo "Error: " . mysqli_error($connection);
-    }
-    
 }
 
-// Sluit de databaseverbinding
+// Close the database connection
 closeConnection($connection);
 ?>
