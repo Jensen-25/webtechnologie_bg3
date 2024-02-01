@@ -23,9 +23,13 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     // Get variables from the database
-    $login_data = "SELECT * FROM Users WHERE 
-    UserName = '$username'";
+    $login_data = "SELECT * FROM Users WHERE UserName = ?";
     //  && Password = '$password' ";
+
+    $stmt = $mysqli->prepare($login_data);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     // execute the query
     $result = mysqli_query($connection, $login_data);
