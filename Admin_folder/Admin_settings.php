@@ -12,8 +12,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 
 ?>
 
-
-<!DOCTYPE html>\
+<!DOCTYPE html>
 <html>
 <head>
         <!-- Link naar de CSS sheet -->
@@ -50,6 +49,14 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
         background-color: #D9C7AA;
         color: white;
         }
+
+        .admin_panel {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        justify-content: center;
+        display: flex;
+        }
+
 
         .admin_links {
         margin-top: 5%;
