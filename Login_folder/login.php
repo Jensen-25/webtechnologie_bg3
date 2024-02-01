@@ -24,15 +24,21 @@ if(isset($_POST['submit'])){
 
     // Get variables from the database
     $login_data = "SELECT * FROM Users WHERE 
-    UserName = '$username' && Password = '$password' ";
+    UserName = '$username'"
+    //  && Password = '$password' ";
 
     // execute the query
     $result = mysqli_query($connection, $login_data);
 
     // Check whether login went succesfully
-    if ($result) {
-        if($row = mysqli_fetch_assoc($result)) {
-            echo "Login successful!";
+    // if ($result) {
+    //     if($row = mysqli_fetch_assoc($result)) {
+    //         echo "Login successful!";
+    
+    if ($result && $row = mysqli_fetch_assoc($result)) {
+        if (password_verify($password, $row['Password'])) {
+            session_regenerate_id(true);
+            echo "Login succesfull!"
             
             // is an admin
             if($row['IsAdmin'] == '1'){
@@ -54,7 +60,7 @@ if(isset($_POST['submit'])){
                 // set cookie for username and password 
                 if (isset($_POST['remember'])){
                     setcookie("user", $row['UserName'], time() + (86400 * 30));
-                    setcookie("pass", $row['Password'], time() + (86400 * 30));
+                    // setcookie("pass", $row['Password'], time() + (86400 * 30));
                 }
 
                  // Redirect to the user homepage
@@ -65,6 +71,7 @@ if(isset($_POST['submit'])){
             exit();
         }         
         else {
+            header('location:../Login_screen.php');
             echo "Invalid username or password";
         }
     }
