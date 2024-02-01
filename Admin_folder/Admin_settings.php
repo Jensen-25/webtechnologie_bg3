@@ -73,6 +73,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     
     <div class="admin-links">
         <a class="button button1" href="../Admin_folder/Add_admin.php">Manage Admins</a>
+        <a class="button button1" href="../Admin_folder/Add_products.php">Manage Products</a>
         <!-- Add more links as needed -->
     </div>
 </div>

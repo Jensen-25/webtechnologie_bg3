@@ -73,4 +73,3 @@ document.addEventListener('DOMContentLoaded', function() {
     checkCookies();
 });
 </script>
-        </script>
