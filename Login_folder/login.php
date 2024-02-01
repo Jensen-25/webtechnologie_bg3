@@ -40,7 +40,6 @@ if(isset($_POST['submit'])){
 
     // Check whether login went succesfully
     if ($result && $stmt->fetch()) {
-        $row = $stmt->get_result()->fetch_assoc();
              echo "Login successful!";
     
     //     if (password_verify($password, $row['Password'])) {
