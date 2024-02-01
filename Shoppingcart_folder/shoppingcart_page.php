@@ -118,7 +118,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     btn.addEventListener('click', function () {
         const OrderId = <?php echo $OrderID?>
         // Redirect to the payment page with the Order ID
-        window.location.href = `payment_page.php?id=${OrderId}`;
+        window.location.href = `payment_page.php`;
     });
 </script>
 
