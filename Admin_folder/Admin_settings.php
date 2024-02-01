@@ -12,6 +12,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 
 ?>
 
+
 <!DOCTYPE html>\
 <html>
 <head>

@@ -15,6 +15,10 @@ session_start();
             
         <!-- Navigatie bar -->
         <?php include '../Navbar_folder/Navbar_link.php'; ?>
+
+        <!-- Cookie -->
+        <?php include '../cookie.php'; ?>
+        
             <style>
                 .content {
                 margin-bottom: 5%;

@@ -6,6 +6,8 @@ include '/var/www/connections/connections.php';
 
 $connection = openConnection();
 
+
+
 // Redirect to homepage if a user/admin already logged in (according to coockies).
 if(isset($_SESSION['admin'])){
     header('location:../user_homepage.php');

@@ -2,7 +2,13 @@
 include '/var/www/connections/connections.php';
 session_start();
 $connection = openConnection();
+
+// Cookie
+include '../cookie.php';
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

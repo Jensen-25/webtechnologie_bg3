@@ -3,6 +3,9 @@ include '/var/www/connections/connections.php';
 session_start();
 ?>
 
+<!-- Cookie -->
+<?php include '../cookie.php'; ?>
+
 <!DOCTYPE html>
 <html>
     <head>
