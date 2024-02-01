@@ -31,11 +31,10 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($connection, $login_data);
 
     // Check whether login went succesfully
-     if ($result) {
-         if($row = mysqli_fetch_assoc($result)) {
+     if ($result && $row = mysqli_fetch_assoc($result)) {
+         if($password, $row['Password']) {
              echo "Login successful!";
     
-    // if ($result && $row = mysqli_fetch_assoc($result)) {
     //     if (password_verify($password, $row['Password'])) {
     //         session_regenerate_id(true);
     //         echo "Login succesfull!";
