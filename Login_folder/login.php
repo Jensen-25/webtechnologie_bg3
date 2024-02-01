@@ -23,23 +23,15 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     // Get variables from the database
-    $login_data = "SELECT * FROM Users WHERE UserName = ?";
+    $login_data = "SELECT * FROM Users WHERE 
+    UserName = '$username'";
     //  && Password = '$password' ";
 
-        // Prepare the statement
-        $stmt = $connection->prepare($login_data);
-        // Bind the parameter
-        $stmt->bind_param("s", $username);
-        // Execute the statement
-        $result = $stmt->execute();
-
-        // check if the query ran
-        if (!$result) {
-            die('Error executing the statement: ' . $stmt->error);
-        }
+    // execute the query
+    $result = mysqli_query($connection, $login_data);
 
     // Check whether login went succesfully
-    if ($result && $stmt->fetch()) {
+     if ($result && $row = mysqli_fetch_assoc($result)) {
              echo "Login successful!";
     
     //     if (password_verify($password, $row['Password'])) {
@@ -77,7 +69,7 @@ if(isset($_POST['submit'])){
             exit();
         }         
         else {
-            header('location:../Login_folder/Login_screen.php');
+            header('location:../Login_screen.php');
             echo "Invalid username or password";
         }
     }
