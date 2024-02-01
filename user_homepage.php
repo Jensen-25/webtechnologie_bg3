@@ -11,7 +11,7 @@ session_start();
 ?>
 
 <!-- Cookie -->
-<?php include '../cookie.php'; ?>
+<?php include 'cookie.php'; ?>
 
 
 <!DOCTYPE html>
