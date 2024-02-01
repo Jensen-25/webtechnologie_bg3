@@ -102,11 +102,11 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
 
 <body>
 
-<h1><b>Shoppingcart</b></h1>
-<p>Your items:</p>
+    <h1><b>Shoppingcart</b></h1>
+    <p>Your items:</p>
 
 
-<?php 
+    <?php 
         echo "<table>";
         echo "<tr>";
         echo "<th>Product Image</th>";
@@ -115,70 +115,70 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
         echo "<th>Quantity</th>";
         echo "</tr>";
 
-// Check if the shopping cart and product quantities arrays are set in the session
-if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
-    // Connect to the database and retrieve product details based on the product IDs in the shopping cart
-    echo "<h2>Shopping Cart:</h2>";
+        // Check if the shopping cart and product quantities arrays are set in the session
+        if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities'])) {
+            // Connect to the database and retrieve product details based on the product IDs in the shopping cart
+            echo "<h2>Shopping Cart:</h2>";
 
-    $totalPrice = 0;
-    $totalQuantities = 0;
-    // Loop through each product in the shopping cart
-    foreach ($_SESSION['shopping_cart'] as $productId) {
-        // Retrieve product details from the database
-        $product_data = "SELECT * FROM Products WHERE ProductID = $productId";
-        $result = mysqli_query($connection, $product_data);
+            $totalPrice = 0;
+            $totalQuantities = 0;
+            // Loop through each product in the shopping cart
+            foreach ($_SESSION['shopping_cart'] as $productId) {
+                // Retrieve product details from the database
+                $product_data = "SELECT * FROM Products WHERE ProductID = $productId";
+                $result = mysqli_query($connection, $product_data);
 
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
+                if ($result->num_rows == 1) {
+                    $row = $result->fetch_assoc();
 
-                 // Display product details and quantity in table rows
-                 echo "<tr>";
-                 echo "<td><img src='" . $row["ProductImage"] . "' alt='Product Image' style='max-width: 100%;'></td>";
-                 echo "<td>" . $row["ProductName"] . "</td>";
-                 echo "<td>" . $row["ProductPrice"] . "</td>";
-                 echo "<td>" . $_SESSION['product_quantities'][$productId] . "</td>";
-                 // Add more table data if needed
-                 echo "</tr>";
+                        // Display product details and quantity in table rows
+                        echo "<tr>";
+                        echo "<td><img src='" . $row["ProductImage"] . "' alt='Product Image' style='max-width: 100%;'></td>";
+                        echo "<td>" . $row["ProductName"] . "</td>";
+                        echo "<td>" . $row["ProductPrice"] . "</td>";
+                        echo "<td>" . $_SESSION['product_quantities'][$productId] . "</td>";
+                        // Add more table data if needed
+                        echo "</tr>";
 
-                 $totalPrice += $row["ProductPrice"] * $_SESSION['product_quantities'][$productId];
-                 $totalQuantities += $_SESSION['product_quantities'][$productId];
+                        $totalPrice += $row["ProductPrice"] * $_SESSION['product_quantities'][$productId];
+                        $totalQuantities += $_SESSION['product_quantities'][$productId];
+                }
+            }
+
+            echo "<tr>";
+            echo "<td>Thank you for ordering ! " . "</td>";
+            echo "<td>Order Date: " . date("Y-m-d") . "</td>";
+            echo "<td>Total Price: €" . $totalPrice . "</td>"; 
+            echo "<td>Total Quantity: " . $totalQuantities . "</td>";
+            echo "</tr>";
+
+            echo "</table>";
+        } else {
+            echo "<p>Your shopping cart is empty.</p>";
         }
-    }
-
-    echo "<tr>";
-    echo "<td>Thanks for ordering ! " . "</td>";
-    echo "<td>Order Date: " . date("Y-m-d") . "</td>";
-    echo "<td>Total Price: $" . $totalPrice . "</td>"; 
-    echo "<td>Total Quantity: " . $totalQuantities . "</td>";
-    echo "</tr>";
-
-    echo "</table>";
-} else {
-    echo "<p>Your shopping cart is empty.</p>";
-}
-}
-?>
+        }
+    ?>
 
 
-<!-- Continue shopping -->
-<div class="button-block"><a class="button button1" id="CheckoutButton2" 
-href="../Products_folder/main_products_page.php">Add more products</a></div>
+    <!-- Continue shopping -->
+    <div class="button-block"><a class="button button1" id="CheckoutButton2" 
+    href="../Products_folder/main_products_page.php">Add more products</a></div>
 
-<!-- Link to payement page-->
-<div class="button-block"><a class="button button1" id="CheckoutButton" href="payment_page.php">Proceed to pay</a></div>
+    <!-- Link to payement page-->
+    <div class="button-block"><a class="button button1" id="CheckoutButton" href="payment_page.php">Proceed to pay</a></div>
 
 
-<script>
-    var btn = document.getElementById('CheckoutButton');
-    btn.addEventListener('click', function () {
-        const OrderId = <?php echo $OrderID?>
-        // Redirect to the payment page with the Order ID
-        window.location.href = `payment_page.php`;
-    });
-</script>
+    <script>
+        var btn = document.getElementById('CheckoutButton');
+        btn.addEventListener('click', function () {
+            const OrderId = <?php echo $OrderID?>
+            // Redirect to the payment page with the Order ID
+            window.location.href = `payment_page.php`;
+        });
+    </script>
 
-        <!-- Footer -->
-        <?php include '../Navbar_folder/Footer.php'; ?>
+    <!-- Footer -->
+    <?php include '../Navbar_folder/Footer.php'; ?>
 </body>
 
 </html>

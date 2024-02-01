@@ -277,7 +277,7 @@ session_start();
         <!-- Footer -->
         <?php include '../Navbar_folder/Footer.php'; ?>
         
-        <!-- Script for accordion -->
+        <!-- Script for accordion, based on https://www.w3schools.com/howto/howto_js_accordion.asp -->
         <script>
             var acc = document.getElementsByClassName("accordion");
             var i;

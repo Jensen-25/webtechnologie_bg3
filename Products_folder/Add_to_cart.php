@@ -108,7 +108,15 @@ include '../cookie.php';
     .button2:hover {
     background-color: #D9C7AA;
     color: white;}
+
+    .button-block {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+    display: flex;
+    }
     </style>
+
  </head>
  
  
@@ -162,8 +170,9 @@ include '../cookie.php';
     ?>
 
     <!-- Button to proceed schopping and button to shoppingcart -->
+    <div class="button-block">
     <a class="button button1" href="../Products_folder/main_products_page.php">Continue shopping</a>
     <a class="button button2" href="../Shoppingcart_folder/shoppingcart_page.php">Shopping cart</a>
-
+    </div>
 </body>
 </html>

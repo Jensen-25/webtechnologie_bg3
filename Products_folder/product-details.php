@@ -112,7 +112,7 @@ include '../cookie.php';
             echo "</div>" ;
             echo "<div class='product-details'>";
             echo "<div><strong>Product Name:</strong> " . $row["ProductName"] . "</div>";
-            echo "<div><strong>Price:</strong> " . $row["ProductPrice"] . "</div>";
+            echo "<div><strong>Price:</strong> €" . $row["ProductPrice"] . "</div>";
             echo "<div><strong>Product Description:</strong> " . $row["ProductDescription"] . "</div>";
             echo "<div><strong>Protein Amount:</strong> " . $row["ProteinAmount"] . "</div>";
             echo "<div><strong>Product Stock:</strong> " . $row["ProductStock"] . "</div>";

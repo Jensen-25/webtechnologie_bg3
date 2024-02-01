@@ -28,6 +28,7 @@ include '../cookie.php';
                 grid-template-columns: repeat(5, 1fr);
                 gap: 10px;
                 justify-content: center;
+                overflow-x: auto
             }
 
             .product {
