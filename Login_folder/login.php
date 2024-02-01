@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
             exit();
         }         
         else {
-            header('location:../Login_screen.php');
+            header('location:../Login_folder/Login_screen.php');
             echo "Invalid username or password";
         }
     }
