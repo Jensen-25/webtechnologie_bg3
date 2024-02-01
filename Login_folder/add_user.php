@@ -26,14 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             handleUserRegistration();
         } else {
             // Verification failed, display an error message or redirect to registration page
-            "<script>
-            alert('Verify that you are not a robot and fill in the form again please!.');
-            window.location.href = 'registratiescherm.php';
-            </script>";
         }
     } else {
         // reCAPTCHA-response is not set, display an error message or redirect to registration page
+        "<script>
+        alert('Verify that you are not a robot and fill in the form again please!.');
+        window.location.href = 'registratiescherm.php';
+        </script>";
         die("Error: Please submit the registration form.");
+       
     }
 }
 
