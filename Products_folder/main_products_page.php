@@ -66,15 +66,6 @@ session_start();
             </div>
 
         <script>
-            // Test array of product data
-            // const products = [
-            //     { ProductName: 'Yoghurt', ProductPrice: 19.99, ProductImage: '/Products_folder/Image_folder/Blueberry_Yogurt_Drink.jpg', ProductID: 1},
-            //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2},
-            //     { ProductName: 'Chocolate Pudding', ProductPrice: 10.99, ProductImage: '/Products_folder/Image_folder/Chocolate_Pudding.jpg', ProductID: 2}
-            // ];
 
             // Function to fetch and display all products on the main page
             function showAllProducts() {

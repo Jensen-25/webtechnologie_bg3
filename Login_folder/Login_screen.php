@@ -170,9 +170,10 @@ session_start();
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            window.location.href = '/index.html'; // Redirect to dashboard on success
+                            window.location.href = '../user_homepage.php'; // Redirect to dashboard on success
                         } else {
-                            document.getElementById('errorMessage').innerText = 'Invalid credentials';
+                            // If unsuccessful, display an alert and possibly update the UI
+                            alert(data.message);
                         }
                     })
                     .catch(error => {
