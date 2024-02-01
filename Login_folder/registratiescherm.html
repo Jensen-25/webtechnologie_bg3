@@ -52,8 +52,6 @@ if (isset($_GET['error'])) {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 1px solid #C4AE8C;
             border-radius: 8px;
-            margin-top: 6%;
-            margin-bottom: 0.5%;
             position: relative;
             align-items: center;
             }
@@ -85,6 +83,11 @@ if (isset($_GET['error'])) {
             .tab {
                 margin-top: 2%;
                 margin-bottom: 2%;
+
+            }
+
+            .tab p {
+            color: black;
             }
 
             .registerbtn {
@@ -112,7 +115,7 @@ if (isset($_GET['error'])) {
             #regForm {
             background-color: #ffffff;
             margin: 100px auto;
-            font-family: Raleway;
+            font-family: Arial, Helvetica, sans-serif;
             padding: 40px;
             width: 70%;
             min-width: 300px;
@@ -122,7 +125,7 @@ if (isset($_GET['error'])) {
             padding: 10px;
             width: 5%;
             font-size: 12px;
-            font-family: Raleway;
+            font-family: Arial, Helvetica, sans-serif;
             border: 1px solid #aaaaaa;
             }
 
@@ -138,7 +141,7 @@ if (isset($_GET['error'])) {
             border-radius: 25px;
             padding: 10px 20px;
             font-size: 17px;
-            font-family: Raleway;
+            font-family: Arial, Helvetica, sans-serif;
             cursor: pointer;
             } 
 
@@ -150,7 +153,7 @@ if (isset($_GET['error'])) {
             .circle {
             height: 15px;
             width: 15px;
-            /* margin: 0 2px; */
+            margin: 0 2px;
             background-color: #bbbbbb;
             border: none;  
             border-radius: 50%;
@@ -187,7 +190,7 @@ if (isset($_GET['error'])) {
 
                     <h1> REGISTER </h1>
                     <!-- Step 1: Name Section -->
-                    <div class="tab" id="step1"> Name:
+                    <div class="tab" id="step1"> <p><strong>Name</strong></p>
                         <label for="firstname">Firstname</label> <br>
                         <input type="text" name="firstname" id="firstname" required> <br>
             
@@ -196,11 +199,12 @@ if (isset($_GET['error'])) {
 
                         <div style="float:right">
                         <button type="button" onclick="validateAndNext(1, ['firstname', 'lastname'], ['text', 'text'])">Next</button>
+
                         </div>  
                     </div>
                     
                     <!-- Step 2: Contact Section -->
-                    <div class="tab" id="step2"> Contact:
+                    <div class="tab" id="step2"> <p><strong>Contact</strong></p>
                         <label for="email">Email </label> <br>
                         <input type="text" name="email" id="email" required> <br>
             
@@ -228,7 +232,7 @@ if (isset($_GET['error'])) {
                     </div>
                     -->
                     <!-- Step 4: Account Info Section -->
-                    <div class="tab" id="step3"> Account info:
+                    <div class="tab" id="step3"> <p><strong>Account info</strong></p>
                         <label for="username">Username</label> <br>
                         <input type="text" name="username" id="username" required> <br>
             
@@ -238,19 +242,15 @@ if (isset($_GET['error'])) {
                         <label for="password_2">Repeat Password</label> <br>
                         <input type="password" name="password_2" id="password_2" required> <br>
 
+                        <br>
+                        <div class="g-recaptcha" data-sitekey="6LfkU2IpAAAAAM5IlcOk8bLK7YThQQfL4cNLjzqN" name="g-recaptcha-response"></div>
+                        <br>
+
                         <div style="float:right">
                         <button type="button" onclick="prevStep(3)">Previous</button>
                         <button type="submit" onclick="validateAndNext(3, ['username', 'password', 'password_2'], ['text', 'password', 'password'])" name="submit">Submit</button>
                         </div>
-                        </div>
                         <br>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="g-recaptcha" data-sitekey="6LfkU2IpAAAAAM5IlcOk8bLK7YThQQfL4cNLjzqN" name="g-recaptcha-response"></div>
-
-                        </div>
-
                     </div>
                     
                     <!-- Circles indicating form steps -->
