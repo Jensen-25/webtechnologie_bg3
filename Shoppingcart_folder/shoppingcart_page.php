@@ -89,13 +89,9 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
             echo "</div>";
         }
     }
-
-    closeConnection($connection);
 } else {
     echo "<p>Your shopping cart is empty.</p>";
 }
-
-closeConnection($connection);
 ?>
 
 

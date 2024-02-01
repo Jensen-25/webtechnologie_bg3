@@ -97,13 +97,14 @@ $connection = openConnection();
             $_SESSION['shopping_cart'][] = $productId;
             $_SESSION['product_quantities'][$productId] = 1;
             echo "Product added to the shopping cart successfully!";
-        } else {
-            echo "Product is already in the shopping cart.";
-        }
-    } elseif (in_array($productId, $_SESSION['shopping_cart'])) {
+        } 
+        elseif (in_array($productId, $_SESSION['shopping_cart'])) {
         $_SESSION['product_quantities'][$productId]++;
         echo "Product quantity increased in the shopping cart!";
-    }     
+    } else {
+        echo "Product is already in the shopping cart.";
+    }
+}     
     }else {
         echo "Invalid product ID.";
     }
