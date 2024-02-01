@@ -59,11 +59,7 @@ function handleUserRegistration() {
         $username = mysqli_real_escape_string($connection, $_POST['username']);
         $password = $_POST['password'];
         $password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
-
-        $_SESSION('firstname') = $firstname
-        $_SESSION('email') = $lastname
         
-
         // Check if the user already exists
         if (userExists($email)) {
             die("Error: This user already exists in the database.");
