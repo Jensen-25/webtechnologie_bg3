@@ -59,6 +59,7 @@ if(isset($_POST['submit'])){
             }
             }
     }
+}
 // Sluit de databaseverbinding
 closeConnection($connection);
 
