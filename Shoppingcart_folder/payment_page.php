@@ -116,10 +116,17 @@ $connection = openConnection();
                 </select> 
                 </div>
 
-                <button id="Proceed" type="Proceed" name="Proceed" class="Proceedbtn" onclick="submitForm()"> Proceed </button>
+                <button id="Proceed" type="Proceed" class="Proceedbtn"> Proceed </button>
                 
             </form>
             </div>
+
+            <script>
+                var productsbtn = document.getElementById('Proceed');
+                productsbtn.addEventListener('click', function () {
+                    window.location.href = `user_homepage.php`;
+                });
+            </script>
 
             <?php 
             
@@ -173,12 +180,7 @@ $connection = openConnection();
             ?>
             <?php include '../Navbar_folder/Footer.php'; ?>
 
-            <script>
-                var productsbtn = document.getElementById('Proceed');
-                productsbtn.addEventListener('click', function () {
-                    window.location.href = `user_homepage.php`;
-                });
-            </script>
+
 
         </body>
 
