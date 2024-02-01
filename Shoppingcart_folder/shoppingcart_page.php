@@ -135,7 +135,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                         echo "<tr>";
                         echo "<td><img src='" . $row["ProductImage"] . "' alt='Product Image' style='max-width: 100%;'></td>";
                         echo "<td>" . $row["ProductName"] . "</td>";
-                        echo "<td>" . $row["ProductPrice"] . "</td>";
+                        echo "<td> €" . $row["ProductPrice"] . "</td>";
                         echo "<td>" . $_SESSION['product_quantities'][$productId] . "</td>";
                         // Add more table data if needed
                         echo "</tr>";
