@@ -126,7 +126,7 @@ include '../cookie.php';
             <script>
                 var productsbtn = document.getElementById('Proceed');
                 productsbtn.addEventListener('click', function () {
-                    window.location.href = `user_homepage.php`;
+                    window.location.href = `../user_homepage.php`;
                 });
             </script>
 
