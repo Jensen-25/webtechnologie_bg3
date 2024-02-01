@@ -333,18 +333,19 @@ if (isset($_GET['error'])) {
                     }
                 }
             }
-            
+
             // Simple phonenumber validation
             function validatePhonenumber(phonenumber) {
-                // Should be 10 characters long or start with '+' and be 11 characters long
-                if (!(phonenumber.length === 10 || (phonenumber.length > 10 && phonenumber[0] === '+'))) {
-                    return false;
-                }
-                // Should only contain numbers
-                if (!/^[0-9]+$/.test(phonenumber.slice(phonenumber[0] === '+' ? 1 : 0))) {
-                    return false;
-                }
+            // Remove any spaces or dashes from the phone number
+            phoneNumber = phoneNumber.replace(/[\s\-]/g, '');
+
+            // Check if the phone number is either 10 digits long or starts with '+' and is 11 digits long
+            if ((phoneNumber.length === 10 && /^\d+$/.test(phoneNumber)) ||
+                (phoneNumber.length === 11 && /^\+\d+$/.test(phoneNumber))) {
                 return true;
+            } else {
+                return false;
+                }
             }
     
             // Simple email validation using a regular expression
