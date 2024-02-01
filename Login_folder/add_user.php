@@ -78,11 +78,17 @@ function handleUserRegistration() {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // SQL query to insert data into the Users table
-        $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
-                VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
+        // $sql = "INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin)
+        //         VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$username', '$hashed_password', '0')";
+        
+        // Prepared statement 
+        $stmt = $connection->prepare("INSERT INTO Users (FirstName, LastName, Email, Phonenumber, UserName, Password, IsAdmin) VALUES (?, ?, ?, ?, ?, ?, '0')");
+        $stmt->bind_param("ssssss", $firstname, $lastname, $email, $phonenumber, $username, $hashed_password);
+        $result = $stmt->execute();
+        $stmt->close();
 
         // Execute the query
-        $result = mysqli_query($connection, $sql);
+        // $result = mysqli_query($connection, $sql);
 
         if ($result) {
             echo "Registration successful!";
