@@ -69,7 +69,7 @@ $connection = openConnection();
 </head>
 
 <body>
-    <h2> The current products are down below!</h2>
+    <h2> This page can be used to manage the products' stock</h2>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <table class="table">
             <thead>
@@ -82,6 +82,7 @@ $connection = openConnection();
                     <th>Product Image</th>
                     <th>Protein Amount</th>
                     <th>Product Stock</th>
+                    <th>Adjust Stock</th>
                         <?php
                             // There has to be more than 0 rows in database 
                             if ($result->num_rows > 0){
