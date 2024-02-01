@@ -114,7 +114,7 @@ include '../cookie.php';
             echo "<div><strong>Product Name:</strong> " . $row["ProductName"] . "</div>";
             echo "<div><strong>Price:</strong> " . $row["ProductPrice"] . "</div>";
             echo "<div><strong>Product Description:</strong> " . $row["ProductDescription"] . "</div>";
-            echo "<div><strong>Protein Amount:</strong> " . $row["ProteinAmount"] . "</div>";
+            echo "<div><strong>Protein Amount:</strong> " . $row["ProteinAmount"] . "grams per 100 grams</div>";
             echo "<div><strong>Product Stock:</strong> " . $row["ProductStock"] . "</div>";
             echo "</div>";
         }
