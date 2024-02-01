@@ -1,3 +1,12 @@
+<?php
+include '/var/www/connections/connections.php';
+
+// Initialize the session
+session_start();
+$connection = openConnection();
+
+?>
+
 <!DOCTYPE html>
     <html>
         <head>
@@ -113,42 +122,50 @@
             </div>
 
             <?php 
-            session_start();
-            include '/var/www/connections/connections.php';
-            $connection = openConnection();
-
-            // Get UserID from User currently logged in --> Hier struggle ik nog mee
-            // $_SESSION['UserID'] = 
-
-            if (isset($_POST['Proceed'])) {
-                // Sanitize en get data from form
-                $FirstName = mysqli_real_escape_string($connection, $_POST['firstname']);
-                $LastName = mysqli_real_escape_string($connection, $_POST['lastname']);
-                $PostalCode = mysqli_real_escape_string($connection, $_POST['PostalCode']);
-                // $StreetName = mysqli_real_escape_string($connection, $_POST['']);
-                $HouseNumber = mysqli_real_escape_string($connection, $_POST['HouseNumber']);
-
-                // Get current time and date
-                $OrderDate = date("Y-m-d");
-                $PaidDateTime = date("Y-m-d H:i:s");
-
-                // Adressquery to add data in the adresses table
-                $AdressQuery = "INSERT INTO Adresses (PostalCode, HouseNumber)
-                        VALUES ('$PostalCode', '$HouseNumber')";
+            
+            // Check if order ID is provided in the URL
+            if (isset($_GET['id'])){
+                $OrderID = (int)$_GET['id'];
                 
-                // Execute the Adress query
-                $ResultAdress = mysqli_query($connection, $AdressQuery);
-                
-                // Get AdressID from adress database
-                $AdressID = mysqli_insert_id($connection);
+                // Get UserName from current session and then use that to get the userID (IDK of dit nu werkt)
+                if(isset($_SESSION['admin'])){
+                    $UserName = $_SESSION['admin'];
+                } elseif(isset($_SESSION['user'])){
+                    $UserName = $_SESSION['user'];
+                }
 
-                // OrdersQuery to add data in the orders table
-                $OrdersQuery = "INSERT INTO Orders (OrderID, UserID, AdresID, OrderDate, PaidDateTime)
-                        VALUES ('$OrderID', '$UserID', '$AdresID','$OrderDate', '$PaidDateTime')";
+                $UserID = $UserName['UserID'];
 
-                
-                // Execute the orders query
-                $ResultOrders = mysqli_query($connection, $OrdersQuery);
+                if (isset($_POST['Proceed'])) {
+                    // Sanitize en get data from form
+                    $FirstName = mysqli_real_escape_string($connection, $_POST['firstname']);
+                    $LastName = mysqli_real_escape_string($connection, $_POST['lastname']);
+                    $PostalCode = mysqli_real_escape_string($connection, $_POST['PostalCode']);
+                    // $StreetName = mysqli_real_escape_string($connection, $_POST['']);
+                    $HouseNumber = mysqli_real_escape_string($connection, $_POST['HouseNumber']);
+
+                    // Get current time and date
+                    $OrderDate = date("Y-m-d");
+                    $PaidDateTime = date("Y-m-d H:i:s");
+
+                    // Adressquery to add data in the adresses table
+                    $AdressQuery = "INSERT INTO Adresses (PostalCode, HouseNumber)
+                            VALUES ('$PostalCode', '$HouseNumber')";
+                    
+                    // Execute the Adress query
+                    $ResultAdress = mysqli_query($connection, $AdressQuery);
+                    
+                    // Get AdressID from adress database
+                    $AdressID = mysqli_insert_id($connection);
+
+                    // OrdersQuery to add data in the orders table
+                    $OrdersQuery = "INSERT INTO Orders (OrderID, UserID, AdresID, OrderDate, PaidDateTime)
+                            VALUES ('$OrderID', '$UserID', '$AdresID','$OrderDate', '$PaidDateTime')";
+
+                    
+                    // Execute the orders query
+                    $ResultOrders = mysqli_query($connection, $OrdersQuery);
+                }
             }
 
             // Sluit de databaseverbinding

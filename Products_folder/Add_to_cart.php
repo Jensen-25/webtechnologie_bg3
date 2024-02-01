@@ -6,6 +6,7 @@ session_start();
 
 $connection = openConnection();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@ $connection = openConnection();
             background-color: #f2f2f2;
         }
 
-        #ShoppingcartButton {
+        /* #ShoppingcartButton {
             margin-left: 30%;
             width: 500px;
             height: 50px;
@@ -67,45 +68,88 @@ $connection = openConnection();
     p {
     
 
+    } */
+
+    .button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 8%;
     }
+
+    .button1 {
+    background-color: #C4AE8C; 
+    color: black; 
+    border: 2px solid #C4AE8C;
+    }
+
+    .button1:hover {
+    background-color: #D9C7AA;
+    color: white;
+    }
+
+    .button2 {
+    background-color: #C4AE8C; 
+    color: black; 
+    border: 2px solid #C4AE8C;
+    }
+
+    .button2:hover {
+    background-color: #D9C7AA;
+    color: white;}
     </style>
  </head>
  
  
- <body>
+<body>
 
-<h1><b> The product has been added to your shoppingcart! <b></h1>
+    <h1><b> The product has been added to your shoppingcart! <b></h1>
 
-<?php 
-    // Check if the product ID is provided in the URL
-    if (isset($_POST['add'])) {
-    
-        $productId = (int)$_POST['productId'];
 
-    // Check if the product ID is valid
-    if ($productId > 0) {
-        // Initialize the shopping cart array/ amount array in the session if not already set
-        if (!isset($_SESSION['shopping_cart'])) {
-            $_SESSION['shopping_cart'] = array();
+    <?php 
+        // Check if the product ID is provided in the URL
+        if (isset($_POST['add'])) {
+        
+            $productId = (int)$_POST['productId'];
+
+        // Check if the product ID is valid
+        if ($productId > 0) {
+            // Initialize the shopping cart array/ amount array in the session if not already set
+            if (!isset($_SESSION['shopping_cart'])) {
+                $_SESSION['shopping_cart'] = array();
+            }
+            if (!isset($_SESSION['product_quantities'])) {
+                $_SESSION['product_quantities'] = array();
+            }
+
+            // Add the product to the shopping cart
+            if (!in_array($productId, $_SESSION['shopping_cart'])) {
+                $_SESSION['shopping_cart'][] = $productId;
+                $_SESSION['product_quantities'][$productId] = 1;
+                echo "Product added to the shopping cart successfully!";
+            } 
+            elseif (in_array($productId, $_SESSION['shopping_cart'])) {
+            $_SESSION['product_quantities'][$productId]++;
+            echo "Product quantity increased in the shopping cart!";
+        } else {
+            echo "Product is already in the shopping cart.";
         }
-        if (!isset($_SESSION['product_quantities'])) {
-            $_SESSION['product_quantities'] = array();
+    }     
+        }else {
+            echo "Invalid product ID.";
         }
+    ?>
 
-        // Add the product to the shopping cart
-        if (!in_array($productId, $_SESSION['shopping_cart'])) {
-            $_SESSION['shopping_cart'][] = $productId;
-            $_SESSION['product_quantities'][$productId] = 1;
-            echo "Product added to the shopping cart successfully!";
-        } 
-        elseif (in_array($productId, $_SESSION['shopping_cart'])) {
-        $_SESSION['product_quantities'][$productId]++;
-        echo "Product quantity increased in the shopping cart!";
-    } else {
-        echo "Product is already in the shopping cart.";
-    }
-}     
-    }else {
-        echo "Invalid product ID.";
-    }
-?>
+    <!-- Button to proceed schopping and button to shoppingcart -->
+    <a class="button button1" href="Products_folder/main_products_page.php">Continue shopping</a>
+    <a class="button button2" href="../Shoppingcart_folder/shoppingcart_page.php">Shopping cart</a>
+
+</body>
+</html>

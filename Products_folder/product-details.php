@@ -14,8 +14,8 @@ $connection = openConnection();
     <!-- Link naar de CSS sheet -->
     <link rel="stylesheet" href="/Homepage_stylesheet.css">
 
-        <!-- Navigatie bar -->
-        <?php include '../Navbar_folder/Navbar_link.php'; ?>
+    <!-- Navigatie bar -->
+    <?php include '../Navbar_folder/Navbar_link.php'; ?>
 
     <!-- Link voor icoontjes footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -125,30 +125,23 @@ closeConnection($connection);
 
 ?>
 
-<!-- Add to shoppingcart button -->
-<form method="post" action="Add_to_cart.php"> 
-    <button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
-    <input type="hidden" name="productId" value="<?php echo $productID; ?>">
-</form>
+    <!-- Add to shoppingcart button -->
+    <form method="post" action="Add_to_cart.php"> 
+        <button id="ShoppingcartButton" name='add'>Add to shoppingcart</button>
+        <input type="hidden" name="productId" value="<?php echo $productID; ?>">
+    </form>
 
-
-
-</div>
-
-<script>
-    var btn = document.getElementById('ShoppingcartButton');
-    btn.addEventListener('click', function () {
-        const productId = <?php echo $productID ?>;
-        // Redirect to the shopping cart page with the product ID
-        window.location.href = `../Shoppingcart_folder/shoppingcart_page.php`;
-    });
-</script>
-        <!-- Footer -->
-        <div class="footer"> 
-        <?php include '../Navbar_folder/Footer.php'; ?>
- 
-
- 
+    <script>
+        var btn = document.getElementById('ShoppingcartButton');
+        btn.addEventListener('click', function () {
+            const productId = <?php echo $productID ?>;
+            // Redirect to the shopping cart page with the product ID
+            window.location.href = `../Shoppingcart_folder/shoppingcart_page.php`;
+        });
+    </script>
+        
+    // Footer
+    <?php include '../Navbar_folder/Footer.php'; ?>
  
  </body>
  </html>

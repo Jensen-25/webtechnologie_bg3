@@ -132,8 +132,14 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             document.getElementById('cookie-popup').style.display = 'none';
         }
 
-        // Run the checkCookies function when the page loads
-        window.onload = checkCookies;
+        // // Run the checkCookies function when the page loads
+        // window.onload = checkCookies;
+
+        // Run the checkCookies function when the DOM content is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            checkCookies();
+        });
+        
         </script>
 
         
