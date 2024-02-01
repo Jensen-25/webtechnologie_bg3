@@ -32,7 +32,6 @@ if(isset($_POST['submit'])){
 
     // Check whether login went succesfully
      if ($result && $row = mysqli_fetch_assoc($result)) {
-         if($password, $row['Password']){
              echo "Login successful!";
     
     //     if (password_verify($password, $row['Password'])) {
