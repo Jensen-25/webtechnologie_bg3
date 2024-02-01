@@ -45,7 +45,7 @@ $connection = openConnection();
             background-color: #f2f2f2;
         }
 
-        #CheckoutButton {
+        /* #CheckoutButton {
             margin-left: 30%;
             width: 500px;
             height: 50px;
@@ -53,8 +53,8 @@ $connection = openConnection();
             background-color: #C4AE8C;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 150%;
-        }
-        
+        } */
+
         .button {
         border: none;
         color: white;
@@ -79,6 +79,12 @@ $connection = openConnection();
         background-color: #D9C7AA;
         color: white;
         }
+
+        .button-block {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        justify-content: center;
+        display: flex;
     </style>
 
 <body>
@@ -136,7 +142,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
 
 <!-- Hierin moet een link naar de payment page als iemand op betalen drukt -->
 
-<button id="CheckoutButton">Proceed to pay</button>
+<div class="button-block"><a class="button button1" id="CheckoutButton" href="Products_folder/payment_page.php">Proceed to pay</a></div>
 
 
 <script>
