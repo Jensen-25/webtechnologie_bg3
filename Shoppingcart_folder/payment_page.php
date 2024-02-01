@@ -73,6 +73,16 @@ include '../cookie.php';
                     margin-top: 1%;
                     margin-bottom: 12%;
                     }
+                    .total-price {
+                    margin-top: 20px;
+                    text-align: center;
+                    }
+
+                .total-amount {
+                    font-size: 24px;
+                    color: #4CAF50; 
+                    margin-top: 5px;
+                    }
                 </style>
         </head>
 
@@ -118,7 +128,13 @@ include '../cookie.php';
                 </select> 
                 </div>
 
+                <div class="total-price">
+                    <p>Total Price:</p>
+                    <p class="total-amount"><?php echo "Total price: ". "$" . $row["ProductPrice"] * $_SESSION['product_quantities'][$productId]; ?></p>
+                </div>
+
                 <button id="Proceed" type="Proceed" class="Proceedbtn"> Proceed </button>
+           
                 
             </form>
             </div>
