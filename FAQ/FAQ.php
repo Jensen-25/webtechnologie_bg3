@@ -165,7 +165,7 @@ session_start();
 
                 <button class="accordion">Do I need an account to order?</button>
                 <div class="panel">
-                <p>Yes, you will need an account to order. You can register on our <a href="Registratiescherm.php" title="Registration">registration page</a>.</p>
+                <p>Yes, you will need an account to order. You can register on our <a href="../Login_folder/Registratiescherm.php" title="Registration">registration page</a>.</p>
                 </div>
 
                 <button class="accordion">I have received the wrong item. What should I do?</button>

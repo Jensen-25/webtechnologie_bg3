@@ -81,10 +81,10 @@ session_start();
                 c. We reserve the right to refuse orders at our discretion.</p>
 
             <h3>Shipping and Delivery</h3>
-            <p>a. Please refer to our <a href=../Delivery.html>Delivery information</a> page for information on Shipping and Delivery.</p>
+            <p>a. Please refer to our <a href=../Delivery.php>Delivery information</a> page for information on Shipping and Delivery.</p>
 
             <h3>Returns and Refunds</h3>
-            <p>a. Please refer to our <a href=../Returns.html>Return Policy</a> for information on returns and refunds.</p>
+            <p>a. Please refer to our <a href=../Returns.php>Return Policy</a> for information on returns and refunds.</p>
 
             <h3>Intellectual Property</h3>
             <p>a. All content on our website, including but not limited to text, images, and logos, is our property or licensed for use.<br>
@@ -102,7 +102,7 @@ session_start();
             <p>a. We reserve the right to modify these Terms and Conditions at any time. Changes will be effective once posted on the website.</p>
 
             <h3>Contact Information</h3>
-            <p>a. For questions, refer to our <a href="../FAQ.html">Frequently Asked Questions</a> page. For comments, please get in contact with our <a href=../Contact.html>Customer Service</a>.</p>
+            <p>a. For questions, refer to our <a href="../FAQ.php">Frequently Asked Questions</a> page. For comments, please get in contact with our <a href=../Contact.php>Customer Service</a>.</p>
 
             <p>Thank you for reading our Terms and Conditions. We appreciate your trust in Fit n' Flavors.</p>
             </div>
