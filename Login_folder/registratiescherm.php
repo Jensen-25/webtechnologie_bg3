@@ -2,6 +2,9 @@
 
 include '/var/www/connections/connections.php';
 
+// Cookie
+include '../cookie.php';
+
 session_start();
 // Check for the error parameter
 if (isset($_GET['error'])) {

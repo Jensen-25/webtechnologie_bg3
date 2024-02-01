@@ -2,6 +2,7 @@
 include '/var/www/connections/connections.php';
 $connection = openConnection();
 
+
 // Initialisatie van de foutmeldingsvariabele
 $error_message = "";
 
