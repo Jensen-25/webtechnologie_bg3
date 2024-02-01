@@ -14,7 +14,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
 
 <!DOCTYPE html>\
 <html>
-    <head>
+<head>
         <!-- Link naar de CSS sheet -->
         <link rel="stylesheet" href="../Homepage_stylesheet.css">
 
@@ -23,6 +23,33 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
             
         <!-- Navigatie bar -->
         <?php include '../Navbar_folder/Navbar_link.php'; ?>
+
+        <style>
+        .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-top: 8%;
+        }
+
+        .button1 {
+        background-color: #C4AE8C; 
+        color: black; 
+        border: 2px solid #C4AE8C;
+        }
+
+        .button1:hover {
+        background-color: #D9C7AA;
+        color: white;
+        }
+        </style>
 </head>
 
 <body>
@@ -30,8 +57,7 @@ if(!isset($_SESSION['admin']) && $_SESSION['admin'] !== true) {
     <h1>Welcome to the Fit 'n Flavors Admin Panel</h1>
     
     <div class="admin-links">
-        <a href="../Admin_folder/Add_admin.php">Manage Admins</a>
-        <a href="../Admin_folder/Add_products.php">Manage Products</a>
+        <a class="button button1" href="../Admin_folder/Add_admin.php">Manage Admins</a>
         <!-- Add more links as needed -->
     </div>
 </div>
