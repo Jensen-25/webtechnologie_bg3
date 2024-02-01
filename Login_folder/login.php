@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
     if ($result && $row = mysqli_fetch_assoc($result)) {
         if (password_verify($password, $row['Password'])) {
             session_regenerate_id(true);
-            echo "Login succesfull!"
+            echo "Login succesfull!";
             
             // is an admin
             if($row['IsAdmin'] == '1'){
