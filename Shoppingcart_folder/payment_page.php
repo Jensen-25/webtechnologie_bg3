@@ -117,6 +117,9 @@
             include '/var/www/connections/connections.php';
             $connection = openConnection();
 
+            // Get UserID from User currently logged in --> Hier struggle ik nog mee
+            // $_SESSION['UserID'] = 
+
             if (isset($_POST['Proceed'])) {
                 // Sanitize en get data from form
                 $FirstName = mysqli_real_escape_string($connection, $_POST['firstname']);
@@ -125,16 +128,24 @@
                 // $StreetName = mysqli_real_escape_string($connection, $_POST['']);
                 $HouseNumber = mysqli_real_escape_string($connection, $_POST['HouseNumber']);
 
+                // Get current time and date
+                $OrderDate = date("Y-m-d");
+                $PaidDateTime = date("Y-m-d H:i:s");
+
                 // Adressquery to add data in the adresses table
                 $AdressQuery = "INSERT INTO Adresses (PostalCode, HouseNumber)
                         VALUES ('$PostalCode', '$HouseNumber')";
                 
+                // Execute the Adress query
+                $ResultAdress = mysqli_query($connection, $AdressQuery);
+                
+                // Get AdressID from adress database
+                $AdressID = mysqli_insert_id($connection);
+
                 // OrdersQuery to add data in the orders table
                 $OrdersQuery = "INSERT INTO Orders (OrderID, UserID, AdresID, OrderDate, PaidDateTime)
                         VALUES ('$OrderID', '$UserID', '$AdresID','$OrderDate', '$PaidDateTime')";
 
-                // Execute the Adress query
-                $ResultAdress = mysqli_query($connection, $AdressQuery);
                 
                 // Execute the orders query
                 $ResultOrders = mysqli_query($connection, $OrdersQuery);
