@@ -147,7 +147,7 @@ closeConnection($connection);
         });
     </script>
         
-    // Footer
+    <!-- Footer -->
     <?php include '../Navbar_folder/Footer.php'; ?>
  
  </body>
