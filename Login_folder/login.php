@@ -35,13 +35,13 @@ if(isset($_POST['submit'])){
             if($row['IsAdmin'] == '1'){
                 $_SESSION['admin'] = $row['UserName'];
 
-                // // set cookie for username and password if remember me chosen
-                // if (isset($_POST['remember'])){
-                //     setcookie("user", $row['UserName'], time() + (86400 * 30));
-                // }
-                // // Redirect to the admin homepage
-                // header('location:../user_homepage.php');
-                // exit();
+                // set cookie for username and password if remember me chosen
+                if (isset($_POST['remember'])){
+                    setcookie("user", $row['UserName'], time() + (86400 * 30));
+                 }
+                //Redirect to the admin homepage
+                header('location:../user_homepage.php');
+                 exit();
             }
 
             // set cookie for username and password if remember me chosen
@@ -49,25 +49,15 @@ if(isset($_POST['submit'])){
                 $_SESSION['user'] = $row['UserName'];
 
                 // set cookie for username and password 
-                // if (isset($_POST['remember'])){
-                //     setcookie("user", $row['UserName'], time() + (86400 * 30));
-                //     setcookie("pass", $row['Password'], time() + (86400 * 30));
-                // }
-
+                if (isset($_POST['remember'])){
+                    setcookie("user", $row['UserName'], time() + (86400 * 30));
+                    
+                }
                  // Redirect to the user homepage
-                 
+                 header('location:../user_homepage.php');
+                 exit();
             }
-            // Return Succes if succesfull
-            header('Content-Type: application/json');
-            echo json_encode(['success' => true]);
-            exit();
-        }         
-        else {
-            // Return a JSON response indicating unsuccessful login
-            header('Content-Type: application/json');
-            echo json_encode(['success' => false, 'message' => 'Invalid username or password']);
-            exit();
-        }
+            }
     }
 }
 // Sluit de databaseverbinding
