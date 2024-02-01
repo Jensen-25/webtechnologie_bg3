@@ -73,7 +73,6 @@ if(isset($_POST['submit'])){
             echo "Invalid username or password";
         }
     }
-}
 // Sluit de databaseverbinding
 closeConnection($connection);
 
