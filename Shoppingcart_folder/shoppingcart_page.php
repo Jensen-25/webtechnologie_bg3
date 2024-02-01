@@ -112,6 +112,7 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
     // Connect to the database and retrieve product details based on the product IDs in the shopping cart
     echo "<h2>Shopping Cart:</h2>";
 
+    $totalPrice = 0;
     // Loop through each product in the shopping cart
     foreach ($_SESSION['shopping_cart'] as $productId) {
         // Retrieve product details from the database
@@ -129,8 +130,18 @@ if (isset($_SESSION['shopping_cart']) && isset($_SESSION['product_quantities']))
                  echo "<td>" . $_SESSION['product_quantities'][$productId] . "</td>";
                  // Add more table data if needed
                  echo "</tr>";
+
+                 $totalPrice += $row["ProductPrice"] * $_SESSION['product_quantities'][$productId];
+                 $totalQuantities += $_SESSION['product_quantities'][$productId];
         }
     }
+
+    echo "<tr>";
+    echo "<td colspan='3'><strong>Order Date:</strong> " . $orderDate . "</td>";
+    echo "<td colspan='2'><strong>Total Price:</strong> $" . $totalPrice . "</td>"; 
+    echo "<td colspan='2'><strong>Total Quantity:</strong> " . $totalQuantities . "</td>";
+    echo "</tr>";
+
     echo "</table>";
 } else {
     echo "<p>Your shopping cart is empty.</p>";
