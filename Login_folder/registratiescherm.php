@@ -336,12 +336,12 @@ if (isset($_GET['error'])) {
             
             // Simple phonenumber validation
             function validatePhonenumber(phonenumber) {
-                // Should be 10 characters long
-                if (!phonenumber.length === 10) {
+                // Should be 10 characters long or start with '+' and be 11 characters long
+                if (!(phonenumber.length === 10 || (phonenumber.length > 10 && phonenumber[0] === '+'))) {
                     return false;
                 }
                 // Should only contain numbers
-                if (!/^[0-9]+$/.test(phonenumber)) {
+                if (!/^[0-9]+$/.test(phonenumber.slice(phonenumber[0] === '+' ? 1 : 0))) {
                     return false;
                 }
                 return true;
