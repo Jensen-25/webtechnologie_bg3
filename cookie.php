@@ -1,10 +1,9 @@
 <?php
 
-// check whether cookies are already accepted in the session of the user
-if (isset($_POST['cookiesAccepted'])) {
+
+// check whether cookies are already accepted in the session of the user 
 if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== true) {
     $_SESSION['cookiesAccepted'] = true;
-}
 }
 ?>
 
@@ -43,15 +42,11 @@ if (!isset($_SESSION['cookiesAccepted']) || $_SESSION['cookiesAccepted'] !== tru
             background-color: #773cae;
         }
         </style>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <div id="cookie-popup">
+
+<div id="cookie-popup">
                     <p>This website uses cookies to ensure you get the best experience on our website.</p>
                     <button onclick="acceptCookies()">Got It!</button>
                 </div>
-            <!-- Submission at the end of the page -->
-            <input type="submit" name='cookiesAccepted' value="MakeAdmin">
-                    </form>
-
 
         <script>
         // Check if the user has accepted cookies
